@@ -1,3 +1,4 @@
+#### Pfam annotation of the reference database
 
 # download Pfam 34.0 from source:
 ## Pfam 34.0 (March 2021, 19179 entries) ##
