@@ -10,7 +10,7 @@ This can be broken down into smaller steps:
 
 The first step is generating a diamond-formatted binary database, combing the actual sequence data with taxonomic information. To make use of the lowest-common-ancest (LCA) algorith with DIAMOND, additional files for NCBI Taxonomy are required.
 
-# Downloading NCBI Taxonomy files
+#### Downloading NCBI Taxonomy files
 
 We use the 'taxtastic' tool to collect NCBI Taxonomy files (taxit v0.9.2). It can be installed on the command line using pip:
 `pip install --user -U taxtastic`
@@ -23,7 +23,7 @@ With taxtastic, NCBI Taxonomy database files are automatically downloaded using 
 
 Note: MarFERReT uses NCBI Taxonomy downloaded on 13 January, 2022 at 18:00PST. The NCBI Taxonomy architecture changes over time and NCBI taxIDs, their names and classifications are subject to change.
 
-# Use 'makedb' to create the diamond-formatted database
+#### Use 'makedb' to create the diamond-formatted database
 
 Declare the relative directory of the MarFERReT base directory.
 Example:
