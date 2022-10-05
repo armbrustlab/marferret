@@ -33,25 +33,25 @@ A visual diagram of the Part 1 workflow can be found here:
 
 #### Gathering
 All of the component entries of MarFERReT were aggregated from public and accessible sequence data. Initial sequence data gathering was performed using both command line operations where possible, and through manual downloading and/or naming through a web-based client where otherwise necessary. Command-line acquisition code is found here:
->/scripts/download_source_sequences.sh
+`/scripts/download_source_sequences.sh`
 
 Manually-downloaded data is described in as much detail as possible here:
-"webclient_source_sequences.txt"
+`scripts/webclient_source_sequences.md`
 
 #### Curation of sequence metadata
 After downloading the raw source material, manual curation is necessary to ensure that each sequence entry is standardized with an organismal name and an associated NCBI taxonomy ID (tax_id), if not provided with the source material. (See Methods: Curation of sequence metadata in primary publication for more details). The results of this manual curation can be found in the primary MarFERReT entry metadata file:
- "MarFERReT_entries.v1.csv"
+`MarFERReT_entries.v1.csv` [WIP]
 
 #### Six-frame translation of nucleotide sequences
 Code for six-frame translation using EMBOSS is here:
->scripts/translation.sh
+`scripts/translation.sh`
 
 #### Functional annotation of protein sequences
 Code for downloading Pfam 34.0 and conducting functional annotation of MarFERReT protein sequences with hmmsearch:
->scripts/pfam_annotation.sh
+`scripts/pfam_annotation.sh`
 
 #### Script for parsing hmmsearch output and selecting the best Pfam for each annotted sequence:
->scripts/best_kofam.ipynb
+`scripts/best_kofam.ipynb`
 [WORK IN PROGRESS]
 
 #### Best-scoring Pfam annotations to MarFERReT on Zenodo:
@@ -60,11 +60,11 @@ Code for downloading Pfam 34.0 and conducting functional annotation of MarFERReT
 
 #### Identification and analysis of Core Transcribed Genes
 Code for deriving Core Transcribed Genes in MarFERReT eukaryotic transcriptomes, conducted in R:
->scripts/identify_core_transcribed_genes.R
+`scripts/identify_core_transcribed_genes.R`
 
 #### Species-level protein clustering
 Code for species-level protein clustering
->scripts/clustering.sh
+`scripts/clustering.sh`
 
 
 ## Part 2: Installing and running MarFERRet
