@@ -13,23 +13,26 @@ The first step is generating a diamond-formatted binary database, combing the ac
 #### Downloading NCBI Taxonomy files
 
 We use the 'taxtastic' tool to collect NCBI Taxonomy files (taxit v0.9.2). It can be installed on the command line using pip:
+
 `pip install --user -U taxtastic`
 
 Alternately, NCBI Taxonomy files can be downloaded directly from the FTP site:
 [https://ftp.ncbi.nih.gov/pub/taxonomy/](https://ftp.ncbi.nih.gov/pub/taxonomy/)
 
 With taxtastic, NCBI Taxonomy database files are automatically downloaded using this command in the current directory:
+
 `taxit new_database`
 
 Note: MarFERReT uses NCBI Taxonomy downloaded on 13 January, 2022 at 18:00PST. The NCBI Taxonomy architecture changes over time and NCBI taxIDs, their names and classifications are subject to change.
 
 #### Use 'makedb' to create the diamond-formatted database
 
-Declare the relative directory of the MarFERReT base directory.
-Example:
+Declare the relative directory of the MarFERReT base directory. Example:
+
 `MARFERRET_DIR="/mnt/home/user/MarFERReT_v1"`
 
 Declare the paths of all input files:
+
 ```
 cd ${MARFERRET_DIR}/dmnd/
 
@@ -53,14 +56,18 @@ MarFERReT is a protein sequence reference, and is best used to annotate environm
 Keep in mind that shotgun sequencing technologies can produce very large volumes of short read data (over hundreds of millions of reads), and annotating short reads directly may result in a significant analysis bottleneck. Assembling short reads into longer contigs generally reduces the number of reads around two orders of magnitude. The environmental sequences used as examples in this case study are assembled and translated from eukaryotic (poly-A) selected metatranscriptomes in the North Pacific (see Lambert et al, 2022 for details).
 
 Declare the path of your environmental protein sequences. Example:
+
 `ENV_SEQS="/mnt/home/user/metatranscriptome/env_assemblies.faa"`
 
 Code below is designed to run in the diamond subdirectory:
+
 `cd ${MARFERRET_DIR}/dmnd/`
 
 Default e-value used; change to adjust sensitivity:
+
 `EVALUE="1e-5"`
 Using the DIAMOND db created above:
+
 `DMND_DB="${MARFERRET_DIR}/dmnd/MarFERReT.dmnd"`
 
 Output file for LCA analysis (TAB format):
