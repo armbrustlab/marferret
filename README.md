@@ -11,7 +11,7 @@ The Case Use studies here are practical examples how MarFERReT can be used by it
 
 
 Primary publication reference:
-	[CITATION]
+	[CITATION] Groussman, R.D. et al., ...
 	[LINK TO PAPER]
 
 This github repository is associated with a Zenodo repository for data storage:
@@ -33,7 +33,7 @@ A visual diagram of the Part 1 workflow can be found here:
 
 #### Gathering
 All of the component entries of MarFERReT were aggregated from public and accessible sequence data. Initial sequence data gathering was performed using both command line operations where possible, and through manual downloading and/or naming through a web-based client where otherwise necessary. Command-line acquisition code is found here:
-"download_source_sequences.sh"
+>/scripts/download_source_sequences.sh
 
 Manually-downloaded data is described in as much detail as possible here:
 "webclient_source_sequences.txt"
@@ -43,15 +43,16 @@ After downloading the raw source material, manual curation is necessary to ensur
  "MarFERReT_entries.v1.csv"
 
 #### Six-frame translation of nucleotide sequences
-Code used for six-frame translation using EMBOSS is available here:
-"translation.sh"
+Code for six-frame translation using EMBOSS is here:
+>scripts/translation.sh
 
 #### Functional annotation of protein sequences
 Code for downloading Pfam 34.0 and conducting functional annotation of MarFERReT protein sequences with hmmsearch:
-"pfam_annotation.sh"
+>scripts/pfam_annotation.sh
 
 #### Script for parsing hmmsearch output and selecting the best Pfam for each annotted sequence:
-"best_kofam.ipynb"
+>scripts/best_kofam.ipynb
+[WORK IN PROGRESS]
 
 #### Best-scoring Pfam annotations to MarFERReT on Zenodo:
 [LINK TO PFAMS ON ZENODO]
@@ -59,11 +60,11 @@ Code for downloading Pfam 34.0 and conducting functional annotation of MarFERReT
 
 #### Identification and analysis of Core Transcribed Genes
 Code for deriving Core Transcribed Genes in MarFERReT eukaryotic transcriptomes, conducted in R:
-"identity_core_transcribed_genes.R"
+>scripts/identify_core_transcribed_genes.R
 
 #### Species-level protein clustering
 Code for species-level protein clustering
-"clustering.sh"
+>scripts/clustering.sh
 
 
 ## Part 2: Installing and running MarFERRet
@@ -74,7 +75,7 @@ Provide a step-by-step description of how to get the development environment set
 
 ## Part 3: Case Study scripts
 
-The Case Use studies here are practical examples how MarFERReT can be used by itself or in conjunction with other protein sequence libraries to assign taxonomic identity to environmental sequences using the DIAMOND [fast read aligner], and then to assess the completeness of annotated environmental transcript bins.
+The Case Use studies here are practical examples how MarFERReT can be used by itself or in conjunction with other protein sequence libraries to assign taxonomic identity to environmental sequences using DIAMOND fast protein alignment, and then to assess the completeness of annotated environmental transcript bins.
 
 ## Part 4: Future MarFERReT releases
 
