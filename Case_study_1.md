@@ -66,14 +66,17 @@ Code below is designed to run in the diamond subdirectory:
 Default e-value used; change to adjust sensitivity:
 
 `EVALUE="1e-5"`
+
 Using the DIAMOND db created above:
 
 `DMND_DB="${MARFERRET_DIR}/dmnd/MarFERReT.dmnd"`
 
 Output file for LCA analysis (TAB format):
+
 `LCA_OUT="/mnt/nfs/projects/ryan/NPacAssemblies_2021/diamond/vs_EukRefDB_v2/NPac.${STUDY}.vs_EukRefDB_v2.lca.tab"`
 
 Run diamond blastp in LCA mode (-f 102) using matches within 10% (--top 10) of top alignment score. The "-b 100" and "-c 1" parameters were tuned for system performance and may not be suitable for your machine.
+
 `diamond blastp -b 100 -c 1 -d $DMND_DB -e $EVALUE --top 10 -f 102 -q ${ENV_SEQS} -o ${LCA_OUT}`
 
 #### References
