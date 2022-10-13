@@ -31,24 +31,29 @@ This section details the intial construction of the MarFERReT library and accomp
 A visual diagram of the Part 1 workflow can be found here:
 [LINK TO DIAGRAM]
 
-#### Gathering
-All of the component entries of MarFERReT were aggregated from public and accessible sequence data. Initial sequence data gathering was performed using both command line operations where possible, and through manual downloading and/or naming through a web-based client where otherwise necessary. Command-line acquisition code is found here:
-`/scripts/download_source_sequences.sh`
-
-Manually-downloaded data is described in as much detail as possible here:
-`scripts/webclient_source_sequences.md`
-
 #### Curation of sequence metadata
-After downloading the raw source material, manual curation is necessary to ensure that each sequence entry is standardized with an organismal name and an associated NCBI taxonomy ID (tax_id), if not provided with the source material. (See Methods: Curation of sequence metadata in primary publication for more details). The results of this manual curation can be found in the primary MarFERReT entry metadata file:
-`MarFERReT_entries.v1.csv` [WIP]
+Manual curation of each entry is necessary to ensure that each sequence entry is standardized with an organismal name and an associated NCBI taxonomy ID (tax_id) at the most accurate level possible, if not provided with the source material. (See Methods: Curation of sequence metadata in primary publication for more details). Primary metadata including the MarFERReT entry ID, organism names, NCBI taxID, data type (genome, transcriptome, etc), data source and publication/availability year for current MarFERReT entries are listed here:
+[MarFERReT.entry_metadata.v1.csv](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/data/MarFERReT.entry_metadata.v1.csv)
+
+More metadata about the entries including the source organism name, reference publication, original source URL and filename are listed here:
+[MarFERReT.entry_source_data.v1.csv](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/data/MarFERReT.entry_source_data.v1.csv)
+
+Optional file listing filenames and relative paths of original and intermediate entry files (for use in building the MarFERReT protein library):
+[MarFERReT.entry_paths.v1.csv](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/data/MarFERReT.entry_paths.v1.csv)
+
+#### Gathering
+All of the component entries of MarFERReT were aggregated from public and accessible sequence data. Initial sequence data gathering was performed using both command line operations where possible, and through manual downloading and/or naming through a web-based client where otherwise necessary. Command-line acquisition code and instructions for manual downloads are described here: 
+[download_source_sequences.md](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/scripts/download_source_sequences.md)
 
 #### Six-frame translation of nucleotide sequences
-Code for six-frame translation using EMBOSS is here:
-`scripts/translation.sh`
+
+Sequences gathered in nucleotide alphabet were six-frame translated the protein alphabet. Instructions for six-frame translation of the 71 nucleotide entries using transeq are here:
+[translation.md](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/scripts/translation.md)
+Compressed (gzipped) files were also unzipped at this step. 
 
 #### Functional annotation of protein sequences
-Code for downloading Pfam 34.0 and conducting functional annotation of MarFERReT protein sequences with hmmsearch:
-`scripts/pfam_annotation.sh`
+Code for downloading Pfam 34.0 and conducting functional annotation for all MarFERReT protein sequences with hmmsearch:
+[pfam_annotation.md](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/scripts/pfam_annotation.md)
 
 #### Script for parsing hmmsearch output and selecting the best Pfam for each annotted sequence:
 `scripts/best_kofam.ipynb`
@@ -59,16 +64,16 @@ Code for downloading Pfam 34.0 and conducting functional annotation of MarFERReT
 	"MarFERReT_best_pfam.csv"
 
 #### Identification and analysis of Core Transcribed Genes
-Code for deriving Core Transcribed Genes in MarFERReT eukaryotic transcriptomes, conducted in R:
+Core Transcribed Genes (CTGs) were identified from Pfam annotations against MarFERReT eukaryotic transcriptomes. The  script for for identifying CTGs is here:
 `scripts/identify_core_transcribed_genes.R`
 
-#### Species-level protein clustering
-Code for species-level protein clustering
-`scripts/clustering.sh`
+#### TaxID-level protein clustering
+To the reduce sequence redundancy from multiple sequence entries for a single organism, the protein sequences for NCBI taxIDs with more than one entry (source FASTA) were combined and clustered at the 99% amino acid similarity threshold, using linclust:
+[clustering.md](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/scripts/clustering.md)
 
 
 ## Part 2: Installing and running MarFERRet
-Provide a step-by-step description of how to get the development environment set and running.
+Provide a step-by-step description of how to get the development environment set and running, using the ready-made MarFERReT output generated by the instructions in Part 1.
 
 [STEPHEN STUFF]
 
