@@ -13,10 +13,8 @@ Full annotation against Pfam is performed with hmmsearch (HMMER 3.3)
 Path to Pfam hmm profiles. For bulk annotation using hmmsearch, the hmm file works best unzipped:
 `PFAM_HMMS="${MARFERRET_DIR}/pfam/Pfam-A.hmm"`
 
-The protein fasta file for each entry was annotated against Pfam using this code, using the internal trusted-cutoff score (--cut_tc) as a minimum threshold:
-`# $MARFERRET_PROTEINS can be a simple text file with a list of entry handles and paths
-# Example loop:
-for ENTRY in $MARFERRET_PROTEINS; do
+The protein fasta file for each entry was annotated against Pfam using this code, using the internal trusted-cutoff score (--cut_tc) as a minimum threshold. $MARFERRET_PROTEINS can be a simple text file with a list of entry handles and paths. Example loop:
+`for ENTRY in $MARFERRET_PROTEINS; do
 hmmsearch --cut_tc --domtblout $OUTPUT_DIR/$ENTRY.PFAM34.0.domtblout.tab $PFAM_HMMS ${ENTRY}.aa.fasta
 done`
 
