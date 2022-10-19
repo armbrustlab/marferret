@@ -17,15 +17,18 @@ Path to the metadata file with ref_id, aa_fasta, tax_id cols:
 Path to protein sequences:
 `RAW_SEQ_DIR="${MARFERRET_DIR}/data/raw_sequence/"`
 
-
 Name of output file to be created linking unique sequence ID to taxID
-`UID2TAXID="${MARFERRET_DIR}/data/EukRefDB.uid2tax.tab"`
+`UID2TAXID="${MARFERRET_DIR}/data/MarFERReT.v1.uid2tax.tab"`
 
 Name of output file to be created linking unique sequence ID to source defline
-`UID2DEFLINE="${MARFERRET_DIR}/data/EukRefDB.uid2def.csv"`
+`UID2DEFLINE="${MARFERRET_DIR}/data/MarFERReT.v1.uid2def.csv"`
 
 Run the script to combine entry FASTA files by taxID, assign each sequence a unique ID in the process:
 `uniq_id_and_group_by_taxid.py -t ${UID2TAXID} -c ${UID2DEFLINE} -r ${REF_DAT} -d ${RAW_SEQ_DIR}`
+
+Zip the UID2TAX file for use with diamond (the other files can remain unzipped)
+`gzip $UID2TAXID`
+
 
 #### Intra-taxID clustering
 
