@@ -83,6 +83,15 @@ Provide a step-by-step description of how to get the development environment set
 
 The Case Use studies here are practical examples how MarFERReT can be used by itself or in conjunction with other protein sequence libraries to assign taxonomic identity to environmental sequences using DIAMOND fast protein alignment, and then to assess the completeness of annotated environmental transcript bins.
 
+
+[Case Study 1:](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/Case_study_1.md) 
+This Case Study shows how MarFERReT can be used to annotate unknown environmental sequences using the DIAMOND fast protein-alignment tool (Buchfink et al., 2015). In summary, a DIAMOND-formatted database is created from sequence data and NCBI Taxonomy information, and used to annotate unknown environmental reads.
+
+[Case Study 2:](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/Case_study_2.md)
+This Case Study provides an example on how to estimate the completeness of environmental transcriptome bins with taxonomic annotation (Case Study 1) and functional annotation with Pfam 34.0 (ref). The example shown here uses 'genus-level' annotations (or lower) for enhanced taxonomic specificity. In summary, the taxonomic and functional annotations are aggregated together and the percentage of lineage-specific core transcribed genes (CTGs) is determined for each genus-level environmental taxon bin.
+
+
+
 ## Part 4: Future MarFERReT releases
 
 MarFERReT was designed to be updated as new microbial eukaryote functional reference sequences are publicly released, with releases identified either through literature reviews, the JGI Genomes On Line Database (GOLD) or through user nominations through the ‘Issues’ request function on github.
