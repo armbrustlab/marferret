@@ -32,7 +32,7 @@ Zip the UID2TAX file for use with diamond (the other files can remain unzipped)
 
 #### Intra-taxID clustering
 
-Reduce redundancy within taxIDs with multiple entries by clustering at the 99% protein identity threshold and retaining cluster representatives.
+Reduce redundancy within taxIDs with multiple entries by clustering at the 99% protein sequence identity threshold and retaining cluster representatives.
 
 Operate in the directory for taxid-grouped entries from above;
 
@@ -46,7 +46,7 @@ Output path for clustered sequences:
 
 `OUTPUT_DIR="$MARFERRET_DIR/data/raw_sequence/taxid_grouped/clustered"`
 
-Define the sequence similarity threshold (0.99 = 99%):
+Define the sequence identity threshold (0.99 = 99%):
 
 `MIN_SEQ_ID=0.99`
 
