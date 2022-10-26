@@ -68,7 +68,7 @@ Core Transcribed Genes (CTGs) were identified from Pfam annotations against MarF
 `scripts/identify_core_transcribed_genes.R`
 
 #### TaxID-level protein clustering
-To the reduce sequence redundancy from multiple sequence entries for a single organism, the protein sequences for NCBI taxIDs with more than one entry (source FASTA) were combined and clustered at the 99% amino acid similarity threshold. TaxIDs with only a single entry are not clustered. 
+To the reduce sequence redundancy from multiple sequence entries for a single organism, the protein sequences for NCBI taxIDs with more than one entry (source FASTA) were combined and clustered at the 99% amino acid sequence identity threshold. TaxIDs with only a single entry are not clustered. 
 [dedupe_and_clustering.md](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/scripts/dedupe_and_clustering.md)
 
 Following this step, the protein sequences from clustered multi-entry taxIDs and the single-entry taxID are combined into a single MarFERRet protein file for subsequent analyses.
