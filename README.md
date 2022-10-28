@@ -30,7 +30,7 @@ The contents of this repo are organized into three main categories:
 
 This section details the intial construction of the MarFERReT library and accompanying resources for documentation and replication. A list of important outputs from these methods is included; they are all available in Part 2: Installation. If you want to begin using MarFERReT right away, skip to Part 2.
 A visual diagram of the Part 1 workflow can be found here:
-![Part 1 diagram](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/images/diagram1.png)
+![Part 1 diagram](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/images/diagram1_web.png)
 
 #### Curation of sequence metadata
 Manual curation of each entry is necessary to ensure that each sequence entry is standardized with an organismal name and an associated NCBI taxonomy ID (tax_id) at the most accurate level possible, if not provided with the source material. (See Methods: Curation of sequence metadata in primary publication for more details). Primary metadata including the MarFERReT entry ID, organism names, NCBI taxID, data type (genome, transcriptome, etc), data source and publication/availability year for current MarFERReT entries are listed here:
@@ -83,6 +83,8 @@ Provide a step-by-step description of how to get the development environment set
 ## Part 3: Case Study scripts
 
 The Case Use studies here are practical examples how MarFERReT can be used by itself or in conjunction with other protein sequence libraries to assign taxonomic identity to environmental sequences using DIAMOND fast protein alignment, and then to assess the completeness of annotated environmental transcript bins.
+A visual diagram of the Case Study workflows can be found here:
+![Part 1 diagram](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/images/diagram2_web.png)
 
 
 [Case Study 1:](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/Case_study_1.md) 
