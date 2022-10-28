@@ -1,6 +1,5 @@
 # MarFERReT
-
-([/main/images/marferret_logo2.png](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/images/marferret_logo2.png?raw=true) "logo")
+![marferret logo](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/images/marferret_logo2.png)
 
 
 ## (Marine Functional EukaRyotic Reference Taxa)
