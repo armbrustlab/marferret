@@ -1,6 +1,7 @@
 # MarFERReT
 ![marferret logo](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/images/marferret_logo2.png)
 
+![marferret logo](<img src="[image.png](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/images/marferret_logo2.png)" width="200" height="100">)
 
 ## (Marine Functional EukaRyotic Reference Taxa)
 ### An updated, version controlled, and open-source marine microbial eukaryotic sequence library designed for taxonomic annotation of environmental metatranscriptomes.
