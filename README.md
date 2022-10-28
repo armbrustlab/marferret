@@ -44,7 +44,7 @@ Optional file listing filenames and relative paths of original and intermediate 
 
 #### Gathering
 All of the component entries of MarFERReT were aggregated from public and accessible sequence data. Initial sequence data gathering was performed using both command line operations where possible, and through manual downloading and/or naming through a web-based client where otherwise necessary. Command-line acquisition code and instructions for manual downloads are described here: 
-![download_source_sequences.md](blob/main/scripts/download_source_sequences.md)
+[download_source_sequences.md](blob/main/scripts/download_source_sequences.md)
 
 #### Six-frame translation of nucleotide sequences
 
