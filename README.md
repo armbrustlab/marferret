@@ -1,8 +1,6 @@
 # MarFERReT
 ![marferret logo](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/images/marferret_logo2.png)
 
-![marferret logo](<img src="[image.png](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/images/marferret_logo2.png)" width="200" height="100">)
-
 ## (Marine Functional EukaRyotic Reference Taxa)
 ### An updated, version controlled, and open-source marine microbial eukaryotic sequence library designed for taxonomic annotation of environmental metatranscriptomes.
 
@@ -32,7 +30,7 @@ The contents of this repo are organized into three main categories:
 
 This section details the intial construction of the MarFERReT library and accompanying resources for documentation and replication. A list of important outputs from these methods is included; they are all available in Part 2: Installation. If you want to begin using MarFERReT right away, skip to Part 2.
 A visual diagram of the Part 1 workflow can be found here:
-[LINK TO DIAGRAM]
+![Part 1 diagram](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/images/diagram1.png)
 
 #### Curation of sequence metadata
 Manual curation of each entry is necessary to ensure that each sequence entry is standardized with an organismal name and an associated NCBI taxonomy ID (tax_id) at the most accurate level possible, if not provided with the source material. (See Methods: Curation of sequence metadata in primary publication for more details). Primary metadata including the MarFERReT entry ID, organism names, NCBI taxID, data type (genome, transcriptome, etc), data source and publication/availability year for current MarFERReT entries are listed here:
@@ -46,7 +44,7 @@ Optional file listing filenames and relative paths of original and intermediate 
 
 #### Gathering
 All of the component entries of MarFERReT were aggregated from public and accessible sequence data. Initial sequence data gathering was performed using both command line operations where possible, and through manual downloading and/or naming through a web-based client where otherwise necessary. Command-line acquisition code and instructions for manual downloads are described here: 
-[download_source_sequences.md](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/scripts/download_source_sequences.md)
+![download_source_sequences.md](blob/main/scripts/download_source_sequences.md)
 
 #### Six-frame translation of nucleotide sequences
 
