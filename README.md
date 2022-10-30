@@ -51,7 +51,6 @@ All of the component entries of MarFERReT were aggregated from public and access
 Sequences gathered in nucleotide alphabet were six-frame translated the protein alphabet, and the longest reading frame (longest uninterrupted stretch of amino acids) was kept for downstream analysis. Instructions for six-frame translation of the 71 nucleotide entries using transeq are here:
 [translation_frame_selection.md](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/scripts/translation_frame_selection.md)
 
-
 #### Functional annotation of protein sequences
 Code for downloading Pfam 34.0 and conducting functional annotation for all MarFERReT protein sequences with hmmsearch:
 [pfam_annotation.md](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/scripts/pfam_annotation.md)
@@ -65,8 +64,8 @@ Code for downloading Pfam 34.0 and conducting functional annotation for all MarF
 	"MarFERReT_best_pfam.csv"
 
 #### Identification and analysis of Core Transcribed Genes
-Core Transcribed Genes (CTGs) were identified from Pfam annotations against MarFERReT eukaryotic transcriptomes. The  script for for identifying CTGs is here:
-`scripts/identify_core_transcribed_genes.R`
+Core Transcribed Genes (CTGs) were identified from Pfam annotations against MarFERReT eukaryotic transcriptomes using the R programming language. The script for for identifying CTGs for eukaryotic transcriptomes and subsets of major lineages and generating the primary output table and accessory figures can be found here:
+[identify_core_transcribed_genes.R](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/scripts/identify_core_transcribed_genes.R)
 
 #### TaxID-level protein clustering
 To the reduce sequence redundancy from multiple sequence entries for a single organism, the protein sequences for NCBI taxIDs with more than one entry (source FASTA) were combined and clustered at the 99% amino acid sequence identity threshold. TaxIDs with only a single entry are not clustered. 
