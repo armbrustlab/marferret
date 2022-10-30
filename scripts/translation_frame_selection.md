@@ -23,7 +23,8 @@ done
 ```
 # List of filenames for the 6-frame translations (.6tr.fasta) where the seq_type == nt:
 nt_6tr_path="${MARFERRET_DIR}/scratch/6tr_files.txt"
-# Run the 'keep longest frame' script, which outputs the longest reading frame (uninterrupted by stop codons) among the six translations (minimum length of one). If there is a tie for longest coding frame, they will both be kept.
+# Run the 'keep longest frame' script, which outputs the longest reading frame (uninterrupted by stop codons) among the six translations (minimum length of one). 
+# If there is a tie for longest coding frame, they will both be kept.
 for FASTA in $(cat $nt_6tr_path); do
 echo ${FASTA}
 keep_longest_frame.py3 -l 1 ${FASTA}
