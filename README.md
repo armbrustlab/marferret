@@ -46,11 +46,11 @@ Optional file listing filenames and relative paths of original and intermediate 
 All of the component entries of MarFERReT were aggregated from public and accessible sequence data. Initial sequence data gathering was performed using both command line operations where possible, and through manual downloading and/or naming through a web-based client where otherwise necessary. Command-line acquisition code and instructions for manual downloads are described here: 
 [download_source_sequences.md](blob/main/scripts/download_source_sequences.md)
 
-#### Six-frame translation of nucleotide sequences
+#### Six-frame translation of nucleotide sequences and frame-selection
 
-Sequences gathered in nucleotide alphabet were six-frame translated the protein alphabet. Instructions for six-frame translation of the 71 nucleotide entries using transeq are here:
-[translation.md](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/scripts/translation.md)
-Compressed (gzipped) files were also unzipped at this step. 
+Sequences gathered in nucleotide alphabet were six-frame translated the protein alphabet, and the longest reading frame (longest uninterrupted stretch of amino acids) was kept for downstream analysis. Instructions for six-frame translation of the 71 nucleotide entries using transeq are here:
+[translation_frame_selection.md](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/scripts/translation_frame_selection.md)
+
 
 #### Functional annotation of protein sequences
 Code for downloading Pfam 34.0 and conducting functional annotation for all MarFERReT protein sequences with hmmsearch:
