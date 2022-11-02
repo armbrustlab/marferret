@@ -20,11 +20,11 @@ This github repository is associated with a Zenodo repository for data storage:
 
 ## Table of Contents
 
-The contents of this repo are organized into three main categories:
-- Part 1: MarFERReT initial construction (optional)
-- Part 2: Installing and running MarFERRet (the primary use of MarFERReT)
-- Part 3: Case Study scripts (optional analysis scripts)
-- Part 4: Future MarFERReT releases
+The contents of this repo are organized into four parts:
+- Part 1: [MarFERReT initial construction](https://github.com/armbrustlab/marine_eukaryote_sequence_database#part-1-marferret-initial-construction)
+- Part 2: [Installing and running MarFERRet]()
+- Part 3: [Case studies]()
+- Part 4: [Future MarFERReT releases]()
 
 ## Part 1: MarFERReT initial construction
 
