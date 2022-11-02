@@ -24,7 +24,7 @@ The contents of this repo are organized into four parts:
 - Part 1: [MarFERReT initial construction](https://github.com/armbrustlab/marine_eukaryote_sequence_database#part-1-marferret-initial-construction)
 - Part 2: [Installing and running MarFERRet](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/README.md#part-2-installing-and-running-marferret)
 - Part 3: [Case studies](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/README.md#part-3-case-study-scripts)
-- Part 4: [Future MarFERReT releases]()
+- Part 4: [Future MarFERReT releases](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/README.md#part-4-future-marferret-releases)
 
 ## Part 1: MarFERReT initial construction
 
