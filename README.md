@@ -8,7 +8,7 @@
 
 The Marine Functional Eukaryotic Reproducible Reference Taxa (MarFERReT) is an  open-source marine eukaryote reference protein sequence library that allows for community-supported expansion over time. MarFERReT was constructed with an emphasis on a comprehensive marine microbial eukaryote reference library for the taxonomic annotation of environmental metatranscriptomes. MarFERRet data was used to identify the core transcribed genes of key marine eukaryote lineages to serve as a metric for estimating the completeness of environmental transcript bins follwoing taxonomic annotations.
 
-The Case Use studies here are practical examples how MarFERReT can be used by itself or in conjunction with other protein sequence libraries to assign taxonomic identity to environmental sequences using the DIAMOND [fast read aligner], and then to assess the completeness of annotated environmental transcript bins. Lastly, MarFERReT provides a framework for future integration of new microbial eukaryote reference sequences into a growing, versionable sequence library built to increase the scientific community's accessibility and potential in understanding of the function of protists in marine ecosystems.
+The Case Studies presented here are practical examples how MarFERReT can be used by itself or in conjunction with other protein sequence libraries to assign taxonomic identity to environmental sequences using the DIAMOND [fast read aligner], and then to assess the completeness of annotated environmental transcript bins. Lastly, MarFERReT provides a framework for future integration of new microbial eukaryote reference sequences into a growing, versionable sequence library built to increase the scientific community's accessibility and potential in understanding of the function of protists in marine ecosystems.
 
 
 Primary publication reference:
@@ -33,7 +33,7 @@ A visual diagram of the Part 1 workflow can be found here:
 ![Part 1 diagram](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/images/diagram1_web.png)
 
 #### Curation of sequence metadata
-Manual curation of each entry is necessary to ensure that each sequence entry is standardized with an organismal name and an associated NCBI taxonomy ID (tax_id) at the most accurate level possible, if not provided with the source material. (See Methods: Curation of sequence metadata in primary publication for more details). Primary metadata including the MarFERReT entry ID, organism names, NCBI taxID, data type (genome, transcriptome, etc), data source and publication/availability year for current MarFERReT entries are listed here:
+Manual curation of each entry is necessary to ensure that each sequence entry is standardized with an organism name and an associated NCBI taxonomy ID (tax_id) at the most accurate level possible, if not provided with the source material. (See Methods: Curation of sequence metadata in primary publication for more details). Primary metadata including the MarFERReT entry ID, organism names, NCBI taxID, data type (genome, transcriptome, etc), data source and publication/availability year for current MarFERReT entries are listed here:
 [MarFERReT.entry_metadata.v1.csv](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/data/MarFERReT.entry_metadata.v1.csv)
 
 More metadata about the entries including the source organism name, reference publication, original source URL and filename are listed here:
