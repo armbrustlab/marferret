@@ -5,9 +5,10 @@ __pycache__/
 # data files
 *.gz
 
-# data and figures directories
+# data, figures, and env directories
 data/
 figures/
+env/
 
 # jupyter notebook checkpoint files
 .ipynb_checkpoints/
