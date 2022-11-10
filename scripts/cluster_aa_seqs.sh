@@ -49,7 +49,7 @@ mv "${UID2TAXID}.gz" ../
 F_TAX_ID=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "tax_id" | cut -f1 -d:)
 # iterate through NCBI tax ids to be clustered (more than one reference sequence)
 for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -d ); do
-    INPUT_FASTA="MarFERReT.${TAXID}.combined.aa.fasta"
+    INPUT_FASTA="${TAXID}.combined.faa"
     # make temporary working directory for taxid
     mkdir -p ${TAXID}/${TAXID}_tmp
     # make combined taxid sequence database
@@ -66,9 +66,9 @@ for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -d );
     # output representative sequence from each sequence cluster
     docker run -w /data -v ${WORK_DIR}:/data ghcr.io/soedinglab/mmseqs2 \
         result2flat ${TAXID}/${TAXID}.db ${TAXID}/${TAXID}.db \
-        ${TAXID}/${TAXID}.clusters.rep ${TAXID}/${TAXID}.nr.aa.fasta --use-fasta-header
+        ${TAXID}/${TAXID}.clusters.rep ${TAXID}/${TAXID}.clustered.faa --use-fasta-header
     # moved clustered sequence result to output directory
-    mv ${TAXID}/${TAXID}.nr.aa.fasta ${OUTPUT_DIR}/
+    mv ${TAXID}/${TAXID}.clustered.faa ${OUTPUT_DIR}/
     # delete temporary working directory
     rm -rf ${TAXID}
 done 
@@ -80,10 +80,10 @@ popd
 MARFERRET_FASTA="../data/MarFERReT.v1.proteins.faa"
 # combine NCBI tax IDs with multiple sequence representatives (clustered)
 for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -d ); do
-    cat ${OUTPUT_DIR}/${TAXID}.nr.aa.fasta >> ${MARFERRET_FASTA}
+    cat ${OUTPUT_DIR}/${TAXID}.clustered.faa >> ${MARFERRET_FASTA}
 done
 # combine NCBI tax IDs with single sequence representatives (unclustered)
 for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -u ); do
-    cat ${WORK_DIR}/MarFERReT.${TAXID}.combined.aa.fasta >> ${MARFERRET_FASTA}
+    cat ${WORK_DIR}/MarFERReT.${TAXID}.combined.faa >> ${MARFERRET_FASTA}
 done
 

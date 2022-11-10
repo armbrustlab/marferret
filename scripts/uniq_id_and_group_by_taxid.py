@@ -84,7 +84,7 @@ def create_taxid_file(RefDict,tax_id):
 	# take in RefDict and a tax_id entry.
 
 	# Create an output fasta specifically for the tax_id:
-	taxid_fasta_path = ".".join(["MarFERReT",tax_id,"combined.aa.fasta"])
+	taxid_fasta_path = ".".join([tax_id,"combined.faa"])
 
 	global output_fasta
 	output_fasta = open(taxid_fasta_path, 'w')
