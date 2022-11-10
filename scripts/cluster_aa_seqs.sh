@@ -13,7 +13,8 @@
 
 
 # filepaths
-META_FILE=$( realpath ../data/MarFERReT.metadata.v1.csv )
+VERSION=v1
+META_FILE=$( realpath "../data/MarFERReT.${VERSION}.metadata.csv" )
 RAW_SEQ_DIR=$( realpath ../data/aa_seqs )
 WORK_DIR=../data/taxid_grouped
 OUTPUT_DIR=../data/clustered
@@ -32,12 +33,12 @@ fi
 OUTPUT_DIR=$( realpath ${OUTPUT_DIR} )
 
 # combine amino acid fasta files by taxID and rename MarFERReT protein IDs
-UID2TAXID='MarFERReT.v1.uid2tax.tab'
-UID2DEFLINE='MarFERReT.v1.uid2def.csv'
+UID2TAXID="MarFERReT.${VERSION}.uid2tax.tab"
+UID2DEFLINE="MarFERReT.${VERSION}.uid2def.csv"
 # move to working directory
 pushd $WORK_DIR
 # run python script
-../scripts/uniq_id_and_group_by_taxid.py -t ${UID2TAXID} -c ${UID2DEFLINE} \
+../../scripts/uniq_id_and_group_by_taxid.py -t ${UID2TAXID} -c ${UID2DEFLINE} \
     -r ${META_FILE} -d ${RAW_SEQ_DIR}
 # the UID2TAXID file for use with diamond
 gzip $UID2TAXID 
@@ -77,13 +78,12 @@ popd
 
 # combine all clustered protein sequence representatives with unclustered
 # protein sequences for complete MarFERReT protein database
-MARFERRET_FASTA="../data/MarFERReT.v1.proteins.faa"
+MARFERRET_FASTA="../data/MarFERReT.${VERSION}.proteins.faa"
 # combine NCBI tax IDs with multiple sequence representatives (clustered)
 for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -d ); do
     cat ${OUTPUT_DIR}/${TAXID}.clustered.faa >> ${MARFERRET_FASTA}
 done
 # combine NCBI tax IDs with single sequence representatives (unclustered)
 for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -u ); do
-    cat ${WORK_DIR}/MarFERReT.${TAXID}.combined.faa >> ${MARFERRET_FASTA}
+    cat ${WORK_DIR}/${TAXID}.combined.faa >> ${MARFERRET_FASTA}
 done
-

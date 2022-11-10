@@ -15,8 +15,9 @@
 # directory listed here. Note that compressed (gzipped) files will be unzipped 
 # during this step.
 
+VERSION=v1
 SOURCE_DIR=../data/source_seqs
-META_FILE=../data/MarFERReT.metadata.v1.csv
+META_FILE="../data/MarFERReT.${VERSION}.metadata.csv"
 
 # make temp directory to put 6 frame translated files
 TMP_DIR=../data/temp
