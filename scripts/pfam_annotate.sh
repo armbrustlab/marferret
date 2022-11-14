@@ -16,14 +16,16 @@
 
 
 VERSION=v1
-PFAM_HMMS=../data/pfam/Pfam-A.hmm
-MARFERRET_PROTEINS="../data/MarFERReT.${VERSION}.proteins.faa"
-OUTPUT_DIR=../data/pfam
+WORKING_DIR=../data
+# filepaths (relative to working directory)
+PFAM_HMMS="pfam/Pfam-A.hmm"
+MARFERRET_PROTEINS="MarFERReT.${VERSION}.proteins.faa"
+DOMTBL="pfam/MarFERReT.${VERSION}.annotations.domtblout.tab"
+ANNOTATIONS="MarFERReT.${VERSION}.annotations.csv"
 
 # run hmmsearch
-DOMTBL="$OUTPUT_DIR/MarFERReT.${VERSION}.annotations.domtblout.tab"
-hmmsearch --cut_tc --domtblout ${DOMTBL} $PFAM_HMMS ${MARFERRET_PROTEINS}
+docker run -v "$( realpath ../data )":/data biocontainers/hmmer:v3.2.1dfsg-1-deb_cv1 \
+    hmmsearch --cut_tc --domtblout ${DOMTBL} $PFAM_HMMS ${MARFERRET_PROTEINS}
 
 # choose best annotation for each protein
-ANNOTATIONS="../data/MarFERReT.${VERSION}.annotations.csv"
-./best_kofam.py ${DOMTBL} ${ANNOTATIONS}
+./best_kofam.py ${WORKING_DIR}/${DOMTBL} ${WORKING_DIR}/${ANNOTATIONS}
