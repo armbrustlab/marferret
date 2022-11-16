@@ -7,7 +7,6 @@ from Bio import SeqIO
 from Bio.SeqRecord import SeqRecord
 
 def handle_arguments():
-    
     description = '''This script groups the input fasta files by tax_id, 
     outputting a single fasta file for each tax_id group. It also renames 
     each of the SeqRecords with a unique identifier, and outputs mapping 
@@ -15,22 +14,17 @@ def handle_arguments():
     
     Example usage: ./group_by_taxid.py fasta/dir/in metadata.csv -o fasta/dir/out
     '''
-    
-    
     parser = argparse.ArgumentParser(description=description)
-    
     parser.add_argument(
         'input_dir', 
         type=str, 
         help='Directory containing input fasta sequences.'
     )
-    
     parser.add_argument(
         'metadata', 
         type=str, 
         help='Metadata csv file containing "aa_fasta" and "tax_id" fields.'
     )
-    
     parser.add_argument(
         '-o', '--output_dir', 
         type=str, 
