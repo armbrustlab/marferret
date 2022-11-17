@@ -110,7 +110,7 @@ fi
 docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
     ./scripts/group_by_taxid.py data/aa_seqs \
     "data/MarFERReT.${VERSION}.metadata.csv" \
-    -o /data/taxid_grouped
+    -o data/taxid_grouped
 # move mapping files to the data directory
 mv "${TAX_DIR}/uid2tax.tab" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.uid2tax.tab"
 mv "${TAX_DIR}/uid2def.csv" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.uid2def.csv"
@@ -132,18 +132,18 @@ for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -d );
     # make temporary working directory for taxid
     mkdir -p ${TAXID}/${TAXID}_tmp
     # make combined taxid sequence database
-    docker run -w /data -v ${TAX_DIR}:/data soedinglab/mmseqs2:version-13 \
+    docker run -w /data -v ${TAX_DIR}:/data ghcr.io/soedinglab/mmseqs2 \
         createdb ${INPUT_FASTA} ${TAXID}/${TAXID}.db
     # cluster sequences from combined taxid sequence database
-    docker run -w /data -v ${TAX_DIR}:/data soedinglab/mmseqs2:version-13 \
+    docker run -w /data -v ${TAX_DIR}:/data ghcr.io/soedinglab/mmseqs2 \
         linclust ${TAXID}/${TAXID}.db ${TAXID}/${TAXID}.clusters.db \
         ${TAXID}/${TAXID}_tmp --min-seq-id ${MIN_SEQ_ID}
     # select representative sequence from each sequence cluster
-    docker run -w /data -v ${TAX_DIR}:/data soedinglab/mmseqs2:version-13 \
+    docker run -w /data -v ${TAX_DIR}:/data ghcr.io/soedinglab/mmseqs2 \
         result2repseq ${TAXID}/${TAXID}.db ${TAXID}/${TAXID}.clusters.db \
         ${TAXID}/${TAXID}.clusters.rep
     # output representative sequence from each sequence cluster
-    docker run -w /data -v ${TAX_DIR}:/data soedinglab/mmseqs2:version-13 \
+    docker run -w /data -v ${TAX_DIR}:/data ghcr.io/soedinglab/mmseqs2 \
         result2flat ${TAXID}/${TAXID}.db ${TAXID}/${TAXID}.db \
         ${TAXID}/${TAXID}.clusters.rep ${TAXID}/${TAXID}.clustered.faa --use-fasta-header
     # moved clustered sequence result to output directory
@@ -163,5 +163,5 @@ for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -d );
 done
 # combine NCBI tax IDs with single sequence representatives (unclustered)
 for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -u ); do
-    cat ${WORK_DIR}/${TAXID}.combined.faa >> ${MARFERRET_FASTA}
+    cat ${TAX_DIR}/${TAXID}.combined.faa >> ${MARFERRET_FASTA}
 done
