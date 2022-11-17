@@ -38,14 +38,18 @@ def main():
     args = parser.parse_args()
     # read in metadata
     meta_df = pd.read_csv(args.metadata)
-    # initialize counter and mappings
+    # open and initialize mapping files
+    uid2tax = open('{}/uid2tax.tab'.format(args.output_dir), 'w')
+    uid2tax.write('accession\taccession.version\ttaxid\tgi\n')
+    uid2def = open('{}/uid2def.csv'.format(args.output_dir), 'w')
+    uid2def.write('uniq_id,source_defline\n')
+    # initialize counter
     aa_counter = 0
-    uid_mappings = []
     # loop through each taxid
     for i, taxid in enumerate(meta_df['tax_id'].unique()):
         # subset metadata
         subset_df = meta_df[meta_df['tax_id'] == taxid]
-        print('Combining {} reference(s) of taxid {}'.format(len(subset_df), taxid))
+        print('Combining {} reference(s) of taxid {}'.format(len(subset_df), taxid), flush=True)
         # open new outfile
         with open('{}/{}.combined.faa'.format(args.output_dir, taxid), 'w') as outfile:
             # iterate through input fasta files
@@ -54,38 +58,17 @@ def main():
                 for seq_record in SeqIO.parse('{}/{}'.format(args.input_dir, input_fasta), 'fasta'):
                     # make new uid for sequence
                     aa_counter += 1 
-                    uid = 'mft{:0>10}'.format(aa_counter)
                     uid = 'mft{:d}'.format(aa_counter)
                     # write renamed SeqRecord to outfile
                     out_record = SeqRecord(seq_record.seq, id=uid, description='')
                     SeqIO.write(out_record, outfile, 'fasta')
-                    # record uid mappings
-                    uid_mappings.append(
-                        {
-                            'marferret_id': uid, 
-                            'source_defline': seq_record.id.strip(), 
-                            'taxid': taxid
-                        }
-                    )
-    # save uid mapping files
-    print('Assembling reference mapping files')
-    mapping_df = pd.DataFrame(uid_mappings)
-    # save uid2def.csv file
-    print('Saving reference mapping files')
-    mapping_df[['marferret_id', 'source_defline']].to_csv(
-        '{}/uid2def.csv'.format(args.output_dir), 
-        index=False
-    )
-    # save uid2tax.tab file
-    mapping_df['accession'] = 'NA'
-    mapping_df['gi'] = 'NA'
-    mapping_df.rename(columns={'marferret_id': 'accession.version'}, inplace=True)
-    mapping_df[['accession', 'accession.version', 'taxid', 'gi']].to_csv(
-        '{}/uid2tax.tab'.format(args.output_dir), 
-        sep='\t', 
-        index=False
-    )
-    print('Finished!')
+                    # write uid mappings to mapping files
+                    uid2tax.write('NA\t{}\t{}\tNA\n'.format(uid, taxid))
+                    uid2def.write('{},{}\n'.format(uid, seq_record.id.strip()))
+    # close file handlers
+    uid2tax.close()
+    uid2def.close()
+    print('Finished!', flush=True)
     
 if __name__ == "__main__":
     main()
