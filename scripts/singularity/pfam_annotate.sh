@@ -21,17 +21,19 @@
 
 
 VERSION=v1
+CORES=32
 WORKING_DIR=$( realpath ../data )
 # filepaths (relative to working directory)
-PFAM_HMMS="pfam/Pfam-A.hmm"
-MARFERRET_PROTEINS="MarFERReT.${VERSION}.proteins.faa"
-DOMTBL="pfam/MarFERReT.${VERSION}.annotations.domtblout.tab"
-ANNOTATIONS="MarFERReT.${VERSION}.annotations.csv"
+PFAM_HMMS="${WORKING_DIR}/pfam/Pfam-A.hmm"
+MARFERRET_PROTEINS="${WORKING_DIR}/MarFERReT.${VERSION}.proteins.faa"
+DOMTBL="${WORKING_DIR}/pfam/MarFERReT.${VERSION}.annotations.domtblout.tab"
+ANNOTATIONS="${WORKING_DIR}/MarFERReT.${VERSION}.annotations.csv"
+CONTAINER_DIR=$( realpath ${WORKING_DIR}/../container )
 
 # run hmmsearch
-docker run -v ${WORKING_DIR}:/data biocontainers/hmmer:v3.2.1dfsg-1-deb_cv1 \
-    hmmsearch --cut_tc --domtblout ${DOMTBL} ${PFAM_HMMS} ${MARFERRET_PROTEINS}
+singularity exec ${CONTAINER_DIR}/hmmer.sif hmmsearch --cpu ${CORES} --cut_tc \
+    --domtblout ${DOMTBL} ${PFAM_HMMS} ${MARFERRET_PROTEINS}
 
 # choose best annotation for each protein
-docker run -w /home -v ${WORKING_DIR}:/home marferret-py ./best_kofam.py \
+singularity exec ${CONTAINER_DIR}/marferret-py.sif ./best_kofam.py \
     ${DOMTBL} ${ANNOTATIONS}
