@@ -9,7 +9,7 @@
 # from the Dockerfile in this directory.
 
 # Pull Docker containers for tools in which one is maintained by the developer.
-docker pull soedinglab/mmseqs2:version-13
+docker pull ghcr.io/soedinglab/mmseqs2
 docker pull buchfink/diamond:version2.0.13
 
 # Pull Docker containers for remainder of tools from biocontainers. 
@@ -21,7 +21,7 @@ docker pull biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1
 docker image build --tag marferret-py .
 
 # # Save docker images (if needed to transfer image to another machine)
-# docker save soedinglab/mmseqs2:version-13 | gzip > mmseqs2.tar.gz
+# docker save ghcr.io/soedinglab/mmseqs2 | gzip > mmseqs2.tar.gz
 # docker save buchfink/diamond:version2.0.13 | gzip > diamond.tar.gz
 # docker save biocontainers/hmmer:v3.2.1dfsg-1-deb_cv1 | gzip > hmmer.tar.gz
 # docker save biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1 | gzip > emboss.tar.gz

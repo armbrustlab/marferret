@@ -3,7 +3,6 @@
 # Use these command to build a singularity images from
 # Docker image tarballs
 
-
 # build singularity image from tarball
 singularity build mmseqs2.sif docker-archive://mmseqs2.tar.gz
 singularity build diamond.sif docker-archive://diamond.tar.gz
