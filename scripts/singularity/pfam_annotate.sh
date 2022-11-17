@@ -22,7 +22,7 @@
 
 VERSION=v1
 CORES=32
-WORKING_DIR=$( realpath ../data )
+WORKING_DIR=$( realpath ../../data )
 # filepaths (relative to working directory)
 PFAM_HMMS="${WORKING_DIR}/pfam/Pfam-A.hmm"
 MARFERRET_PROTEINS="${WORKING_DIR}/MarFERReT.${VERSION}.proteins.faa"
