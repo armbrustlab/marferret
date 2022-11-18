@@ -48,73 +48,73 @@ SOURCE_DIR="${MARFERRET_DIR}/data/source_seqs"
 META_FILE="${MARFERRET_DIR}/data/MarFERReT.${VERSION}.metadata.csv"
 CONTAINER_DIR="${MARFERRET_DIR}/container"
 
-# make directory for amino acids
-AA_DIR="${MARFERRET_DIR}/data/aa_seqs"
-if [ ! -d "${AA_DIR}" ]; then
-    mkdir "${AA_DIR}"
-fi
+# # make directory for amino acids
+# AA_DIR="${MARFERRET_DIR}/data/aa_seqs"
+# if [ ! -d "${AA_DIR}" ]; then
+#     mkdir "${AA_DIR}"
+# fi
 
-# make temp working directory
-TMP_DIR="${MARFERRET_DIR}/data/temp"
-if [ ! -d "${TMP_DIR}" ]; then
-    mkdir "${TMP_DIR}"
-fi
+# # make temp working directory
+# TMP_DIR="${MARFERRET_DIR}/data/temp"
+# if [ ! -d "${TMP_DIR}" ]; then
+#     mkdir "${TMP_DIR}"
+# fi
 
-# get field numbers from metadata file
-F_REF_ID=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "ref_id" | cut -f1 -d:)
-F_NAME=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "marferret_name" | cut -f1 -d:)
-F_FILE=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "source_filename" | cut -f1 -d:)
-F_SEQ_TYPE=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "seq_type" | cut -f1 -d:)
+# # get field numbers from metadata file
+# F_REF_ID=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "ref_id" | cut -f1 -d:)
+# F_NAME=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "marferret_name" | cut -f1 -d:)
+# F_FILE=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "source_filename" | cut -f1 -d:)
+# F_SEQ_TYPE=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "seq_type" | cut -f1 -d:)
 
-# iterate through nucleotide sequences listed in metatdata file
-while IFS=',' read -r ref_id marferret_name source_filename seq_type; do 
-    # check that the sequence is in the source_seqs directory
-    if [ ! -e "${SOURCE_DIR}/${source_filename}" ]; then 
-        echo "WARNING: Filename ${source_filename} not found."
-        echo "See missing_source_seqs.txt for complete list of missing sequences."
-        echo "${source_filename} not found in ${SOURCE_DIR}" >> missing_source_seqs.txt
-    else
-        echo $ref_id $marferret_name $source_filename $seq_type
-        # build standardized sequence name
-        seq_name="${ref_id}_${marferret_name}"
-        # rename amino acids and move to amino acid sequence directory
-        if [ "${seq_type}" == "aa" ]; then
-            cat "${SOURCE_DIR}/${source_filename}" >> "${AA_DIR}/${seq_name}.faa"
-        elif [ "${seq_type}" == "nt" ]; then
-            printf '\ttranslating nucleotide sequence\n'
-            # run transeq to translate nucleotide sequences into proteins
-            singularity exec "${CONTAINER_DIR}/emboss.sif" \
-                transeq -auto -sformat pearson -frame 6 \
-                -sequence "${MARFERRET_DIR}/data/source_seqs/${source_filename}" \
-                -outseq "${MARFERRET_DIR}/data/temp/${seq_name}.6tr.faa"
-            # run frame selection to select longest coding frame
-            singularity exec "${CONTAINER_DIR}/marferret-py.sif" \
-                "${MARFERRET_DIR}/scripts/keep_longest_frame.py" -l 1 \
-                "${MARFERRET_DIR}/data/temp/${seq_name}.6tr.faa"
-            # move frame selected file to amino acid sequence directory
-            mv "${TMP_DIR}/${seq_name}.6tr.bf1.faa" "${AA_DIR}/${seq_name}.faa"
-        fi
-    fi
-done < <( tail -n +2 ${META_FILE} | cut -f"${F_REF_ID},${F_NAME},${F_SEQ_TYPE},${F_FILE}" -d, )
+# # iterate through nucleotide sequences listed in metatdata file
+# while IFS=',' read -r ref_id marferret_name source_filename seq_type; do 
+#     # check that the sequence is in the source_seqs directory
+#     if [ ! -e "${SOURCE_DIR}/${source_filename}" ]; then 
+#         echo "WARNING: Filename ${source_filename} not found."
+#         echo "See missing_source_seqs.txt for complete list of missing sequences."
+#         echo "${source_filename} not found in ${SOURCE_DIR}" >> missing_source_seqs.txt
+#     else
+#         echo $ref_id $marferret_name $source_filename $seq_type
+#         # build standardized sequence name
+#         seq_name="${ref_id}_${marferret_name}"
+#         # rename amino acids and move to amino acid sequence directory
+#         if [ "${seq_type}" == "aa" ]; then
+#             cat "${SOURCE_DIR}/${source_filename}" >> "${AA_DIR}/${seq_name}.faa"
+#         elif [ "${seq_type}" == "nt" ]; then
+#             printf '\ttranslating nucleotide sequence\n'
+#             # run transeq to translate nucleotide sequences into proteins
+#             singularity exec "${CONTAINER_DIR}/emboss.sif" \
+#                 transeq -auto -sformat pearson -frame 6 \
+#                 -sequence "${MARFERRET_DIR}/data/source_seqs/${source_filename}" \
+#                 -outseq "${MARFERRET_DIR}/data/temp/${seq_name}.6tr.faa"
+#             # run frame selection to select longest coding frame
+#             singularity exec "${CONTAINER_DIR}/marferret-py.sif" \
+#                 "${MARFERRET_DIR}/scripts/keep_longest_frame.py" -l 1 \
+#                 "${MARFERRET_DIR}/data/temp/${seq_name}.6tr.faa"
+#             # move frame selected file to amino acid sequence directory
+#             mv "${TMP_DIR}/${seq_name}.6tr.bf1.faa" "${AA_DIR}/${seq_name}.faa"
+#         fi
+#     fi
+# done < <( tail -n +2 ${META_FILE} | cut -f"${F_REF_ID},${F_NAME},${F_SEQ_TYPE},${F_FILE}" -d, )
 
-# clean up temp directory
-rm -rf ${TMP_DIR}
+# # clean up temp directory
+# rm -rf ${TMP_DIR}
 
-# combine amino acid fasta files by taxID and rename MarFERReT protein IDs
-# make new directory for taxid combined sequences
-TAX_DIR="${MARFERRET_DIR}/data/taxid_grouped"
-if [ ! -d ${TAX_DIR} ]; then 
-    mkdir ${TAX_DIR}
-fi
-# run python script
-singularity exec "${CONTAINER_DIR}/marferret-py.sif" \
-    "${MARFERRET_DIR}/scripts/group_by_taxid.py" \
-    ${AA_DIR} ${META_FILE} -o ${TAX_DIR}
-# move mapping files to the data directory
-mv "${TAX_DIR}/uid2tax.tab" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.uid2tax.tab"
-mv "${TAX_DIR}/uid2def.csv" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.uid2def.csv"
-# gzip the UID2TAXID file for use with diamond
-gzip "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.uid2tax.tab"
+# # combine amino acid fasta files by taxID and rename MarFERReT protein IDs
+# # make new directory for taxid combined sequences
+# TAX_DIR="${MARFERRET_DIR}/data/taxid_grouped"
+# if [ ! -d ${TAX_DIR} ]; then 
+#     mkdir ${TAX_DIR}
+# fi
+# # run python script
+# singularity exec "${CONTAINER_DIR}/marferret-py.sif" \
+#     "${MARFERRET_DIR}/scripts/group_by_taxid.py" \
+#     ${AA_DIR} ${META_FILE} -o ${TAX_DIR}
+# # move mapping files to the data directory
+# mv "${TAX_DIR}/uid2tax.tab" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.uid2tax.tab"
+# mv "${TAX_DIR}/uid2def.csv" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.uid2def.csv"
+# # gzip the UID2TAXID file for use with diamond
+# gzip "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.uid2tax.tab"
 
 # cluster proteins from NCBI tax ids with more than one reference sequence
 F_TAX_ID=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "tax_id" | cut -f1 -d:)
