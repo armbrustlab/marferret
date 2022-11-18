@@ -100,12 +100,12 @@ CONTAINER_DIR="${MARFERRET_DIR}/container"
 # # clean up temp directory
 # rm -rf ${TMP_DIR}
 
-# # combine amino acid fasta files by taxID and rename MarFERReT protein IDs
-# # make new directory for taxid combined sequences
-# TAX_DIR="${MARFERRET_DIR}/data/taxid_grouped"
-# if [ ! -d ${TAX_DIR} ]; then 
-#     mkdir ${TAX_DIR}
-# fi
+# combine amino acid fasta files by taxID and rename MarFERReT protein IDs
+# make new directory for taxid combined sequences
+TAX_DIR="${MARFERRET_DIR}/data/taxid_grouped"
+if [ ! -d ${TAX_DIR} ]; then 
+    mkdir ${TAX_DIR}
+fi
 # # run python script
 # singularity exec "${CONTAINER_DIR}/marferret-py.sif" \
 #     "${MARFERRET_DIR}/scripts/group_by_taxid.py" \
@@ -130,18 +130,18 @@ for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -d );
     # make temporary working directory for taxid
     mkdir -p ${TAXID_DIR}/${TAXID}_tmp
     # make combined taxid sequence database
-    singularity exec "${CONTAINER_DIR}/mmseqs2.sif" \
+    singularity exec "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 \
         createdb ${INPUT_FASTA} ${TAXID_DIR}/${TAXID}.db
     # cluster sequences from combined taxid sequence database
-    singularity exec "${CONTAINER_DIR}/mmseqs2.sif" \
+    singularity exec "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 \
         linclust ${TAXID_DIR}/${TAXID}.db ${TAXID_DIR}/${TAXID}.clusters.db \
         ${TAXID_DIR}/${TAXID}_tmp --min-seq-id ${MIN_SEQ_ID}
     # select representative sequence from each sequence cluster
-    singularity exec "${CONTAINER_DIR}/mmseqs2.sif" \
+    singularity exec "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 \
         result2repseq ${TAXID_DIR}/${TAXID}.db \
         ${TAXID_DIR}/${TAXID}.clusters.db ${TAXID_DIR}/${TAXID}.clusters.rep
     # output representative sequence from each sequence cluster
-    singularity exec "${CONTAINER_DIR}/mmseqs2.sif" \
+    singularity exec "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 \
         result2flat ${TAXID_DIR}/${TAXID}.db ${TAXID_DIR}/${TAXID}.db \
         ${TAXID_DIR}/${TAXID}.clusters.rep \
         ${TAXID_DIR}/${TAXID}.clustered.faa --use-fasta-header
