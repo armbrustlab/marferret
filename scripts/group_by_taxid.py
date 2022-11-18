@@ -58,7 +58,7 @@ def main():
                 for seq_record in SeqIO.parse('{}/{}'.format(args.input_dir, input_fasta), 'fasta'):
                     # make new uid for sequence
                     aa_counter += 1 
-                    uid = 'mft{:d}'.format(aa_counter)
+                    uid = 'mft{:0>10}'.format(aa_counter)
                     # write renamed SeqRecord to outfile
                     out_record = SeqRecord(seq_record.seq, id=uid, description='')
                     SeqIO.write(out_record, outfile, 'fasta')
