@@ -1,7 +1,7 @@
 FROM python:3
 MAINTAINER Stephen Blaskowski
 
-# install SPAMS dependencies
+# install dependencies
 RUN apt-get update && apt-get install -y libblas-dev liblapack-dev gfortran
 RUN pip3 install mkl
 
