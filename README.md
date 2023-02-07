@@ -58,7 +58,7 @@ A metadata file entitled [MarFERReT.v1.metadata.csv](https://github.com/armbrust
 * `tax_id`: an NCBI taxonomical identifier
 * `source_filename`: this should exactly match the name of the fasta file in `source_seqs` (unzipped)
 * `seq_type`: the sequence type of the source fasta -- 'nt' for nucleotide and 'aa' for amino acid
-* `aa_fasta`: a name for the standardized fasta file (the convention is `ref_id`_`marferret_name`)
+* `aa_fasta`: a name for the standardized fasta file (the convention is 'ref_id' + '_' + 'marferret_name')
 
 ### Building software containers
 
