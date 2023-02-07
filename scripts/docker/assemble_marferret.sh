@@ -12,15 +12,16 @@
 #   - Reference genomes in the data/source_seqs/ directory
 #   - data/MarFERReT.entry_metadata.v1.csv
 #       * NOTE: The MarFERReT.entry_metadata.v1.csv file must contain at least
-#         the four fields 'ref_id', 'marferret_name', 'source_filename', and 
-#         'seq_type', and the filename listed under 'source_filename' must 
-#         match the filename of the reference genome in data/source_seqs/ 
+#         the five fields 'ref_id', 'marferret_name', 'source_filename', 
+#         'aa_fasta' and 'seq_type', and the filename listed under 
+#         'source_filename' must match the filename of the reference genome 
+#         in data/source_seqs/ 
 
 # Outputs:
 #   - data/MarFERReT.${VERSION}.proteins.faa
 #       * Clustered MarFERReT protein database
-#   - data/MarFERReT.${VERSION}.uid2tax.tab.gz
-#   - data/MarFERReT.${VERSION}.uid2def.csv
+#   - data/MarFERReT.${VERSION}.taxonomies.tab.gz
+#   - data/MarFERReT.${VERSION}.proteins_info.tab
 #   - data/aa_seqs directory with translated & standardized amino acid sequences
 #   - data/taxid_grouped directory with amino acid sequences grouped by taxid
 #   - data/clustered directory with amino acid sequences clustered within taxid
@@ -32,8 +33,8 @@
 # amino acid sequences in the `aa_seqs` directory. Next, all amino acid 
 # sequences are renamed with a custom MarFERReT unique identifier, which can 
 # be mapped to its original name, as well as the reference sequence's 
-# taxonomical identifier in the `uid2tax.tab` and `uid2def.csv` files. All 
-# amino acid sequences corresponding to the same taxonomical id are then 
+# taxonomical identifier in the `taxonomies.tab` and `proteins_info.tab` files. 
+# All amino acid sequences corresponding to the same taxonomical id are then 
 # grouped together into a fasta file in the `taxid_grouped` directory. The 
 # script then uses mmseqs2 to cluster amino acids within a taxid group and 
 # output the non-redundant cluster representatives to fasta files in the 
@@ -45,6 +46,7 @@ VERSION="v1"
 MARFERRET_DIR=$( realpath ../ )
 MIN_SEQ_ID=0.99     # sequence identity threshold for amino acid clustering
 SOURCE_DIR="${MARFERRET_DIR}/data/source_seqs"
+SCRIPTS_DIR="${MARFERRET_DIR}/scripts/core"
 META_FILE="${MARFERRET_DIR}/data/MarFERReT.${VERSION}.metadata.csv"
 
 # make directory for amino acids
@@ -63,10 +65,11 @@ fi
 F_REF_ID=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "ref_id" | cut -f1 -d:)
 F_NAME=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "marferret_name" | cut -f1 -d:)
 F_FILE=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "source_filename" | cut -f1 -d:)
+F_FASTA=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "aa_fasta" | cut -f1 -d:)
 F_SEQ_TYPE=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "seq_type" | cut -f1 -d:)
 
 # iterate through nucleotide sequences listed in metatdata file
-while IFS=',' read -r ref_id marferret_name source_filename seq_type; do 
+while IFS=',' read -r ref_id marferret_name source_filename seq_type aa_fasta; do 
     # check that the sequence is in the source_seqs directory
     if [ ! -e "${SOURCE_DIR}/${source_filename}" ]; then 
         echo "WARNING: Filename ${source_filename} not found."
@@ -75,10 +78,10 @@ while IFS=',' read -r ref_id marferret_name source_filename seq_type; do
     else
         echo $ref_id $marferret_name $source_filename $seq_type
         # build standardized sequence name
-        seq_name="${ref_id}_${marferret_name}"
+        seq_name="${aa_fasta%.*}"
         # rename amino acids and move to amino acid sequence directory
         if [ "${seq_type}" == "aa" ]; then
-            cat "${SOURCE_DIR}/${source_filename}" >> "${AA_DIR}/${seq_name}.faa"
+            cat "${SOURCE_DIR}/${source_filename}" >> "${AA_DIR}/${aa_fasta}"
         elif [ "${seq_type}" == "nt" ]; then
             printf '\ttranslating nucleotide sequence\n'
             # run transeq to translate nucleotide sequences into proteins
@@ -89,13 +92,13 @@ while IFS=',' read -r ref_id marferret_name source_filename seq_type; do
                 -outseq "data/temp/${seq_name}.6tr.faa"
             # run frame selection to select longest coding frame
             docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
-                ./scripts/keep_longest_frame.py -l 1 \
+                ${SCRIPTS_DIR}/keep_longest_frame.py -l 1 \
                 "data/temp/${seq_name}.6tr.faa"
             # move frame selected file to amino acid sequence directory
-            mv "${TMP_DIR}/${seq_name}.6tr.bf1.faa" "${AA_DIR}/${seq_name}.faa"
+            mv "${TMP_DIR}/${seq_name}.6tr.bf1.faa" "${AA_DIR}/${aa_fasta}"
         fi
     fi
-done < <( tail -n +2 ${META_FILE} | cut -f"${F_REF_ID},${F_NAME},${F_SEQ_TYPE},${F_FILE}" -d, )
+done < <( tail -n +2 ${META_FILE} | cut -f"${F_REF_ID},${F_NAME},${F_SEQ_TYPE},${F_FILE},${F_FASTA}" -d, )
 
 # clean up temp directory
 rm -rf ${TMP_DIR}
@@ -108,14 +111,14 @@ if [ ! -d ${TAX_DIR} ]; then
 fi
 # run python script
 docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
-    ./scripts/group_by_taxid.py data/aa_seqs \
+    ${SCRIPTS_DIR}/group_by_taxid.py data/aa_seqs \
     "data/MarFERReT.${VERSION}.metadata.csv" \
     -o data/taxid_grouped
 # move mapping files to the data directory
-mv "${TAX_DIR}/uid2tax.tab" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.uid2tax.tab"
-mv "${TAX_DIR}/uid2def.csv" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.uid2def.csv"
-# gzip the UID2TAXID file for use with diamond
-gzip "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.uid2tax.tab"
+mv "${TAX_DIR}/taxonomies.tab" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.taxonomies.tab"
+mv "${TAX_DIR}/proteins_info.tab" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.proteins_info.tab"
+# gzip the taxonomies.tab file for use with diamond
+gzip "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.taxonomies.tab"
 
 # cluster proteins from NCBI tax ids with more than one reference sequence
 F_TAX_ID=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "tax_id" | cut -f1 -d:)

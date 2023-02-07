@@ -9,8 +9,10 @@ from Bio.SeqRecord import SeqRecord
 def handle_arguments():
     description = '''This script groups the input fasta files by tax_id, 
     outputting a single fasta file for each tax_id group. It also renames 
-    each of the SeqRecords with a unique identifier, and outputs mapping 
-    files that match each new unique id to its old id and tax_id. 
+    each of the SeqRecords with a unique amino acid identifier `aa_id`, 
+    and outputs mapping files that match each new aa_id to its corresponding 
+    ref_id, tax_id, as well as the name of the sequence in the original input
+    fasta file. 
     
     Example usage: ./group_by_taxid.py fasta/dir/in metadata.csv -o fasta/dir/out
     '''
@@ -23,7 +25,7 @@ def handle_arguments():
     parser.add_argument(
         'metadata', 
         type=str, 
-        help='Metadata csv file containing "aa_fasta" and "tax_id" fields.'
+        help='Metadata csv file containing "ref_id", "aa_fasta" and "tax_id" fields.'
     )
     parser.add_argument(
         '-o', '--output_dir', 
@@ -39,10 +41,10 @@ def main():
     # read in metadata
     meta_df = pd.read_csv(args.metadata)
     # open and initialize mapping files
-    uid2tax = open('{}/uid2tax.tab'.format(args.output_dir), 'w')
-    uid2tax.write('accession\taccession.version\ttaxid\tgi\n')
-    uid2def = open('{}/uid2def.csv'.format(args.output_dir), 'w')
-    uid2def.write('uniq_id,source_defline\n')
+    aa_tax = open('{}/taxonomies.tab'.format(args.output_dir), 'w')
+    aa_tax.write('accession\taccession.version\ttaxid\tgi\n')
+    aa_info = open('{}/proteins_info.tab'.format(args.output_dir), 'w')
+    aa_info.write('aa_id\tref_id\tsource_defline\n')
     # initialize counter
     aa_counter = 0
     # loop through each taxid
@@ -53,7 +55,10 @@ def main():
         # open new outfile
         with open('{}/{}.combined.faa'.format(args.output_dir, taxid), 'w') as outfile:
             # iterate through input fasta files
-            for input_fasta in subset_df['aa_fasta']:
+            for entry in subset_df.iterrows():
+                # get important entry information
+                input_fasta = entry[1]['aa_fasta']
+                ref_id = entry[1]['ref_id']
                 # iterate through SeqRecords
                 for seq_record in SeqIO.parse('{}/{}'.format(args.input_dir, input_fasta), 'fasta'):
                     # make new uid for sequence
@@ -63,11 +68,11 @@ def main():
                     out_record = SeqRecord(seq_record.seq, id=uid, description='')
                     SeqIO.write(out_record, outfile, 'fasta')
                     # write uid mappings to mapping files
-                    uid2tax.write('NA\t{}\t{}\tNA\n'.format(uid, taxid))
-                    uid2def.write('{},{}\n'.format(uid, seq_record.id.strip()))
+                    aa_tax.write('NA\t{}\t{}\tNA\n'.format(uid, taxid))
+                    aa_info.write('{}\t{}\t{}\n'.format(uid, ref_id, seq_record.id.strip()))
     # close file handlers
-    uid2tax.close()
-    uid2def.close()
+    aa_tax.close()
+    aa_info.close()
     print('Finished!', flush=True)
     
 if __name__ == "__main__":
