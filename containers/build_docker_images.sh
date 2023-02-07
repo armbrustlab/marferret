@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Use these commands to build all the requisite  docker images for using
-# MarFERReT. Standard bioinformatics tool containers were preferentially 
+# Use these commands to build all the requisite  docker images for building
+# MarFERReT. Standard bioinformatics tool containers are preferentially 
 # pulled from the developer if possible, or if no container is maintained by
 # the developer, then pulled from the publically available biocontainers
-# (see https://biocontainers.pro/) A custom python container with the 
+# (see https://biocontainers.pro/). A custom python container with the 
 # dependencies necessary for running all MarFERReT Python scripts is constructed
 # from the Dockerfile in this directory.
 
@@ -20,7 +20,7 @@ docker pull biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1
 # in this directory.
 docker image build --tag marferret-py .
 
-# # Save docker images (if needed to transfer image to another machine)
+# # Save docker images
 # docker save ghcr.io/soedinglab/mmseqs2 | gzip > mmseqs2.tar.gz
 # docker save buchfink/diamond:version2.0.13 | gzip > diamond.tar.gz
 # docker save biocontainers/hmmer:v3.2.1dfsg-1-deb_cv1 | gzip > hmmer.tar.gz
