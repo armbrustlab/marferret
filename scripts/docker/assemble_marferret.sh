@@ -43,10 +43,9 @@
 
 # input variables
 VERSION="v1"
-MARFERRET_DIR=$( realpath ../ )
+MARFERRET_DIR=$( realpath ../../ )
 MIN_SEQ_ID=0.99     # sequence identity threshold for amino acid clustering
 SOURCE_DIR="${MARFERRET_DIR}/data/source_seqs"
-SCRIPTS_DIR="${MARFERRET_DIR}/scripts/core"
 META_FILE="${MARFERRET_DIR}/data/MarFERReT.${VERSION}.metadata.csv"
 
 # make directory for amino acids
@@ -64,9 +63,10 @@ fi
 # get field numbers from metadata file
 F_REF_ID=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "ref_id" | cut -f1 -d:)
 F_NAME=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "marferret_name" | cut -f1 -d:)
+F_TAX_ID=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "tax_id" | cut -f1 -d:)
 F_FILE=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "source_filename" | cut -f1 -d:)
-F_FASTA=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "aa_fasta" | cut -f1 -d:)
 F_SEQ_TYPE=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "seq_type" | cut -f1 -d:)
+F_FASTA=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "aa_fasta" | cut -f1 -d:)
 
 # iterate through nucleotide sequences listed in metatdata file
 while IFS=',' read -r ref_id marferret_name source_filename seq_type aa_fasta; do 
@@ -92,7 +92,7 @@ while IFS=',' read -r ref_id marferret_name source_filename seq_type aa_fasta; d
                 -outseq "data/temp/${seq_name}.6tr.faa"
             # run frame selection to select longest coding frame
             docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
-                ${SCRIPTS_DIR}/keep_longest_frame.py -l 1 \
+                scripts/python/keep_longest_frame.py -l 1 \
                 "data/temp/${seq_name}.6tr.faa"
             # move frame selected file to amino acid sequence directory
             mv "${TMP_DIR}/${seq_name}.6tr.bf1.faa" "${AA_DIR}/${aa_fasta}"
@@ -111,7 +111,7 @@ if [ ! -d ${TAX_DIR} ]; then
 fi
 # run python script
 docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
-    ${SCRIPTS_DIR}/group_by_taxid.py data/aa_seqs \
+    scripts/python/group_by_taxid.py data/aa_seqs \
     "data/MarFERReT.${VERSION}.metadata.csv" \
     -o data/taxid_grouped
 # move mapping files to the data directory
@@ -121,7 +121,6 @@ mv "${TAX_DIR}/proteins_info.tab" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.pr
 gzip "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.taxonomies.tab"
 
 # cluster proteins from NCBI tax ids with more than one reference sequence
-F_TAX_ID=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "tax_id" | cut -f1 -d:)
 # make new directory for clustered sequences
 CLUSTER_DIR="${MARFERRET_DIR}/data/clustered"
 if [ ! -d ${CLUSTER_DIR} ]; then 
@@ -159,7 +158,7 @@ popd
 
 # combine all clustered protein sequence representatives with unclustered
 # protein sequences for complete MarFERReT protein database
-MARFERRET_FASTA="../data/MarFERReT.${VERSION}.proteins.faa"
+MARFERRET_FASTA="${MARFERRET_DIR}/data/MarFERReT.${VERSION}.proteins.faa"
 # combine NCBI tax IDs with multiple sequence representatives (clustered)
 for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -d ); do
     cat ${CLUSTER_DIR}/${TAXID}.clustered.faa >> ${MARFERRET_FASTA}

@@ -33,5 +33,5 @@ docker run -v ${WORKING_DIR}:/data biocontainers/hmmer:v3.2.1dfsg-1-deb_cv1 \
     hmmsearch --cut_tc --domtblout ${DOMTBL} ${PFAM_HMMS} ${MARFERRET_PROTEINS}
 
 # choose best annotation for each protein
-docker run -w /home -v ${WORKING_DIR}:/home marferret-py ../core/best_kofam.py \
+docker run -w /home -v ${WORKING_DIR}:/home marferret-py data/python/best_kofam.py \
     ${DOMTBL} ${ANNOTATIONS}
