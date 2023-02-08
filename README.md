@@ -4,7 +4,7 @@
 ## Marine Functional EukaRyotic Reference Taxa
 ### A version-controlled, open source library of marine microbial eukaryotic protein sequences for the taxonomic annotation of environmental metatranscriptomes
 
-The Marine Functional EukaRyotic Reference Taxa (MarFERReT) is a version-controlled and open source reference sequence library of marine eukarote proteins that allows for community-supported expansion over time. MarFERReT was constructed for the primary purpose of taxonomic annotation of environmental metatranscriptomes. The case studies included here illustrate how MarFERReT can be used on its own or in combination with other reference libraries for taxonomic and functional annotation, and for estimating the completeness of taxonomic bins.
+The Marine Functional EukaRyotic Reference Taxa (MarFERReT) is a version-controlled and open source reference sequence library of marine eukarote proteins that allows for community-supported expansion over time. MarFERReT was constructed for the primary purpose of taxonomic annotation of environmental metatranscriptomes. The case studies included in Part B illustrate how MarFERReT can be used on its own or in combination with other reference libraries for taxonomic and functional annotation, and for estimating the completeness of taxonomic bins.
 
 Primary publication reference:
 	[CITATION] Groussman, R.D. et al., ...
@@ -15,10 +15,11 @@ This github repository is associated with a Zenodo repository for data storage:
 
 ## Table of Contents
 
-The contents of this repo are organized into four parts:
+The contents of this repo are organized into three parts:
 * Part A: [Building MarFERReT](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#part-a-building-marferret)
 * Part B: [Using MarFERRet](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#part-b-using-marferret)
-	* [Case Studies](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#case-studies)
+	* [Case Study 1]()
+	* [Case Study 2]()
 * Part C: [Future MarFERReT releases](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#part-c-future-marferret-releases)
 
 ## Part A: Building MarFERReT
