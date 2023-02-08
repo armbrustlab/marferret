@@ -20,21 +20,22 @@
 # gunzip Pfam-A.hmm.gz
 
 
-# # exit if the script tries to use undeclared variables
-# set -o nounset
-# # exit if any pipe commands fail
-# set -o pipefail
-# # exit when a command fails
-# set -o errexit
+# exit if the script tries to use undeclared variables
+set -o nounset
+# exit if any pipe commands fail
+set -o pipefail
+# exit when a command fails
+set -o errexit
 
 # input variables
 VERSION=v1
-WORKING_DIR=$( realpath ../data )
+MARFERRET_DIR=$( realpath ../ )
+DATA_DIR="${MARFERRET_DIR}/data"
 # filepaths (relative to working directory)
 PFAM_HMMS="pfam/Pfam-A.hmm"
-MARFERRET_PROTEINS="MarFERReT.${VERSION}.proteins.faa.gz"
+MARFERRET_PROTEINS="MarFERReT.${VERSION}.proteins.faa"
 DOMTBL="pfam/MarFERReT.${VERSION}.pfam.domtblout.tab"
-ANNOTATIONS="MarFERReT.${VERSION}.pfam.csv"
+ANNOTATIONS="MarFERReT.${VERSION}.best_pfam_annotations.csv"
 
 # user selects singularity or docker containerization
 CONTAINER=""
@@ -52,29 +53,45 @@ while [ "${CONTAINER}" == "" ]; do
     fi
 done
 
+# gunzip ${MARFERRET_PROTEINS} if need be
+if [ ! -e "${DATA_DIR}/${MARFERRET_PROTEINS}" ]; then
+    if [ -e "${DATA_DIR}/${MARFERRET_PROTEINS}.gz" ]; then
+        gunzip "${DATA_DIR}/${MARFERRET_PROTEINS}.gz"
+    else
+        echo "Could not find input file ${DATA_DIR}/${MARFERRET_PROTEINS}.gz"
+    fi
+fi
+
+# make domtblout file
+if [ ! -e "${DATA_DIR}/${DOMTBL}" ]; then
+    touch "${DATA_DIR}/${DOMTBL}"
+fi
+
 # run pfam annotations with singularity
 if [ "${CONTAINER}" == "singularity" ]; then
     # run hmmsearch
     singularity exec ${CONTAINER_DIR}/hmmer.sif hmmsearch --cpu ${CORES} --cut_tc \
         --domtblout ${DOMTBL} ${PFAM_HMMS} ${MARFERRET_PROTEINS}
     # choose best annotation for each protein
-    singularity exec ${CONTAINER_DIR}/marferret-py.sif ./best_kofam.py \
+    singularity exec ${CONTAINER_DIR}/marferret-py.sif ./best_pfam.py \
         ${DOMTBL} ${ANNOTATIONS}
 
 # run pfam annotations with docker
 elif [ "${CONTAINER}" == "docker" ]; then
     # run hmmsearch
-    docker run -v ${WORKING_DIR}:/data biocontainers/hmmer:v3.2.1dfsg-1-deb_cv1 \
+    docker run -v ${DATA_DIR}:/data biocontainers/hmmer:v3.2.1dfsg-1-deb_cv1 \
         hmmsearch --cut_tc --domtblout ${DOMTBL} ${PFAM_HMMS} ${MARFERRET_PROTEINS}
     # choose best annotation for each protein
-    docker run -w /home -v ${WORKING_DIR}:/home marferret-py ../scripts/python/best_kofam.py \
-        ${DOMTBL} ${ANNOTATIONS}
+    docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
+        scripts/python/best_pfam.py data/${DOMTBL} data/${ANNOTATIONS}
 else
     echo "Containerization not recognized"
     exit
 fi
 
+# gzip input proteins
+gzip ${DATA_DIR}/${MARFERRET_PROTEINS}
 # gzip outputs
-gzip ${DOMTBL}
-gzip ${ANNOTATIONS}
+gzip ${DATA_DIR}/${DOMTBL}
+gzip ${DATA_DIR}/${ANNOTATIONS}
 echo "MarFERReT annotation with pfam complete!"

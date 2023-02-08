@@ -10,7 +10,7 @@ def handle_arguments():
         selects the top scoring annotation for each protein listed in the
         file, and then outputs a csv of the parsed and down-selected data.
 
-        Example usage: ./best_kofam.py -f domtblout.tab annotations.csv
+        Example usage: ./best_pfam.py -f domtblout.tab annotations.csv
         '''
     parser = argparse.ArgumentParser(description=description)
     parser.add_argument('input', type=str, help='Input domtblout file')

@@ -14,8 +14,8 @@ set -o errexit
 
 # input variables
 VERSION=v1
-MARFERRET_PROTEINS="MarFERReT.${VERSION}.proteins.faa"
-UID2TAXID="MarFERReT.${VERSION}.uid2tax.tab.gz"
+MARFERRET_PROTEINS="MarFERReT.${VERSION}.proteins.faa.gz"
+UID2TAXID="MarFERReT.${VERSION}.taxonomies.tab.gz"
 DATA_DIR=$( realpath ../data )
 TAX_DIR=${DATA_DIR}/diamond/ncbi
 
