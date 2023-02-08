@@ -41,12 +41,35 @@
 # `clustered` directory. Finally, all MarFERReT protein sequences are
 # concatenated into the MarFERReT.${VERSION}.proteins.faa file.
 
+# exit if the script tries to use undeclared variables
+set -o nounset
+# exit if any pipe commands fail
+set -o pipefail
+# exit when a command fails
+set -o errexit
+
 # input variables
 VERSION="v1"
-MARFERRET_DIR=$( realpath ../../ )
+MARFERRET_DIR=$( realpath ../ )
 MIN_SEQ_ID=0.99     # sequence identity threshold for amino acid clustering
 SOURCE_DIR="${MARFERRET_DIR}/data/source_seqs"
 META_FILE="${MARFERRET_DIR}/data/MarFERReT.${VERSION}.metadata.csv"
+
+# user selects singularity or docker containerization
+CONTAINER=""
+while [ "${CONTAINER}" == "" ]; do
+    printf "\nPlease select an option:\n\n\t1 - singularity\n\t2 - docker\n\nEnter '1' or '2': "
+    read selection 
+    if [ "${selection}" == "1" ]; then
+        echo "Continuing with Singularity containerized workflow"
+        CONTAINER="singularity"
+    elif [ "${selection}" == "2" ]; then
+        echo "Continuing with Docker containerized workflow"
+        CONTAINER="docker"
+    else 
+        printf "\nInvalid selection\n"
+    fi
+done
 
 # make directory for amino acids
 AA_DIR="${MARFERRET_DIR}/data/aa_seqs"
@@ -85,21 +108,39 @@ while IFS=',' read -r ref_id marferret_name source_filename seq_type aa_fasta; d
         elif [ "${seq_type}" == "nt" ]; then
             printf '\ttranslating nucleotide sequence\n'
             # run transeq to translate nucleotide sequences into proteins
-            docker run -v ${MARFERRET_DIR}:/data \
-                biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1 \
-                transeq -auto -sformat pearson -frame 6 \
-                -sequence "data/source_seqs/${source_filename}" \
-                -outseq "data/temp/${seq_name}.6tr.faa"
+            if [ "${CONTAINER}" == "singularity" ]; then
+                singularity exec "${CONTAINER_DIR}/emboss.sif" \
+                    transeq -auto -sformat pearson -frame 6 \
+                    -sequence "${MARFERRET_DIR}/data/source_seqs/${source_filename}" \
+                    -outseq "${MARFERRET_DIR}/data/temp/${seq_name}.6tr.faa"
+            elif [ "${CONTAINER}" == "docker" ]; then
+                docker run -v ${MARFERRET_DIR}:/data \
+                    biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1 \
+                    transeq -auto -sformat pearson -frame 6 \
+                    -sequence "data/source_seqs/${source_filename}" \
+                    -outseq "data/temp/${seq_name}.6tr.faa"
+            else
+                echo "Containerization not recognized"
+                exit
+            fi
             # run frame selection to select longest coding frame
-            docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
-                scripts/python/keep_longest_frame.py -l 1 \
-                "data/temp/${seq_name}.6tr.faa"
+            if [ "${CONTAINER}" == "singularity" ]; then
+                singularity exec "${CONTAINER_DIR}/marferret-py.sif" \
+                    "${MARFERRET_DIR}/scripts/keep_longest_frame.py" -l 1 \
+                    "${MARFERRET_DIR}/data/temp/${seq_name}.6tr.faa"
+            elif [ "${CONTAINER}" == "docker" ]; then
+                docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
+                    scripts/python/keep_longest_frame.py -l 1 \
+                    "data/temp/${seq_name}.6tr.faa"
+            else
+                echo "Containerization not recognized"
+                exit
+            fi
             # move frame selected file to amino acid sequence directory
             mv "${TMP_DIR}/${seq_name}.6tr.bf1.faa" "${AA_DIR}/${aa_fasta}"
         fi
     fi
 done < <( tail -n +2 ${META_FILE} | cut -f"${F_REF_ID},${F_NAME},${F_SEQ_TYPE},${F_FILE},${F_FASTA}" -d, )
-
 # clean up temp directory
 rm -rf ${TMP_DIR}
 
@@ -109,16 +150,26 @@ TAX_DIR="${MARFERRET_DIR}/data/taxid_grouped"
 if [ ! -d ${TAX_DIR} ]; then 
     mkdir ${TAX_DIR}
 fi
-# run python script
-docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
-    scripts/python/group_by_taxid.py data/aa_seqs \
-    "data/MarFERReT.${VERSION}.metadata.csv" \
-    -o data/taxid_grouped
+# run python script group_by_taxid.py
+if [ "${CONTAINER}" == "singularity" ]; then
+    singularity exec "${CONTAINER_DIR}/marferret-py.sif" \
+        "${MARFERRET_DIR}/scripts/group_by_taxid.py" \
+        ${AA_DIR} ${META_FILE} -o ${TAX_DIR}
+elif [ "${CONTAINER}" == "docker" ]; then
+    docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
+        scripts/python/group_by_taxid.py data/aa_seqs \
+        "data/MarFERReT.${VERSION}.metadata.csv" \
+        -o data/taxid_grouped
+else
+    echo "Containerization not recognized"
+    exit
+fi
 # move mapping files to the data directory
 mv "${TAX_DIR}/taxonomies.tab" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.taxonomies.tab"
 mv "${TAX_DIR}/proteins_info.tab" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.proteins_info.tab"
-# gzip the taxonomies.tab file for use with diamond
+# gzip mapping files
 gzip "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.taxonomies.tab"
+gzip "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.proteins_info.tab"
 
 # cluster proteins from NCBI tax ids with more than one reference sequence
 # make new directory for clustered sequences
@@ -133,21 +184,46 @@ for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -d );
     INPUT_FASTA="${TAXID}.combined.faa"
     # make temporary working directory for taxid
     mkdir -p ${TAXID}/${TAXID}_tmp
-    # make combined taxid sequence database
-    docker run -w /data -v ${TAX_DIR}:/data ghcr.io/soedinglab/mmseqs2 \
-        createdb ${INPUT_FASTA} ${TAXID}/${TAXID}.db
-    # cluster sequences from combined taxid sequence database
-    docker run -w /data -v ${TAX_DIR}:/data ghcr.io/soedinglab/mmseqs2 \
-        linclust ${TAXID}/${TAXID}.db ${TAXID}/${TAXID}.clusters.db \
-        ${TAXID}/${TAXID}_tmp --min-seq-id ${MIN_SEQ_ID}
-    # select representative sequence from each sequence cluster
-    docker run -w /data -v ${TAX_DIR}:/data ghcr.io/soedinglab/mmseqs2 \
-        result2repseq ${TAXID}/${TAXID}.db ${TAXID}/${TAXID}.clusters.db \
-        ${TAXID}/${TAXID}.clusters.rep
-    # output representative sequence from each sequence cluster
-    docker run -w /data -v ${TAX_DIR}:/data ghcr.io/soedinglab/mmseqs2 \
-        result2flat ${TAXID}/${TAXID}.db ${TAXID}/${TAXID}.db \
-        ${TAXID}/${TAXID}.clusters.rep ${TAXID}/${TAXID}.clustered.faa --use-fasta-header
+    # run clustering in singularity
+    if [ "${CONTAINER}" == "singularity" ]; then
+        # make combined taxid sequence database
+        singularity exec "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 \
+            createdb ${INPUT_FASTA} ${TAXID_DIR}/${TAXID}.db
+        # cluster sequences from combined taxid sequence database
+        singularity exec "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 \
+            linclust ${TAXID_DIR}/${TAXID}.db ${TAXID_DIR}/${TAXID}.clusters.db \
+            ${TAXID_DIR}/${TAXID}_tmp --min-seq-id ${MIN_SEQ_ID}
+        # select representative sequence from each sequence cluster
+        singularity exec "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 \
+            result2repseq ${TAXID_DIR}/${TAXID}.db \
+            ${TAXID_DIR}/${TAXID}.clusters.db ${TAXID_DIR}/${TAXID}.clusters.rep
+        # output representative sequence from each sequence cluster
+        singularity exec "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 \
+            result2flat ${TAXID_DIR}/${TAXID}.db ${TAXID_DIR}/${TAXID}.db \
+            ${TAXID_DIR}/${TAXID}.clusters.rep \
+            ${TAXID_DIR}/${TAXID}.clustered.faa --use-fasta-header
+    # run clustering in docker
+    elif [ "${CONTAINER}" == "docker" ]; then
+        # make combined taxid sequence database
+        docker run -w /data -v ${TAX_DIR}:/data ghcr.io/soedinglab/mmseqs2 \
+            createdb ${INPUT_FASTA} ${TAXID}/${TAXID}.db
+        # cluster sequences from combined taxid sequence database
+        docker run -w /data -v ${TAX_DIR}:/data ghcr.io/soedinglab/mmseqs2 \
+            linclust ${TAXID}/${TAXID}.db ${TAXID}/${TAXID}.clusters.db \
+            ${TAXID}/${TAXID}_tmp --min-seq-id ${MIN_SEQ_ID}
+        # select representative sequence from each sequence cluster
+        docker run -w /data -v ${TAX_DIR}:/data ghcr.io/soedinglab/mmseqs2 \
+            result2repseq ${TAXID}/${TAXID}.db ${TAXID}/${TAXID}.clusters.db \
+            ${TAXID}/${TAXID}.clusters.rep
+        # output representative sequence from each sequence cluster
+        docker run -w /data -v ${TAX_DIR}:/data ghcr.io/soedinglab/mmseqs2 \
+            result2flat ${TAXID}/${TAXID}.db ${TAXID}/${TAXID}.db \
+            ${TAXID}/${TAXID}.clusters.rep \
+            ${TAXID}/${TAXID}.clustered.faa --use-fasta-header
+    else
+        echo "Containerization not recognized"
+        exit
+    fi
     # moved clustered sequence result to output directory
     mv ${TAXID}/${TAXID}.clustered.faa ${CLUSTER_DIR}/
     # delete temporary working directory
@@ -167,3 +243,7 @@ done
 for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -u ); do
     cat ${TAX_DIR}/${TAXID}.combined.faa >> ${MARFERRET_FASTA}
 done
+
+# gzip output MarFERReT.${VERSION}.proteins.faa file
+gzip ${MARFERRET_FASTA}
+echo "MarFERReT database construction complete!"

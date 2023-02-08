@@ -5,10 +5,19 @@
 # MarFERReT database files.
 
 
+# exit if the script tries to use undeclared variables
+set -o nounset
+# exit if any pipe commands fail
+set -o pipefail
+# exit when a command fails
+set -o errexit
+
+# input variables
 VERSION=v1
 MARFERRET_PROTEINS="MarFERReT.${VERSION}.proteins.faa"
 UID2TAXID="MarFERReT.${VERSION}.uid2tax.tab.gz"
-TAX_DIR=../data/diamond/ncbi
+DATA_DIR=$( realpath ../data )
+TAX_DIR=${DATA_DIR}/diamond/ncbi
 
 # user selects singularity or docker containerization
 CONTAINER=""
@@ -38,7 +47,7 @@ unzip taxdmp.zip
 popd
 
 # build diamond database
-pushd ../data
+pushd ${DATA_DIR}
 MARFERRET_DMND=diamond/MarFERReT.v1.dmnd
 # assign containerized filepaths for taxon notes and names
 TAXONNODES=diamond/ncbi/nodes.dmp
@@ -46,8 +55,10 @@ TAXONNAMES=diamond/ncbi/names.dmp
 
 # build database with singularity
 if [ "${CONTAINER}" == "singularity" ]; then
-    singularity_command
-
+    singularity exec "${CONTAINER_DIR}/diamond.sif" makedb \
+        --in ${MARFERRET_PROTEINS} --db ${MARFERRET_DMND} \
+        --taxonnodes ${TAXONNODES} --taxonnames ${TAXONNAMES} \
+        --taxonmap ${UID2TAXID}
 # build database with docker
 elif [ "${CONTAINER}" == "docker" ]; then
     docker run -w /data -v $(pwd):/data buchfink/diamond:version2.0.13 makedb \
@@ -58,4 +69,7 @@ else
     echo "Containerization not recognized"
     exit
 fi
+
+# finished
 popd
+echo "MarFERReT diamond database construction complete!"
