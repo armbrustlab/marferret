@@ -16,28 +16,28 @@ This github repository is associated with a Zenodo repository for data storage:
 ## Table of Contents
 
 The contents of this repo are organized into four parts:
-- Part 1: [Building MarFERReT](https://github.com/armbrustlab/marine_eukaryote_sequence_database/README.md#part-1-building-marferret)
-- Part 2: [Using MarFERRet](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/README.md#part-2-using-marferret)
-- Part 3: [Case Studies](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/README.md#part-3-case-studies)
-- Part 4: [Future MarFERReT releases](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/README.md#part-4-future-marferret-releases)
+- Part A: [Building MarFERReT](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#part-a-building-marferret)
+- Part B: [Using MarFERRet](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#part-b-using-marferret)
+- Part C: [Case Studies](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#part-c-case-studies)
+- Part D: [Future MarFERReT releases](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#part-d-future-marferret-releases)
 
 ## Part 1: Building MarFERReT
 
-This section details how to build your own copy of MarFERReT starting from source reference sequences and the scripts stored in this repository. If you want to begin using MarFERReT right away, skip to Part 2.
+This section details how to build your own copy of MarFERReT starting from source reference sequences and the scripts stored in this repository. If you want to begin using MarFERReT right away, skip to [Part 2](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#part-2-using-marferret).
 
-If you're still here, that means you're ready to get into the technical details of building your own copy of the MarFERReT data. This work is broken down into four sequential steps:
+If you're still here, that means you're ready to get into the technical details of building your own copy of the MarFERReT data. This work is broken down into five steps:
 
-1. Cloning the MarFERReT repository
+1. [Cloning the MarFERReT repository](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#1-cloning-the-marferret-repository)
 1. Collecting and organizing inputs
 1. Building software containers
 1. Running MarFERReT database construction pipeline
 1. Annotating MarFERReT database sequences
 
-### Cloning the MarFERReT repository
+### 1) Cloning the MarFERReT repository
 
 The first step is to copy the MarFERReT pipeline code onto the computer where you intend to build the database. This can be done by [cloning](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) this repository into a suitable directory on your machine. 
 
-### Collecting and organizing inputs
+### 2) Collecting and organizing inputs
 
 Two sets of input files are required to build MarFERReT: 1) the source reference sequences and 2) a corresponding [metadata file](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/data/MarFERReT.v1.metadata.csv). The source reference sequences will need to be collected from their various public locations, and the metadata file will need to be edited to match the reference sequences. 
 
@@ -55,17 +55,17 @@ A metadata file entitled [MarFERReT.v1.metadata.csv](https://github.com/armbrust
 * `seq_type`: the sequence type of the source fasta -- 'nt' for nucleotide and 'aa' for amino acid
 * `aa_fasta`: a name for the standardized fasta file (the convention is 'ref_id' + '_' + 'marferret_name')
 
-### Building software containers
+### 3) Building software containers
 
 The MarFERReT database construction pipeline is entirely containerized, meaning that you do not need to worry about any software dependencies to build the database. Additionally, MarFERReT supports both Singularity and Docker containers, so you can take your pick. The necessary containers can be built in two steps:
 1. Install either Singularity or Docker on your machine, depending on your preference. 
-2. Navigate to the `containers` directory and run either the [`build_singularity_images.sh`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/containers/build_singularity_images.sh) or [build_docker_images.sh](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/containers/build_docker_images.sh) script.
+1. Navigate to the [`containers`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/tree/sbedits/containers) directory and run either the [`build_singularity_images.sh`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/containers/build_singularity_images.sh) or [`build_docker_images.sh`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/containers/build_docker_images.sh) script.
 
-### Running MarFERReT database construction pipeline
+### 4) Running MarFERReT database construction pipeline
 
 
 
-### Annotating MarFERReT database sequences
+### 5) Annotating MarFERReT database sequences
 
 
 
