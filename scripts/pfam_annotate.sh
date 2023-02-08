@@ -62,6 +62,15 @@ if [ ! -e "${DATA_DIR}/${MARFERRET_PROTEINS}" ]; then
     fi
 fi
 
+# gunzip ${PFAM_HMMS} if need be
+if [ ! -e "${DATA_DIR}/${PFAM_HMMS}" ]; then
+    if [ -e "${DATA_DIR}/${PFAM_HMMS}.gz" ]; then
+        gunzip "${DATA_DIR}/${PFAM_HMMS}.gz"
+    else
+        echo "Could not find input file ${DATA_DIR}/${PFAM_HMMS}.gz"
+    fi
+fi
+
 # make domtblout file
 if [ ! -e "${DATA_DIR}/${DOMTBL}" ]; then
     touch "${DATA_DIR}/${DOMTBL}"
