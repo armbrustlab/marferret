@@ -21,17 +21,17 @@ The contents of this repo are organized into four parts:
 - Part C: [Case Studies](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#part-c-case-studies)
 - Part D: [Future MarFERReT releases](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#part-d-future-marferret-releases)
 
-## Part 1: Building MarFERReT
+## Part A: Building MarFERReT
 
-This section details how to build your own copy of MarFERReT starting from source reference sequences and the scripts stored in this repository. If you want to begin using MarFERReT right away, skip to [Part 2](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#part-2-using-marferret).
+This section details how to build your own copy of MarFERReT starting from source reference sequences and the scripts stored in this repository. If you want to begin using MarFERReT right away, skip to [Part 2](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#part-b-using-marferret).
 
 If you're still here, that means you're ready to get into the technical details of building your own copy of the MarFERReT data. This work is broken down into five steps:
 
 1. [Cloning the MarFERReT repository](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/README.md#1-cloning-the-marferret-repository)
-1. Collecting and organizing inputs
-1. Building software containers
-1. Running MarFERReT database construction pipeline
-1. Annotating MarFERReT database sequences
+1. [Collecting and organizing inputs](https://github.com/armbrustlab/marine_eukaryote_sequence_database/tree/sbedits#2-collecting-and-organizing-inputs)
+1. [Building software containers](https://github.com/armbrustlab/marine_eukaryote_sequence_database/tree/sbedits#3-building-software-containers)
+1. [Running MarFERReT database construction pipeline](https://github.com/armbrustlab/marine_eukaryote_sequence_database/tree/sbedits#4-running-marferret-database-construction-pipeline)
+1. [Annotating MarFERReT database sequences](https://github.com/armbrustlab/marine_eukaryote_sequence_database/tree/sbedits#5-annotating-marferret-database-sequences)
 
 ### 1) Cloning the MarFERReT repository
 
@@ -43,7 +43,7 @@ Two sets of input files are required to build MarFERReT: 1) the source reference
 
 #### Source reference sequences
 
-Once you have cloned the MarFERReT repository onto your machine, make a new directory called `source_seqs` under the `data` directory (where the metadata file lives). You will deposit all of the fasta files of the source reference sequences into this directory. Detailed directions for finding and downloading the source reference sequences used to build MarFERReT v1 can be found [in this document](), and many entries have a corresponding entry under the `source_entry` field of the metadata file as well. Before running the MarFERReT pipeline, all of these fasta files should be unzipped. 
+Once you have cloned the MarFERReT repository onto your machine, make a new directory called `source_seqs` under the [`data`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/tree/sbedits/data) directory. You will deposit all of the fasta files of the source reference sequences into this directory. Detailed instructions for finding and downloading the source reference sequences used to build MarFERReT v1 can be found [in this document](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/docs/download_source_sequences.md). Before running the MarFERReT pipeline, all of these fasta files should be unzipped. 
 
 #### Metadata file
 
@@ -57,18 +57,29 @@ A metadata file entitled [MarFERReT.v1.metadata.csv](https://github.com/armbrust
 
 ### 3) Building software containers
 
-The MarFERReT database construction pipeline is entirely containerized, meaning that you do not need to worry about any software dependencies to build the database. Additionally, MarFERReT supports both Singularity and Docker containers, so you can take your pick. The necessary containers can be built in two steps:
-1. Install either Singularity or Docker on your machine, depending on your preference. 
-1. Navigate to the [`containers`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/tree/sbedits/containers) directory and run either the [`build_singularity_images.sh`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/containers/build_singularity_images.sh) or [`build_docker_images.sh`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/containers/build_docker_images.sh) script.
+The MarFERReT database construction pipeline is entirely containerized, meaning that you do not need to worry about software dependencies. Additionally, MarFERReT supports both Singularity and Docker containerization, depending on user preference. The necessary containers can be built in two steps:
+1. Install either [Singularity](https://docs.sylabs.io/guides/3.0/user-guide/installation.html) or [Docker](https://docs.docker.com/engine/install/) on your machine. 
+1. Navigate to the [`containers`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/tree/sbedits/containers) directory and run either the [`build_singularity_images.sh`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/containers/build_singularity_images.sh) or [`build_docker_images.sh`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/containers/build_docker_images.sh) script from the command line.
 
 ### 4) Running MarFERReT database construction pipeline
 
+Once the input source reference sequences have been collected, metadata has been organized, and the software containers have been built, you are ready to run the MarFERReT database construction pipeline. Navigate to the [`scripts`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/tree/sbedits/scripts) directory and run the [`assemble_marferret.sh`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/scripts/assemble_marferret.sh) script from the command line. You will be prompted to enter either `1` or `2` depending on whether you are using Singularity or Docker containerization. 
 
+The pipeline will take several hours to run, depending on your computer system specifications. When it is done you should find the following outputs in the `data` directory:
+* `MarFERReT.v1.proteins.faa.gz` -- MarFERReT protein library
+* `MarFERReT.v1.taxonomies.tab.gz` -- taxonomy mapping file required as input for building diamond database
+* `MarFERReT.v1.proteins_info.tab.gz` -- mapping file connecting each MarFERReT protein to its originating reference sequence
+* `/aa_seq` -- directory with translated & standardized amino acid sequences
+* `/taxid_grouped` -- directory with amino acid sequences grouped by taxid
+* `/clustered` -- directory with amino acid sequences clustered within taxid
 
 ### 5) Annotating MarFERReT database sequences
 
+A script for annotating each MarFERReT reference protein sequence with its best PFAM annotation can be found in the [`scripts`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/tree/sbedits/scripts) directory, named [`pfam_annotate.sh`](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/scripts/pfam_annotate.sh). In order to run this annotation, you must download the database of PFAM HMM profiles. The latest release can be found at the [PFAM ftp site](`http://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/`) `MarFERReT.v1.proteins.faa.gz`
+* `data/MarFERReT.v1.proteins.faa.gz`
 
 
+## Old stuff
 
 A visual diagram of the Part 1 workflow can be found here:
 ![Part 1 diagram](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/images/diagram1_web.png)
@@ -114,14 +125,14 @@ To the reduce sequence redundancy from multiple sequence entries for a single or
 
 Following this step, the protein sequences from clustered multi-entry taxIDs and the single-entry taxID are combined into a single MarFERRet protein file for subsequent analyses.
 
-## Part 2: Using MarFERReT
+## Part B: Using MarFERReT
 
 Provide a step-by-step description of how to get the development environment set and running, using the ready-made MarFERReT output generated by the instructions in Part 1.
 
 [STEPHEN STUFF]
 
 
-## Part 3: Case Studies
+## Part C: Case Studies
 
 The Case Use studies here are practical examples how MarFERReT can be used by itself or in conjunction with other protein sequence libraries to assign taxonomic identity to environmental sequences using DIAMOND fast protein alignment, and then to assess the completeness of annotated environmental transcript bins.
 A visual diagram of the Case Study workflows can be found here:
@@ -135,7 +146,7 @@ This Case Study shows how MarFERReT can be used to annotate unknown environmenta
 This Case Study provides an example on how to estimate the completeness of environmental transcriptome bins with taxonomic annotation (Case Study 1) and functional annotation with Pfam 34.0 (ref). The example shown here uses 'genus-level' annotations (or lower) for enhanced taxonomic specificity. In summary, the taxonomic and functional annotations are aggregated together and the percentage of lineage-specific core transcribed genes (CTGs) is determined for each genus-level environmental taxon bin.
 
 
-## Part 4: Future MarFERReT releases
+## Part D: Future MarFERReT releases
 
 MarFERReT was designed to be updated as new microbial eukaryote functional reference sequences are publicly released, with releases identified either through literature reviews, the JGI Genomes On Line Database (GOLD) or through user nominations through the ‘Issues’ request function on github.
 
