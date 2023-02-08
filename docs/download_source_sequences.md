@@ -5,7 +5,7 @@ Source sequences collated together in MarFERReT 1.0 were drawn from four major c
 
 ## Marine Microbial Eukaryote Sequence Project
 
-The Marine Microbial Eukaryote Sequence Project (MMETSP, Keeling et al., 2014) is the largest contributor to MarFERReT. We collected the MMETSP sequences as peptide translations from Version 2 of the MMETSP re-assemblies ([Johnson et al., 2018](https://doi.org/10.5281/zenodo.740440).
+The Marine Microbial Eukaryote Sequence Project (MMETSP, Keeling et al., 2014) is the largest contributor to MarFERReT. We collected the MMETSP sequences as peptide translations from Version 2 of the MMETSP re-assemblies ([Johnson et al., 2018](https://doi.org/10.5281/zenodo.740440)).
 
 Download peptide translations of transcriptome assemblies from Zenodo using wget:
 
@@ -21,7 +21,7 @@ tar -xvf mmetsp_dib_trinity2.2.0_pep_zenodo.tar.gz
 
 Note: MMETSP0754 (from MMETSP0754.trinity_out_2.2.0.Trinity.fasta.transdecoder.pep) was initially included in MarFERReT as ref_id 665, and subsequently removed due to an empty peptide file. 
 
-## Guajardo et al., 2021 diatoms
+## Guajardo et al. diatoms (2021)
 
 Ten diatom transcriptomes were downloaded from the [Zenodo repository](https://doi.org/10.5281/zenodo.4591037) associated with this project.
 
@@ -40,7 +40,7 @@ wget https://zenodo.org/record/4591037/files/ThTSP-09_RCC4583-Thalassiosiraminim
 wget https://zenodo.org/record/4591037/files/ThTSP-10_RCC4584-Minidiscussp-Trinity.fasta
 ```
 
-## Seeleuthner et al., 2018 SAGs
+## Seeleuthner et al. SAGs (2018)
 
 Predicted proteins from eight single-cell ampified genomes of Ochrophyte were downloaded from [genoscope](https://www.genoscope.cns.fr/tara/).
 
