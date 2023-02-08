@@ -1,15 +1,10 @@
 # MarFERReT
 ![marferret logo](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/images/marferret_logo2.png)
 
-## (Marine Functional EukaRyotic Reference Taxa)
-### An updated, version controlled, and open-source marine microbial eukaryotic sequence library designed for taxonomic annotation of environmental metatranscriptomes.
+## Marine Functional EukaRyotic Reference Taxa
+**A version-controlled open source marine microbial eukaryotic sequence library designed for taxonomic annotation of environmental metatranscriptomes**
 
-## Project Description
-
-The Marine Functional Eukaryotic Reproducible Reference Taxa (MarFERReT) is an  open-source marine eukaryote reference protein sequence library that allows for community-supported expansion over time. MarFERReT was constructed with an emphasis on a comprehensive marine microbial eukaryote reference library for the taxonomic annotation of environmental metatranscriptomes. MarFERRet data was used to identify the core transcribed genes of key marine eukaryote lineages to serve as a metric for estimating the completeness of environmental transcript bins follwoing taxonomic annotations.
-
-The Case Studies presented here are practical examples how MarFERReT can be used by itself or in conjunction with other protein sequence libraries to assign taxonomic identity to environmental sequences using the DIAMOND [fast read aligner], and then to assess the completeness of annotated environmental transcript bins. Lastly, MarFERReT provides a framework for future integration of new microbial eukaryote reference sequences into a growing, versionable sequence library built to increase the scientific community's accessibility and potential in understanding of the function of protists in marine ecosystems.
-
+The Marine Functional EukaRyotic Reference Taxa (MarFERReT) is a version-controlled and open source reference sequence library of marine eukarote proteins that allows for community-supported expansion over time. MarFERReT was constructed for the primary purpose of taxonomic annotation of environmental metatranscriptomes. The case studies included here illustrate how MarFERReT can be used on its own or in combination with other reference libraries for taxonomic and functional annotation, and for estimating the completeness of taxonomic bins.
 
 Primary publication reference:
 	[CITATION] Groussman, R.D. et al., ...
@@ -21,7 +16,7 @@ This github repository is associated with a Zenodo repository for data storage:
 ## Table of Contents
 
 The contents of this repo are organized into four parts:
-- Part 1: [Building MarFERReT](https://github.com/armbrustlab/marine_eukaryote_sequence_database#part-1-building-marferret)
+- Part 1: [Building MarFERReT](https://github.com/armbrustlab/marine_eukaryote_sequence_database/README.md#part-1-building-marferret)
 - Part 2: [Using MarFERRet](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/README.md#part-2-using-marferret)
 - Part 3: [Case Studies](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/README.md#part-3-case-studies)
 - Part 4: [Future MarFERReT releases](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/main/README.md#part-4-future-marferret-releases)
