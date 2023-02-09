@@ -63,6 +63,7 @@ while [ "${CONTAINER}" == "" ]; do
     if [ "${selection}" == "1" ]; then
         echo "Continuing with Singularity containerized workflow"
         CONTAINER="singularity"
+        CONTAINER_DIR="${MARFERRET_DIR}/containers"
     elif [ "${selection}" == "2" ]; then
         echo "Continuing with Docker containerized workflow"
         CONTAINER="docker"
@@ -179,8 +180,8 @@ if [ ! -d ${CLUSTER_DIR} ]; then
 fi
 # move to work in TAX_DIR directory
 pushd ${TAX_DIR}
-# iterate through NCBI tax ids to be clustered (more than one reference sequence)
-for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -d ); do
+# iterate through unique NCBI tax ids
+for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq ); do
     INPUT_FASTA="${TAXID}.combined.faa"
     # make temporary working directory for taxid
     mkdir -p ${TAXID}/${TAXID}_tmp
@@ -232,16 +233,12 @@ done
 # return to original directory
 popd
 
-# combine all clustered protein sequence representatives with unclustered
-# protein sequences for complete MarFERReT protein database
+# combine all clustered protein sequence representatives to make completed
+# MarFERReT protein database
 MARFERRET_FASTA="${MARFERRET_DIR}/data/MarFERReT.${VERSION}.proteins.faa"
-# combine NCBI tax IDs with multiple sequence representatives (clustered)
-for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -d ); do
+# combine clustered NCBI tax IDs 
+for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq ); do
     cat ${CLUSTER_DIR}/${TAXID}.clustered.faa >> ${MARFERRET_FASTA}
-done
-# combine NCBI tax IDs with single sequence representatives (unclustered)
-for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq -u ); do
-    cat ${TAX_DIR}/${TAXID}.combined.faa >> ${MARFERRET_FASTA}
 done
 
 # gzip output MarFERReT.${VERSION}.proteins.faa file
