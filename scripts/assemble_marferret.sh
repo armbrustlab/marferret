@@ -110,10 +110,11 @@ while IFS=',' read -r ref_id marferret_name source_filename seq_type aa_fasta; d
             printf '\ttranslating nucleotide sequence\n'
             # run transeq to translate nucleotide sequences into proteins
             if [ "${CONTAINER}" == "singularity" ]; then
-                singularity exec "${CONTAINER_DIR}/emboss.sif" \
+                singularity exec --no-home --bind ${MARFERRET_DIR}:/marferret \
+                    "${CONTAINER_DIR}/emboss.sif" \
                     transeq -auto -sformat pearson -frame 6 \
-                    -sequence "${MARFERRET_DIR}/data/source_seqs/${source_filename}" \
-                    -outseq "${MARFERRET_DIR}/data/temp/${seq_name}.6tr.faa"
+                    -sequence "/marferret/data/source_seqs/${source_filename}" \
+                    -outseq "/marferret/data/temp/${seq_name}.6tr.faa"
             elif [ "${CONTAINER}" == "docker" ]; then
                 docker run -v ${MARFERRET_DIR}:/data \
                     biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1 \
@@ -126,9 +127,10 @@ while IFS=',' read -r ref_id marferret_name source_filename seq_type aa_fasta; d
             fi
             # run frame selection to select longest coding frame
             if [ "${CONTAINER}" == "singularity" ]; then
-                singularity exec "${CONTAINER_DIR}/marferret-py.sif" \
-                    "${MARFERRET_DIR}/scripts/keep_longest_frame.py" -l 1 \
-                    "${MARFERRET_DIR}/data/temp/${seq_name}.6tr.faa"
+                singularity exec --no-home --bind ${MARFERRET_DIR}:/marferret \
+                    "${CONTAINER_DIR}/marferret-py.sif" \
+                    "/marferret/scripts/keep_longest_frame.py" -l 1 \
+                    "/marferret/data/temp/${seq_name}.6tr.faa"
             elif [ "${CONTAINER}" == "docker" ]; then
                 docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
                     scripts/python/keep_longest_frame.py -l 1 \
@@ -153,8 +155,9 @@ if [ ! -d ${TAX_DIR} ]; then
 fi
 # run python script group_by_taxid.py
 if [ "${CONTAINER}" == "singularity" ]; then
-    singularity exec "${CONTAINER_DIR}/marferret-py.sif" \
-        "${MARFERRET_DIR}/scripts/group_by_taxid.py" \
+    singularity exec --no-home --bind ${MARFERRET_DIR}:/marferret \
+        "${CONTAINER_DIR}/marferret-py.sif" \
+        "/marferret/scripts/group_by_taxid.py" \
         ${AA_DIR} ${META_FILE} -o ${TAX_DIR}
 elif [ "${CONTAINER}" == "docker" ]; then
     docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
@@ -188,21 +191,27 @@ for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq ); do
     # run clustering in singularity
     if [ "${CONTAINER}" == "singularity" ]; then
         # make combined taxid sequence database
-        singularity exec "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 \
-            createdb ${INPUT_FASTA} ${TAXID_DIR}/${TAXID}.db
+        singularity exec --no-home --bind ${TAX_DIR}:/tax_dir \
+            "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 createdb \
+            "/tax_dir/${INPUT_FASTA}" "/tax_dir/${TAXID}/${TAXID}.db"
         # cluster sequences from combined taxid sequence database
-        singularity exec "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 \
-            linclust ${TAXID_DIR}/${TAXID}.db ${TAXID_DIR}/${TAXID}.clusters.db \
-            ${TAXID_DIR}/${TAXID}_tmp --min-seq-id ${MIN_SEQ_ID}
+        singularity exec --no-home --bind ${TAX_DIR}:/tax_dir \
+            "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 linclust \
+            "/tax_dir/${TAXID}/${TAXID}.db" \
+            "/tax_dir/${TAXID}/${TAXID}.clusters.db" \
+            "/tax_dir/${TAXID}/${TAXID}_tmp" --min-seq-id ${MIN_SEQ_ID}
         # select representative sequence from each sequence cluster
-        singularity exec "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 \
-            result2repseq ${TAXID_DIR}/${TAXID}.db \
-            ${TAXID_DIR}/${TAXID}.clusters.db ${TAXID_DIR}/${TAXID}.clusters.rep
+        singularity exec --no-home --bind ${TAX_DIR}:/tax_dir \
+            "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 result2repseq \
+            "/tax_dir/${TAXID}/${TAXID}.db" \
+            "/tax_dir/${TAXID}/${TAXID}.clusters.db" \
+            "/tax_dir/${TAXID}/${TAXID}.clusters.rep"
         # output representative sequence from each sequence cluster
-        singularity exec "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 \
-            result2flat ${TAXID_DIR}/${TAXID}.db ${TAXID_DIR}/${TAXID}.db \
-            ${TAXID_DIR}/${TAXID}.clusters.rep \
-            ${TAXID_DIR}/${TAXID}.clustered.faa --use-fasta-header
+        singularity exec --no-home --bind ${TAX_DIR}:/tax_dir \
+            "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 result2flat 
+            "/tax_dir/${TAXID}/${TAXID}.db" "/tax_dir/${TAXID}/${TAXID}.db" \
+            "/tax_dir/${TAXID}/${TAXID}.clusters.rep" \
+            "/tax_dir/${TAXID}/${TAXID}.clustered.faa" --use-fasta-header
     # run clustering in docker
     elif [ "${CONTAINER}" == "docker" ]; then
         # make combined taxid sequence database
