@@ -18,8 +18,8 @@ This github repository is associated with a Zenodo repository for data storage:
 The contents of this repo are organized into three parts:
 * Part A: [Building MarFERReT](https://github.com/armbrustlab/marferret/blob/main/README.md#part-a-building-marferret)
 * Part B: [Using MarFERRet](https://github.com/armbrustlab/marferret/blob/main/README.md#part-b-using-marferret)
-	* [Case Study 1]()
-	* [Case Study 2]()
+	* [Case Study 1](https://github.com/armbrustlab/marferret/blob/main/analyses/Case_study_1.md)
+	* [Case Study 2](https://github.com/armbrustlab/marferret/blob/main/analyses/Case_study_2.md)
 * Part C: [Future MarFERReT releases](https://github.com/armbrustlab/marferret/blob/main/README.md#part-c-future-marferret-releases)
 
 ## Part A: Building MarFERReT
@@ -99,10 +99,10 @@ The case studies presented here are practical examples how MarFERReT can be used
 A visual diagram of the case study analyses can be found here:
 ![Part 1 diagram](https://github.com/armbrustlab/marferret/blob/main/images/diagram2_web.png)
 
-[Case Study 1:](https://github.com/armbrustlab/marferret/blob/main/Case_study_1.md) 
+[Case Study 1](https://github.com/armbrustlab/marferret/blob/main/analyses/Case_study_1.md)
 This Case Study shows how MarFERReT can be used to annotate unknown environmental sequences using the DIAMOND fast protein-alignment tool (Buchfink et al., 2015). In summary, a DIAMOND-formatted database is created from sequence data and NCBI Taxonomy information, and used to annotate unknown environmental reads.
 
-[Case Study 2:](https://github.com/armbrustlab/marferret/blob/main/Case_study_2.md)
+[Case Study 2](https://github.com/armbrustlab/marferret/blob/main/analyses/Case_study_2.md)
 This Case Study provides an example on how to estimate the completeness of environmental transcriptome bins with taxonomic annotation (Case Study 1) and functional annotation with Pfam 34.0 (ref). The example shown here uses 'genus-level' annotations (or lower) for enhanced taxonomic specificity. In summary, the taxonomic and functional annotations are aggregated together and the percentage of lineage-specific core transcribed genes (CTGs) is determined for each genus-level environmental taxon bin.
 
 ## Part C: Future MarFERReT releases
