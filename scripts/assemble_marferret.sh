@@ -159,7 +159,7 @@ if [ "${CONTAINER}" == "singularity" ]; then
         "${CONTAINER_DIR}/marferret-py.sif" \
         "/marferret/scripts/python/group_by_taxid.py" \
         "/marferret/data/aa_seqs" \
-        "/marferret/data/MarFERReT.${VERSION}.metadata.csv" \ 
+        "/marferret/data/MarFERReT.${VERSION}.metadata.csv" \
         -o "/marferret/data/taxid_grouped"
 elif [ "${CONTAINER}" == "docker" ]; then
     docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
