@@ -129,7 +129,7 @@ while IFS=',' read -r ref_id marferret_name source_filename seq_type aa_fasta; d
             if [ "${CONTAINER}" == "singularity" ]; then
                 singularity exec --no-home --bind ${MARFERRET_DIR}:/marferret \
                     "${CONTAINER_DIR}/marferret-py.sif" \
-                    "/marferret/scripts/keep_longest_frame.py" -l 1 \
+                    "/marferret/scripts/python/keep_longest_frame.py" -l 1 \
                     "/marferret/data/temp/${seq_name}.6tr.faa"
             elif [ "${CONTAINER}" == "docker" ]; then
                 docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
@@ -157,7 +157,7 @@ fi
 if [ "${CONTAINER}" == "singularity" ]; then
     singularity exec --no-home --bind ${MARFERRET_DIR}:/marferret \
         "${CONTAINER_DIR}/marferret-py.sif" \
-        "/marferret/scripts/group_by_taxid.py" \
+        "/marferret/scripts/python/group_by_taxid.py" \
         ${AA_DIR} ${META_FILE} -o ${TAX_DIR}
 elif [ "${CONTAINER}" == "docker" ]; then
     docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
