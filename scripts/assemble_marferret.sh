@@ -210,7 +210,7 @@ for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq ); do
             "/tax_dir/${TAXID}/${TAXID}.clusters.rep"
         # output representative sequence from each sequence cluster
         singularity exec --no-home --bind ${TAX_DIR}:/tax_dir \
-            "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 result2flat 
+            "${CONTAINER_DIR}/mmseqs2.sif" mmseqs_avx2 result2flat \
             "/tax_dir/${TAXID}/${TAXID}.db" "/tax_dir/${TAXID}/${TAXID}.db" \
             "/tax_dir/${TAXID}/${TAXID}.clusters.rep" \
             "/tax_dir/${TAXID}/${TAXID}.clustered.faa" --use-fasta-header
