@@ -16,7 +16,8 @@ set -o errexit
 VERSION=v1
 MARFERRET_PROTEINS="MarFERReT.${VERSION}.proteins.faa.gz"
 UID2TAXID="MarFERReT.${VERSION}.taxonomies.tab.gz"
-DATA_DIR=$( realpath ../data )
+MARFERRET_DIR=$( realpath ../ )
+DATA_DIR=${MARFERRET_DIR}/data
 TAX_DIR=${DATA_DIR}/diamond/ncbi
 
 # user selects singularity or docker containerization
