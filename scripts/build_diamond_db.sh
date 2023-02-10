@@ -27,6 +27,7 @@ while [ "${CONTAINER}" == "" ]; do
     if [ "${selection}" == "1" ]; then
         echo "Continuing with Singularity containerized workflow"
         CONTAINER="singularity"
+        CONTAINER_DIR="${MARFERRET_DIR}/containers"
     elif [ "${selection}" == "2" ]; then
         echo "Continuing with Docker containerized workflow"
         CONTAINER="docker"
@@ -55,10 +56,11 @@ TAXONNAMES=diamond/ncbi/names.dmp
 
 # build database with singularity
 if [ "${CONTAINER}" == "singularity" ]; then
-    singularity exec "${CONTAINER_DIR}/diamond.sif" makedb \
-        --in ${MARFERRET_PROTEINS} --db ${MARFERRET_DMND} \
-        --taxonnodes ${TAXONNODES} --taxonnames ${TAXONNAMES} \
-        --taxonmap ${UID2TAXID}
+    singularity exec --no-home --bind ${DATA_DIR}:/data \
+        "${CONTAINER_DIR}/diamond.sif" makedb \
+        --in "/data/${MARFERRET_PROTEINS}" --db "/data/${MARFERRET_DMND}" \
+        --taxonnodes "/data/${TAXONNODES}" --taxonnames "/data/${TAXONNAMES}" \
+        --taxonmap "/data/${UID2TAXID}"
 # build database with docker
 elif [ "${CONTAINER}" == "docker" ]; then
     docker run -w /data -v $(pwd):/data buchfink/diamond:version2.0.13 makedb \
