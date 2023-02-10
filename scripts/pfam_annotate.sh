@@ -45,6 +45,7 @@ while [ "${CONTAINER}" == "" ]; do
     if [ "${selection}" == "1" ]; then
         echo "Continuing with Singularity containerized workflow"
         CONTAINER="singularity"
+        CONTAINER_DIR="${MARFERRET_DIR}/containers"
     elif [ "${selection}" == "2" ]; then
         echo "Continuing with Docker containerized workflow"
         CONTAINER="docker"
