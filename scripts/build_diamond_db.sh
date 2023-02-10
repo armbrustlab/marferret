@@ -44,8 +44,12 @@ fi
 
 # download and unzip taxdmp.zip files from NCBI
 pushd ${TAX_DIR}
-wget https://ftp.ncbi.nih.gov/pub/taxonomy/taxdmp.zip
-unzip taxdmp.zip
+if [ ! -e "taxdmp.zip" ]; then
+    wget https://ftp.ncbi.nih.gov/pub/taxonomy/taxdmp.zip
+fi
+if [ ! -e "nodes.dmp" ]; then
+    unzip taxdmp.zip
+fi
 popd
 
 # build diamond database
@@ -57,11 +61,11 @@ TAXONNAMES=diamond/ncbi/names.dmp
 
 # build database with singularity
 if [ "${CONTAINER}" == "singularity" ]; then
-    singularity exec --no-home --bind ${DATA_DIR}:/data \
-        "${CONTAINER_DIR}/diamond.sif" makedb \
-        --in "/data/${MARFERRET_PROTEINS}" --db "/data/${MARFERRET_DMND}" \
-        --taxonnodes "/data/${TAXONNODES}" --taxonnames "/data/${TAXONNAMES}" \
-        --taxonmap "/data/${UID2TAXID}"
+    singularity exec --no-home --bind ${DATA_DIR} \
+        "${CONTAINER_DIR}/diamond.sif" diamond makedb \
+        --in ${MARFERRET_PROTEINS} --db ${MARFERRET_DMND} \
+        --taxonnodes ${TAXONNODES} --taxonnames ${TAXONNAMES} \
+        --taxonmap ${UID2TAXID}
 # build database with docker
 elif [ "${CONTAINER}" == "docker" ]; then
     docker run -w /data -v $(pwd):/data buchfink/diamond:version2.0.13 makedb \
