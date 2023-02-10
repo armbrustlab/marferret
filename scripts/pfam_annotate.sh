@@ -28,6 +28,7 @@ set -o pipefail
 set -o errexit
 
 # input variables
+CORES=4
 VERSION=v1
 MARFERRET_DIR=$( realpath ../ )
 DATA_DIR="${MARFERRET_DIR}/data"
@@ -93,7 +94,8 @@ if [ "${CONTAINER}" == "singularity" ]; then
 elif [ "${CONTAINER}" == "docker" ]; then
     # run hmmsearch
     docker run -v ${DATA_DIR}:/data biocontainers/hmmer:v3.2.1dfsg-1-deb_cv1 \
-        hmmsearch --cut_tc --domtblout ${DOMTBL} ${PFAM_HMMS} ${MARFERRET_PROTEINS}
+        hmmsearch --cpu ${CORES} --cut_tc \
+        --domtblout ${DOMTBL} ${PFAM_HMMS} ${MARFERRET_PROTEINS}
     # choose best annotation for each protein
     docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
         scripts/python/best_pfam.py data/${DOMTBL} data/${ANNOTATIONS}
