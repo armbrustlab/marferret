@@ -158,7 +158,9 @@ if [ "${CONTAINER}" == "singularity" ]; then
     singularity exec --no-home --bind ${MARFERRET_DIR}:/marferret \
         "${CONTAINER_DIR}/marferret-py.sif" \
         "/marferret/scripts/python/group_by_taxid.py" \
-        ${AA_DIR} ${META_FILE} -o ${TAX_DIR}
+        "/marferret/data/aa_seqs" \
+        "/marferret/data/MarFERReT.${VERSION}.metadata.csv" \ 
+        -o "/marferret/data/taxid_grouped"
 elif [ "${CONTAINER}" == "docker" ]; then
     docker run -w /home -v ${MARFERRET_DIR}:/home marferret-py \
         scripts/python/group_by_taxid.py data/aa_seqs \
