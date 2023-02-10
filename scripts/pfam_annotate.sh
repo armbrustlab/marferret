@@ -79,12 +79,15 @@ fi
 # run pfam annotations with singularity
 if [ "${CONTAINER}" == "singularity" ]; then
     # run hmmsearch
-    singularity exec ${CONTAINER_DIR}/hmmer.sif hmmsearch --cpu ${CORES} --cut_tc \
-        --domtblout ${DOMTBL} ${PFAM_HMMS} ${MARFERRET_PROTEINS}
+    singularity exec --no-home --bind ${MARFERRET_DIR}:/marferret \
+        ${CONTAINER_DIR}/hmmer.sif hmmsearch --cpu ${CORES} --cut_tc \
+        --domtblout "/marferret/data/${DOMTBL}" \
+        "/marferret/data/${PFAM_HMMS}" "/marferret/data/${MARFERRET_PROTEINS}"
     # choose best annotation for each protein
-    singularity exec ${CONTAINER_DIR}/marferret-py.sif ./best_pfam.py \
-        ${DOMTBL} ${ANNOTATIONS}
-
+    singularity exec --no-home --bind ${MARFERRET_DIR}:/marferret \
+        ${CONTAINER_DIR}/marferret-py.sif \
+        "/marferret/scripts/python/best_pfam.py" \
+        "/marferret/data/${DOMTBL}" "/marferret/data/${ANNOTATIONS}"
 # run pfam annotations with docker
 elif [ "${CONTAINER}" == "docker" ]; then
     # run hmmsearch
