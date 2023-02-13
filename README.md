@@ -11,7 +11,7 @@ Primary publication reference:
 	[LINK TO PAPER]
 
 This github repository is associated with a Zenodo repository for data storage:
-	[LINK TO ZENODO]
+	[LINK TO ZENODO] insert link
 
 ## Table of Contents
 
