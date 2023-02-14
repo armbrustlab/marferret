@@ -4,14 +4,14 @@
 ## Marine Functional EukaRyotic Reference Taxa
 ### A version-controlled, open source library of marine microbial eukaryotic protein sequences for the taxonomic annotation of environmental metatranscriptomes
 
-The Marine Functional EukaRyotic Reference Taxa (MarFERReT) is a version-controlled and open source reference sequence library of marine eukarote proteins that allows for community-supported expansion over time. MarFERReT was constructed for the primary purpose of taxonomic annotation of environmental metatranscriptomes. The case studies included in Part B illustrate how MarFERReT can be used on its own or in combination with other reference libraries for taxonomic and functional annotation, and for estimating the completeness of taxonomic bins.
+The Marine Functional EukaRyotic Reference Taxa (MarFERReT) is a version-controlled and open source reference sequence library of marine eukarote proteins that allows for community-supported expansion over time. MarFERReT was constructed for the primary purpose of taxonomic annotation of environmental metatranscriptomes. MarFERRet_v1 can be downloaded from Zenodo [LINK TO ZENODO], or newly constructed following the steps in Part A. The case studies included in Part B illustrate how MarFERReT can be used on its own or in combination with other reference libraries for taxonomic and functional annotation, and for estimating the completeness of taxonomic bins.
 
 Primary publication reference:
 	[CITATION] Groussman, R.D. et al., ...
 	[LINK TO PAPER]
 
 This github repository is associated with a Zenodo repository for data storage:
-	[LINK TO ZENODO]
+	[LINK TO ZENODO] insert link
 
 ## Table of Contents
 
@@ -24,7 +24,7 @@ The contents of this repo are organized into three parts:
 
 ## Part A: Building MarFERReT
 
-This section details how to build your own copy of MarFERReT starting from source reference sequences and the scripts stored in this repository. If you want to begin using MarFERReT right away, skip to [Part 2](https://github.com/armbrustlab/marferret/blob/main/README.md#part-b-using-marferret).
+This section details how to build your own copy of MarFERReT starting from source reference sequences and the scripts stored in this repository. If you want to begin using MarFERReT right away, you can download MarFERReT from Zenodo [LINK TO ZENODO]() and skip to [Part 2](https://github.com/armbrustlab/marferret/blob/main/README.md#part-b-using-marferret).
 
 If you're still here, that means you're ready to get into the technical details of building your own copy of the MarFERReT data. This work is broken down into five steps:
 
@@ -86,9 +86,11 @@ The annotation script can take many days to run, as every protein is compared ag
 * `MarFERReT.v1.best_pfam_annotations.csv.gz` -- a summary of the best Pfam annotation for each MarFERReT reference protein
 * `pfam/MarFERReT.${VERSION}.pfam.domtblout.tab.gz` -- the complete set of Pfam annotations against each MarFERReT reference protein
 
+Note, the MarFERReT zenodo repository also contains MarFERRet+ database, that combines MarFERReT with MarineMicroDB [LINK TO MMDB](). The construction of MarFERReT+ follows the same steps as MarFERReT, with the added bacterial sequences that can be downloaded here [LINK WITH FASTA LOCATION MMDB](). The MarFERRet+ included files are given in the metadata.csv file on Zenodo.
+
 ## Part B: Using MarFERReT
 
-The primary intended use of MarFERReT is the taxonomical annotation of marine metatranscriptomic datasets. This can be done without building your own copy of the database. Instead, the MarFERReT v1 database files necessary for annotaiton can be downloaded from [Zenodo]().
+The primary intended use of MarFERReT is the taxonomical annotation of marine metatranscriptomic datasets. This can be done without building your own copy of the database. Instead, the MarFERReT v1 database files necessary for annotation can be downloaded from [Zenodo]().
 
 One means of performing this taxonomical annotation is to search MarFERReT for the closest matches to your data sequences. There are many bioinformatic tools available for this type of sequence alignment. One such popular tool for high performance sequence alignment of big datasets is [DIAMOND](https://github.com/bbuchfink/diamond). In the [`scripts`](https://github.com/armbrustlab/marferret/tree/main/scripts) directory of this repository, we have included a script named [`build_diamond_db.sh`](https://github.com/armbrustlab/marferret/blob/main/scripts/build_diamond_db.sh) for using DIAMOND in combination with MarFERReT. This script requires the `MarFERReT.v1.proteins.faa.gz` and `MarFERReT.v1.taxonomies.tab.gz` as inputs in the `data` directory.
 

@@ -55,10 +55,15 @@ wget https://www.genoscope.cns.fr/tara/localdata/data/SAG-v1/m4e.faa.gz
 wget https://www.genoscope.cns.fr/tara/localdata/data/SAG-v1/chryh1.faa.gz
 wget https://www.genoscope.cns.fr/tara/localdata/data/SAG-v1/chryh2.faa.gz
 ```
+Unzip the compressed files
+
+```
+gunzip *.faa.gz
+```
 
 ## NCBI Genbank downloads
 
-Sixteen transcriptomes and protein gene models from 23 genomes were gathered from [NCBI Genbank](https://www.ncbi.nlm.nih.gov/genbank/). FASTA files were downloaded manually from Genbank; the original links, accession numbers and raw sequence filenames used are listed in the [MarFERReT metadata file](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/data/MarFERReT.v1.metadata.csv).
+Eighteen transcriptomes and 23 predicted protein gene models from genomes were gathered from [NCBI Genbank](https://www.ncbi.nlm.nih.gov/genbank/). FASTA files were downloaded manually from Genbank; the original links, accession numbers and raw sequence filenames used are listed in the [MarFERReT metadata file](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/data/MarFERReT.v1.metadata.csv).
 
 ## Roscoff Culture Collection
 
