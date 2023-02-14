@@ -61,7 +61,7 @@ A metadata file entitled [MarFERReT.v1.metadata.csv](https://github.com/armbrust
 The MarFERReT database construction pipeline is entirely containerized, meaning that you do not need to worry about software dependencies. Additionally, MarFERReT supports both Singularity and Docker containerization, depending on user preference. The necessary containers can be built in two steps:
 1. Install either [Singularity](https://docs.sylabs.io/guides/3.0/user-guide/installation.html) or [Docker](https://docs.docker.com/engine/install/) on your machine. 
 1. Navigate to the [`containers`](https://github.com/armbrustlab/marferret/tree/main/containers) directory and run either the [`build_singularity_images.sh`](https://github.com/armbrustlab/marferret/blob/main/containers/build_singularity_images.sh) or [`build_docker_images.sh`](https://github.com/armbrustlab/marferret/blob/main/containers/build_docker_images.sh) script from the command line.
-The script will download and install the following software on your computer: mmseqs2, diamond, hmmer, and emboss, and will take about 350 Mb of disk space.
+The script will download and install the following software on your computer: mmseqs2, diamond, hmmer, and emboss, and will takes up 1GB of disk space. The compiled marferret-py docker image is 2.32GB in size. 
 
 ### 4) Running MarFERReT database construction pipeline
 
