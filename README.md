@@ -27,7 +27,7 @@ If you're still here, that means you're ready to get into the technical details 
 1. [Building software containers](https://github.com/armbrustlab/marferret/tree/main#3-building-software-containers)
 1. [Running MarFERReT database construction pipeline](https://github.com/armbrustlab/marferret/tree/main#4-running-marferret-database-construction-pipeline)
 1. [Annotating MarFERReT database sequences](https://github.com/armbrustlab/marferret/tree/main#5-annotating-marferret-database-sequences)
-1. [Build Core Transcribed Gene catalog](https://github.com/armbrustlab/marferret/tree/main#6-building-core-transcribed-gene-catalog)
+1. [Building Core Transcribed Gene catalog](https://github.com/armbrustlab/marferret/tree/main#6-building-core-transcribed-gene-catalog)
 1. [Combining MarFERReT with other reference sequence libraries](https://github.com/armbrustlab/marferret/tree/main#7-combining-marferret-with-other-reference-sequence-libraries)
 
 ### 1) Cloning the MarFERReT repository
@@ -86,7 +86,7 @@ The annotation script can take many days to run, as every protein is compared ag
 
 The complete set of Pfam annotations can also be found on the [Zenodo repository](https://zenodo.org/record/7055912) as `MarFERReT.v1.Pfam_annotations.tar.gz`
 
-### 6) Build Core Transcribed Gene catalog
+### 6) Building Core Transcribed Gene catalog
 
 After the MarFERReT protein sequences have been functionally annotated, sets of core transcribed genes (CTGs) can be derived from the RNA-derived data for specific marine lineages or for all eukaryotes. Selecting the Pfam IDs that are present in at least 95% of species of a given lineage allows us to define a set of functions that can be reasonably expected to be found in an approximately-complete transcriptome. These CTG catalogs can be used downstream of environmental sequence annotation with MarFERReT to assess the coverage of environmental taxon bins, as demonstrated in Case Study 2. 
 
