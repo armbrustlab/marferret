@@ -27,7 +27,7 @@ If you're still here, that means you're ready to get into the technical details 
 1. [Building software containers](https://github.com/armbrustlab/marferret/tree/main#3-building-software-containers)
 1. [Running MarFERReT database construction pipeline](https://github.com/armbrustlab/marferret/tree/main#4-running-marferret-database-construction-pipeline)
 1. [Annotating MarFERReT database sequences](https://github.com/armbrustlab/marferret/tree/main#5-annotating-marferret-database-sequences)
-1. [Build Core Transcribed Gene catalog](https://github.com/armbrustlab/marferret/tree/main#6-building-ctg-catalog)
+1. [Build Core Transcribed Gene catalog](https://github.com/armbrustlab/marferret/tree/main#6-building-core-transcribed-gene-catalog)
 1. [Combining MarFERReT with other reference sequence libraries](https://github.com/armbrustlab/marferret/tree/main#7-combining-marferret-with-other-reference-sequence-libraries)
 
 ### 1) Cloning the MarFERReT repository
