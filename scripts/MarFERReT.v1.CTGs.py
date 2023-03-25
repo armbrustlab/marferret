@@ -54,7 +54,8 @@ def process_lineage(lineage, mft_dat, pfam_presence_by_species_tsa):
 
     return ctg_dat_sub
 
-mft_dir = Path("/Users/rgroussman/Dropbox/Armbrust/EukRefDB/SciData_submission/")
+# MarFERReT installation path:
+mft_dir = Path("")
 data_dir = mft_dir / "data"
 pfam_dir = data_dir / "pfam"
 
