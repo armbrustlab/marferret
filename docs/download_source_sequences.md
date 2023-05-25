@@ -1,11 +1,13 @@
 
 # Collecting sequence data from source
 
-Source sequences collated together in MarFERReT 1.0 were drawn from four major contributors and a handful of smaller sequencing projects. Source sequences are collected in the `data/source_seqs/` directory. 
+A total of 902 candidate entry sequences were retrieved for validation and potential inclusion in the final MarFERReT build from four major contributors and a handful of smaller sequencing projects. We do not host the primary raw data in the final MarFERReT data products; the original links, raw filenames, and other source reference information for final data are available in the [MarFERReT metadata file](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/data/MarFERReT.v1.metadata.csv) and for all candidate entries in the [entry and taxID curation table](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/data/MarFERReT.v1.entry_curation.csv).
+
+Below are instructions for downloading primary sequence data for candidate entries via command line (bash) or manual (graphic user interface) approaches. For replicating the MarFERReT build process from scratch; source sequences should be downloaded to the `data/source_seqs/` subdirectories unter the main MarFERReT directory locally. 
 
 ## Marine Microbial Eukaryote Sequence Project
 
-The Marine Microbial Eukaryote Sequence Project (MMETSP, Keeling et al., 2014) is the largest contributor to MarFERReT. We collected the MMETSP sequences as peptide translations from Version 2 of the MMETSP re-assemblies ([Johnson et al., 2018](https://doi.org/10.5281/zenodo.740440)).
+The Marine Microbial Eukaryote Sequence Project (MMETSP, Keeling et al., 2014) is the largest contributor to MarFERReT. We collected the MMETSP sequences as peptide translations for 678 transcriptomes from Version 2 of the MMETSP re-assemblies ([Johnson et al., 2018](https://doi.org/10.5281/zenodo.740440)).
 
 Download peptide translations of transcriptome assemblies from Zenodo using wget:
 
@@ -19,13 +21,11 @@ Unpack the tarball:
 tar -xvf mmetsp_dib_trinity2.2.0_pep_zenodo.tar.gz
 ```
 
-Note: MMETSP0754 (from MMETSP0754.trinity_out_2.2.0.Trinity.fasta.transdecoder.pep) was initially included in MarFERReT as ref_id 665, and subsequently removed due to an empty peptide file. 
+## Zenodo repositories
 
-## Guajardo et al. diatoms (2021)
+A total of 15 candidate entries were retrieved from Zenodo repositories for three separate sequencing projects. 
 
-Ten diatom transcriptomes were downloaded from the [Zenodo repository](https://doi.org/10.5281/zenodo.4591037) associated with this project.
-
-Download nucleotide transcriptome assemblies from Zenodo using wget:
+Ten diatom transcriptomes from Guajardo et al., 2021 were downloaded from the associated [Zenodo repository](https://doi.org/10.5281/zenodo.4591037). Download nucleotide transcriptome assemblies from Zenodo using wget:
 
 ```
 wget https://zenodo.org/record/4591037/files/ThTSP-01_Minidiscusspinulatus-Trinity.fasta
@@ -38,6 +38,19 @@ wget https://zenodo.org/record/4591037/files/ThTSP-07_RCC4582-Minidiscussp-Trini
 wget https://zenodo.org/record/4591037/files/ThTSP-08_RCC4606-Thalassiosirasp-Trinity.fasta
 wget https://zenodo.org/record/4591037/files/ThTSP-09_RCC4583-Thalassiosiraminima-Trinity.fasta
 wget https://zenodo.org/record/4591037/files/ThTSP-10_RCC4584-Minidiscussp-Trinity.fasta
+```
+Two haptophyte and two diatom transcriptomes from environmental isolates (Lambert et al., 2022) were retrieved from their [Zenodo repository](https://zenodo.org/record/7336407):
+
+```
+wget https://zenodo.org/record/7336407/files/ALTEMP.filtered.Trinity.fasta.gz
+wget https://zenodo.org/record/7336407/files/AT125.filtered.Trinity.fasta.gz
+wget https://zenodo.org/record/7336407/files/KBHA01.filtered.Trinity.fasta.gz
+wget https://zenodo.org/record/7336407/files/PnB2.filtered.Trinity.fasta.gz
+```
+One haptophyte transcriptome was retrieved from this [Zenodo repository](https://zenodo.org/record/1476491):
+
+```
+wget https://zenodo.org/record/1476491/files/phaeocystisglobosa_euk_seqs.fasta
 ```
 
 ## Seeleuthner et al. SAGs (2018)
@@ -67,9 +80,9 @@ Eighteen transcriptomes and 23 predicted protein gene models from genomes were g
 
 ## Roscoff Culture Collection
 
-A total of 41 nucleotide transcriptomes were gathered from [METBdb](http://metdb.sb-roscoff.fr/metdb/).
-
+A total of 41 nucleotide transcriptomes were initially gathered from [METBdb](http://metdb.sb-roscoff.fr/metdb/).
 Download nucleotide transcriptomes using wget:
+
 ```
 wget http://metdb.sb-roscoff.fr/metdb/download/download/rcc-metdb_00017-ankylochrysis-sp-malift191.5pg1-paired/Trinity/RCC-METDB_00017-ankylochrysis-sp-malift191.5pg1-paired.fasta
 wget http://metdb.sb-roscoff.fr/metdb/download/download/rcc-metdb_00030-aureococcus-anophagefferens-ccmp1784-paired/Trinity/RCC-METDB_00030-aureococcus-anophagefferens-ccmp1784-paired.fasta
@@ -118,5 +131,11 @@ wget http://metdb.sb-roscoff.fr/metdb/download/download/rcc-metdb_00336-phaeocys
 
 A total of 117 predicted-protein gene models were gathered from [JGI Phycocosm](https://phycocosm.jgi.doe.gov/phycocosm/home).
 
-Protein gene models were downloaded manually from Phycocosm as compressed FASTA files (aa.fasta.gz). Original links and raw filenames are listed are listed in the [MarFERReT metadata file](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/data/MarFERReT.v1.metadata.csv).
+Protein gene models were downloaded manually from Phycocosm as compressed FASTA files (aa.fasta.gz). 
+
+## datadryad.org
+
+Two single-cell amplified transcriptomes (SATs) were manually downloaded from a repository at datadryad.org [here](https://datadryad.org/stash/dataset/doi:10.5061/dryad.pg4f4qrk0) in a single data file `doi_10.5061_dryad.pg4f4qrk0__v9.zip` containing two FASTA files; `Abedinium_dasypus_DSEL18_54_rnaspades.fasta` and `Abedinium_folium_DICHO17_03_rnaspades.fasta`. 
+
+
 
