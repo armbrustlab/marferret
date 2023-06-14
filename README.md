@@ -9,7 +9,7 @@ The Marine Functional EukaRyotic Reference Taxa (MarFERReT) is a version-control
 ## Table of Contents
 
 The contents of this repo are organized into four parts:
-* Part A: [Using MarFERReT directly](https://github.com/armbrustlab/marferret/blob/main/README.md#part-using-marferret-directly)
+* Part A: [Using MarFERReT directly](https://github.com/armbrustlab/marferret/blob/main/README.md#part-a-using-marferret-directly)
 * Part B: [Building MarFERReT](https://github.com/armbrustlab/marferret/blob/main/README.md#part-b-building-marferret)
 * Part C: [Using MarFERRet](https://github.com/armbrustlab/marferret/blob/main/README.md#part-c-using-marferret)
 	* [Case Study 1](https://github.com/armbrustlab/marferret/blob/main/docs/Case_study_1.md)
