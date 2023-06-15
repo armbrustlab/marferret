@@ -80,7 +80,7 @@ MARMICRODB_UID2TAX="marmicrodb.filtered.uid2tax.tab"
 # We employ this script to remove the sequences with numeric values:
 MARMICRODB_FASTA="marmicrodb.filtered.uid.faa"
 OUTPUT_FASTA="marmicrodb.filtered2.uid.faa"
-clean_numerical_seqs.py -f ${MARMICRODB_FASTA} -o ${OUTPUT_FASTA}
+marmicrodb_remove_numeric_seqs.py -f ${MARMICRODB_FASTA} -o ${OUTPUT_FASTA}
 
 # This removes a total of 323,835 sequences with numeric residues (1.2% of total sequences)
 grep -c ">" $MARMICRODB_FASTA # 27890788
