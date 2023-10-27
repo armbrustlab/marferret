@@ -184,7 +184,6 @@ def write_results(this_entry, EntryDict, outcsv_file):
 	out_line.append(str(EntryDict['tax_id']))
 	out_line.append(str(EntryDict['n_seqs']))
 	out_line.append(str(EntryDict['n_pfams']))
-	out_line.append(str(EntryDict['n_pfams']))
 	out_line.append(str(EntryDict['expected_name']))
 	out_line.append(str(EntryDict['contam_pct']))
 	
