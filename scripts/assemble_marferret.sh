@@ -10,7 +10,7 @@
 
 # Inputs: 
 #   - Reference genomes in the data/source_seqs/ directory
-#   - data/MarFERReT.entry_metadata.v1.csv
+#   - data/MarFERReT.metadata.v1.csv
 #       * NOTE: The MarFERReT.entry_metadata.v1.csv file must contain at least
 #         the six fields 'entry_id', 'marferret_name', 'source_filename', 
 #         'aa_fasta' and 'seq_type', 'tax_id' and the filename listed under 
