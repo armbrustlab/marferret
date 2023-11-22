@@ -1,0 +1,43 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Marine Functional EukaRyotic Reference Taxa
+message: >-
+  An open source library of marine microbial eukaryotic
+  protein sequences for the taxonomic annotation of
+  environmental metatranscriptomes
+type: software
+authors:
+  - given-names: Ryan
+    family-names: Groussman
+    name-suffix: PhD
+    email: rgrous83@uw.edu
+    affiliation: University of Washington
+    orcid: 'https://orcid.org/0000-0001-7874-7217'
+repository-code: 'https://github.com/armbrustlab/marferret'
+repository: 'https://doi.org/10.5281/zenodo.7055911'
+abstract: >-
+  Metatranscriptomics generates large volumes of sequence
+  data about transcribed genes in natural environments.
+  Taxonomic annotation of these datasets depends on
+  availability of curated reference sequences. For marine
+  microbial eukaryotes, current reference libraries are
+  limited by gaps in sequenced organism diversity and
+  barriers to updating libraries with new sequence data,
+  resulting in taxonomic annotation of only about half of
+  eukaryotic environmental transcripts. Here, we introduce
+  version 1.0 of Marine Functional EukaRyotic Reference Taxa
+  (MarFERReT), an updated marine microbial eukaryotic
+  sequence library with a version-controlled framework
+  designed for taxonomic annotation of eukaryotic
+  metatranscriptomes. MarFERReT v1 contains reference
+  sequences from 787 curated marine eukaryotic genomes and
+  transcriptomes drawn from multiple sources, covering 444
+  species and 287 genera, totaling over 27 million protein
+  sequences with an associated NCBI Taxonomy identifier and
+  Pfam functional annotations
+license: MIT
+commit: MarFERReT
+version: 1.0.1
+date-released: '2023-11-21'
