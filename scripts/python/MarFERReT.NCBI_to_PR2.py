@@ -4,17 +4,16 @@ import os
 import pandas as pd
 
 # import marferret data for each entry:
-# now lets bring in the MarFERReT (full csv table)
-mft_dat = pd.read_csv("MarFERReT.v1.entry_curation.csv")
+mft_dat = pd.read_csv("MarFERReT.v1.metadata.csv")
 
 # select the marferret cols we want for the pr2merge file:
-mft_cols = ['candidate_id', 'tax_id', 'marferret_name', 'original_taxID', 'source_name', 'alias'] 
+mft_cols = ['entry_id', 'tax_id', 'marferret_name', 'original_taxID', 'source_name', 'alias'] 
 
 # iterate thru the df and build a dict:
 MftDict = dict()
 
 for index, row in mft_dat.iterrows():
-	id = row['candidate_id']
+	id = row['entry_id']
 	MftDict[id] = dict()
 	for col in ['marferret_name', 'source_name', 'alias']:
 		MftDict[id][col] = row[col]
@@ -38,7 +37,7 @@ marferret_taxids = set(mft_dat['tax_id'])
 len(marferret_taxids) # 516
 
 # remove these two from the record:
-"""candidate_id	tax_id	marferret_name	original_taxID	source_name	alias	uniq_pr2_ct	uniq_gbacc_ct
+"""entry_id	tax_id	marferret_name	original_taxID	source_name	alias	uniq_pr2_ct	uniq_gbacc_ct
 540	100272	unclassified_eukaryote	100272	Unidentified sp. Strain CCMP1999	MMETSP1475	28238	28000
 616	187299	uncultured_ciliate	187299	Undescribed Undescribed Strain Undescribed	MMETSP1317	868	868"""
 marferret_taxids.remove(100272)
@@ -146,7 +145,7 @@ for mft_id in MftDict.keys():
 
 # now write out results and evaluate the matching:
 out_file_path = "MarFERReT.v1.mft_pr2_matches.csv"
-headers = ",".join(["candidate_id","tax_id","marferret_name","source_name","alias","match1","match2","match3"])
+headers = ",".join(["entry_id","tax_id","marferret_name","source_name","alias","match1","match2","match3"])
 
 with open(out_file_path, 'a') as f:
 	f.write(headers + "\n")
