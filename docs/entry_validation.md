@@ -6,8 +6,8 @@ Three metrics can be applied to decide on inclusion of new entries:
 3. Estimated cross-contamination with ribosomal proteins; flag entries with over 50% sequence cross-contamination
    
 The two other metrics were used to decide on entry inclusion for MMETSP re-assembly entries in MarFERReT v1.0 and v1.1  and were added from outside references; these metrics are not necessary for new non-MMETSP candidate entries:
-4. MMETSP cross-contamination; flag entries with over 50% sequence cross-contamination reported by Vlierberghe et al. 2021 (MMETSP re-assemblies only)
-5. MMETSP Ciliate cross-contamination; flag entries estimated cross-contamination reported by Lasek-Nesselquist and Johnson 2019 (MMETSP re-assemblies only)
+4. MMETSP cross-contamination; flag entries with over 50% sequence cross-contamination reported by [Vlierberghe et al. 2021](https://bmcresnotes.biomedcentral.com/articles/10.1186/s13104-021-05717-2) (MMETSP re-assemblies only)
+5. MMETSP Ciliate cross-contamination; flag entries estimated cross-contamination reported by [Lasek-Nesselquist and Johnson 2019](https://academic.oup.com/gbe/article/11/11/3218/5610072) (MMETSP re-assemblies only)
 
 ### Criteria 1: Total sequence count
 
@@ -36,9 +36,9 @@ This is a more complicated step that assesses entries for possible cross-contami
 
 ##### 3a. Download sequence references for ribosomal proteins
 
-MarFERReT was designed with the primary purpose of marine metatranscriptome taxonomic annotation, frequently paired with functional annotation through hidden Markov model searches against the known protein family domains in the Pfam database or similar resources. Criteria 3 is a more complicated analysis to estimate the degree of potential sequence cross-contamination in ribosomal proteins. Entries with low sequence or Pfam count flags from Criteria 1 and 2 above were not considered for this analysis. 
+MarFERReT was designed with the primary purpose of marine metatranscriptome taxonomic annotation, frequently paired with functional annotation through hidden Markov model searches against the known protein family domains in the [Pfam database](https://www.ebi.ac.uk/interpro/entry/pfam/) or similar resources. Criteria 3 is a more complicated analysis to estimate the degree of potential sequence cross-contamination in ribosomal proteins. Entries with low sequence or Pfam count flags from Criteria 1 and 2 above were not considered for this analysis. 
 
-The approach utilizes taxonomic annotation of ribosomal sequences matched to one of 63 Pfam protein domain IDs specific to ribosomal proteins and present in over 90% of candidate entries (referred to in this manuscript as ‘RP63’). The full set of UniProtKB reference sequences associated with each Pfam domain was downloaded from the source through the InterPro database (https://www.ebi.ac.uk/interpro/). The full set of UniProtKB reference sequences associated with each Pfam domain was downloaded using this script. 
+The approach utilizes taxonomic annotation of ribosomal sequences matched to one of 63 Pfam protein domain IDs specific to ribosomal proteins and present in over 90% of candidate entries (referred to in this manuscript as ‘RP63’). The full set of UniProtKB reference sequences associated with each Pfam domain was downloaded from the source through the InterPro database [https://www.ebi.ac.uk/interpro/](https://www.ebi.ac.uk/interpro/). The full set of UniProtKB reference sequences associated with each Pfam domain was downloaded using this script. 
 
 Iterate through the list of Pfam IDs in a call to a custom python script in the bash shell:
 ``` shell
@@ -70,13 +70,13 @@ done
 
 ##### 3b. Process reference sequences and build a DIAMOND database
 
-After downloading, the RP63 sequences are processed to ensure alignment with the NCBI Taxonomy architecture, to reduce redundancy, and to prepare all files for the correct format for input into the next step with DIAMOND makedb. These processing steps are done in the command shell and documented here:
+After downloading, the RP63 sequences are processed to ensure alignment with the NCBI Taxonomy architecture, to reduce redundancy, and to prepare all files for the correct format for input into the next step with DIAMOND makedb. These processing steps are done in the command shell and documented in this file here:
 
-RP63_sequence_processing.md
+[RP63_sequence_processing.md](https://github.com/armbrustlab/marferret/blob/main/docs/RP63_sequence_processing.md)
 
 The shell commands detailed in the linked document output these files necessary to create the DIAMOND database:
-Pfam.ribosomal_all_proteins.uniq.faa.gz
-Pfam.ribosomal_all_proteins.taxonomies.tab.gz
+`Pfam.ribosomal_all_proteins.uniq.faa.gz`
+`Pfam.ribosomal_all_proteins.taxonomies.tab.gz`
 
 Create a DIAMOND reference database for the DIAMOND sequence alignment software using the ‘diamond makedb’ command with default parameters and the NCBI database:
 
@@ -155,9 +155,9 @@ link to:
 MarFERReT.RP_validation
 
 Inputs: 	
-MAIN INPUT: .lca.tab
-LIST OF ENTRIES: ex: mft_ribo_sequences.handles.txt
-METADATA: taxa.csv, metadata.csv
+MAIN INPUT: `.lca.tab`
+LIST OF ENTRIES: ex: `mft_ribo_sequences.handles.txt`
+METADATA: `taxa.csv`, `metadata.csv`
 
 OUTPUT:  metadata.csv format with QC scores
 
