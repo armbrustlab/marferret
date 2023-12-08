@@ -18,7 +18,7 @@ The contents of this repo are organized into four parts:
 
 ## Part A: Using MarFERReT directly
 
-Finalized MarFERReT data products include over 27 million intra-species clustered protein sequences, metadata with curated taxonomy identifiers, Pfam protein annotations, core transcribed gene catalogs for marine microbial eukaryote lineages, and other supporting data. The URLs are provided for the sources of the individual sequences, and the compiled, translated, and clustered sequences are available for download through this [Zenodo repository](https://zenodo.org/record/7055911). 
+Finalized MarFERReT data products include nearly 28 million intra-species clustered protein sequences, metadata with curated taxonomy identifiers, Pfam protein annotations, core transcribed gene catalogs for marine microbial eukaryote lineages, and other supporting data. The URLs are provided for the sources of the individual sequences, and the compiled, translated, and clustered sequences are available for download through this [Zenodo repository](https://zenodo.org/records/10170983). 
 
 If downloaded directly, steps 2 (Cloning the MarFERReT repository) through 7 (Building the Core Transcribed Gene catalog) can be skipped. MarFERReT can be combined with other protein sequence reference libraries for expanded phylogenetic coverage. For an example of combining databases, see step 8 (Combining MarFERReT with other reference sequence libraries). An example workflow for using these data to annotate environmental metatranscriptome is described in subsection 9 below (Using MarFERReT to annotate environmental metatranscriptomes).
 
@@ -43,21 +43,21 @@ The first step is to copy the MarFERReT pipeline code onto the computer where yo
 
 ### 2) Collecting and organizing inputs
 
-Two sets of input files are required to build MarFERReT: 1) the source reference sequences and 2) a corresponding [metadata file](https://zenodo.org/record/8011714/files/MarFERReT.v1.entry_curation.csv). The source reference sequences will need to be collected from their various public locations, and the metadata file will need to be edited to match the reference sequences. 
+Two sets of input files are required to build MarFERReT: 1) the source reference sequences and 2) a corresponding [metadata file](https://zenodo.org/record/10170983/files/MarFERReT.v1.metadata.csv). The source reference sequences will need to be collected from their various public locations, and the metadata file will need to be edited to match the reference sequences. 
 
 #### Source reference sequences
 
-Once you have cloned the MarFERReT repository onto your machine, make a new directory called `source_seqs` under the [`data`](https://github.com/armbrustlab/marferret/tree/main/data) directory. You will deposit all of the fasta files of the source reference sequences into this directory. Detailed instructions for finding and downloading the source reference sequences used to build MarFERReT v1 can be found [in this document](https://github.com/armbrustlab/marferret/blob/main/docs/download_source_sequences.md). Before running the MarFERReT pipeline, all of these fasta files should be unzipped. 
+Once you have cloned the MarFERReT repository onto your machine, make a new directory called `source_seqs` under the [`data`](https://github.com/armbrustlab/marferret/tree/main/data) directory. You will deposit all of the fasta files of the source reference sequences into this directory. Detailed instructions for finding and downloading the source reference sequences used to build MarFERReT v1 can be found in this document: [download_source_sequences.md](https://github.com/armbrustlab/marferret/blob/main/docs/download_source_sequences.md). Before running the MarFERReT pipeline, all of these fasta files should be unzipped. 
 
 #### Metadata file
 
-A metadata file entitled [MarFERReT.v1.metadata.csv](https://github.com/armbrustlab/marferret/blob/main/data/MarFERReT.v1.metadata.csv) contains important information on each of the source reference sequences used to build the MarFERReT database. Every source reference sequence in the `source_seqs` directory should have a corresponding line in the metadata file with at least the following fields properly filled in:
-* `ref_id`: a unique MarFERReT identifier for the reference sequence
+A metadata file entitled [MarFERReT.v1.metadata.csv](https://zenodo.org/record/10170983/files/MarFERReT.v1.metadata.csv) contains important information on each of the source reference sequences used to build the MarFERReT database. Every source reference sequence in the `source_seqs` directory should have a corresponding line in the metadata file with at least the following fields properly filled in:
+* `entry_id`: a unique MarFERReT identifier for the reference sequence
+* `accepted`: [Y/N]; determines inclusion in final build
 * `marferret_name`: a human-readable name for the reference sequence (no spaces or special characters)
 * `tax_id`: an NCBI taxonomical identifier
 * `source_filename`: this should exactly match the name of the fasta file in `source_seqs` (unzipped)
 * `seq_type`: the sequence type of the source fasta -- 'nt' for nucleotide and 'aa' for amino acid
-* `aa_fasta`: a name for the standardized fasta file (the convention is 'ref_id' + '_' + 'marferret_name')
 
 ### 3) Building software containers
 
@@ -95,17 +95,18 @@ The complete set of Pfam annotations can also be found on the [Zenodo repository
 
 ### 6) Building Core Transcribed Gene catalog
 
-After the MarFERReT protein sequences have been functionally annotated, sets of core transcribed genes (CTGs) can be derived from the RNA-derived data for specific marine lineages or for all eukaryotes. Selecting the Pfam IDs that are present in at least 95% of species of a given lineage allows us to define a set of functions that can be reasonably expected to be found in an approximately-complete transcriptome. These CTG catalogs can be used downstream of environmental sequence annotation with MarFERReT to assess the coverage of environmental taxon bins, as demonstrated in Case Study 2. 
-
-Code for generating the CTG catalogs from Pfam annotations are found here: [MarFERReT.v1.CTGs.py](https://github.com/armbrustlab/marferret/blob/main/scripts/MarFERReT.v1.CTGs.py)
+After the MarFERReT protein sequences have been functionally annotated, sets of CTGs can be derived from the RNA-derived data for specific marine lineages or for all eukaryotes. Selecting the Pfam IDs that are present in at least 95% of species of a given lineage allows us to define a set of functions that can be reasonably expected to be found in a relatively complete transcriptome. These CTG catalogs can be used downstream of environmental sequence annotation with MarFERReT to assess the coverage of environmental taxon bins, as demonstrated in Case Study 2. Documentation and code for generating and using the CTG catalogs from Pfam annotations for user-defined lineages are found here: [Case_study_2.md](https://github.com/armbrustlab/marferret/blob/main/docs/Case_study_2.md#part-a--generating-core-transcribed-genes) 
 
 ### 7) Combining MarFERReT with other reference sequence libraries
 
-MarFERReT can be combined with other domain-focused reference sequence libraries to expand taxonomic coverage. In the Case Studies, we show an example combining MarFERReT with a filtered version of the prokaryote-focused MARMICRODB libary [MARMICRODB Zenodo repository](https://zenodo.org/record/3520509). The construction of MarFERReT+ follows the same steps as MarFERReT, with the added bacterial sequences in `MARMICRODB.faa.bz2` that can be downloaded from the [MARMICRODB Zenodo repository](https://zenodo.org/record/3520509). Instruction and code for filtering and combining MARMICRODB with MarFERReT can be found on this repo here: [process_clean_marmicrodb.log.sh](https://github.com/armbrustlab/marferret/blob/main/docs/process_clean_marmicrodb.log.sh).
+MarFERReT can be combined with other domain-focused reference sequence libraries or new reference sequence transcriptomes and genomes to expand taxonomic coverage. In the Case Studies, we show an example combining MarFERReT with a filtered version of the prokaryote-focused MARMICRODB library. Both libraries use NCBI Taxonomy identifiers as their primary classification framework, facilitating compatible annotation approaches. After downloading or building the MarFERReT protein sequence database, bacterial sequences can be downloaded from the MARMICRODB Zenodo repository and the libraries concatenated together for use in downstream processes. 
+
+MarFERReT can also be combined with individual reference sequence transcriptomes and genomes that have just been released, or are not incorporated in current reference libraries, or to add representation for specific research needs. This also requires that every sequence entry has an NCBI Taxonomy identifier. Instruction and code for combining MarFERReT with other large reference libraries like MARMICRODB or with sets of individual reference sequence entries can be found on the codebase repository here: [combining_marferret_and_other_references.md](https://github.com/armbrustlab/marferret/blob/main/docs/combining_marferret_and_other_references.md)
+
 
 ## Part C: Using MarFERReT
 
-The primary intended use of MarFERReT is the taxonomic annotation of marine metatranscriptomic datasets. This can be done without building your own copy of the database. Instead, the MarFERReT v1 database files necessary for annotation can be downloaded from [Zenodo repository](https://zenodo.org/record/7055911).
+The primary intended use of MarFERReT is the taxonomic annotation of marine metatranscriptomic datasets. This can be done without building your own copy of the database. Instead, the current MarFERReT database files necessary for annotation can be downloaded from [Zenodo repository](https://zenodo.org/record/7055911).
 
 One means of performing this taxonomical annotation is to search MarFERReT for the closest matches to your data sequences. There are many bioinformatic tools available for this type of sequence alignment. One such popular tool for high performance sequence alignment of big datasets is [DIAMOND](https://github.com/bbuchfink/diamond). In the [`scripts`](https://github.com/armbrustlab/marferret/tree/main/scripts) directory of this repository, we have included a script named [`build_diamond_db.sh`](https://github.com/armbrustlab/marferret/blob/main/scripts/build_diamond_db.sh) for using DIAMOND in combination with MarFERReT. This script requires the `MarFERReT.v1.proteins.faa.gz` and `MarFERReT.v1.taxonomies.tab.gz` as inputs in the `data` directory.
 
@@ -119,10 +120,13 @@ A visual diagram of the case study analyses can be found here:
 [Case Study 1](https://github.com/armbrustlab/marferret/blob/main/docs/Case_study_1.md)
 This Case Study shows how MarFERReT can be used to annotate unknown environmental sequences using the DIAMOND fast protein-alignment tool (Buchfink et al., 2015). In summary, a DIAMOND-formatted database is created from sequence data and NCBI Taxonomy information, and used to annotate unknown environmental reads.
 
-[Case Study 2](https://github.com/armbrustlab/marferret/blob/main/docs/Case_study_2.md)
-This Case Study provides an example on how to estimate the completeness of environmental transcriptome bins with taxonomic annotation (Case Study 1) and functional annotation with [Pfam 34.0](https://interpro-documentation.readthedocs.io/en/latest/databases.html#pfam) (now included as a part of the InterPro consortium). The example shown here uses 'species-level' annotations (or lower) for enhanced taxonomic specificity. In summary, the taxonomic and functional annotations are aggregated together and the percentage of lineage-specific core transcribed genes (CTGs) is determined for each species-level environmental taxon bin.
+[Case Study 2](https://github.com/armbrustlab/marferret/blob/main/docs/Case_study_2.md) documents how to identify core transcribed genes for user-defined lineages using MarFERReT protein sequences, and provides an example on how to estimate the completeness of environmental transcriptome bins with taxonomic annotation (from Case Study 1) and functional annotation with Pfam 34.0 (now included as a part of the InterPro consortium). In summary, the taxonomic and functional annotations are aggregated together, and the percentage of lineage-specific CTGs is determined for each species-level environmental taxon bin.
+
+While the case studies discussed above demonstrate the practicality of using MarFERReT for annotating environmental metatranscriptomes, MarFERReT can also be used to supplement other analyses that depend on reference proteins, including the analysis of marine metagenomes and metaproteomes.
+
 
 ## Part D: Future MarFERReT releases
+
 
 MarFERReT was designed to be updated as new microbial eukaryote functional reference sequences are publicly released, with releases identified either through literature reviews, updates to public repositories, or through user nominations. Suggestions for new additions or changes to MarFERReT in future versions can be submitted via the [‘Issues’ request function](https://github.com/armbrustlab/marferret/issues) on this repository. When submitting an organism request for future MarFERReT versions, the following information is required:
 1. Full scientific name of the organism (with strain name if possible)
@@ -132,7 +136,3 @@ MarFERReT was designed to be updated as new microbial eukaryote functional refer
 1. A citation or publication for the data, if available.
 
 New entries will be processed through the workflow described for candidate entries and validated by hierarchical clustering of annotated protein content (see [MarFERReT candidate entry validation](https://github.com/armbrustlab/marferret/blob/main/docs/entry_validation.md) notes). Future versions of MarFERReT will be documented in a changelog in the repository (link), describing any additions or modifications to the library composition. The changelog will detail updates to the MarFERReT code and MarFERReT files hosted on Zenodo, including revisions to the scripts, metadata files, functional annotation protocols, protein sequence library, binary DIAMOND database, and Core Transcribed Gene inventories.
-
-## Credits
-
-## License
