@@ -1,7 +1,7 @@
 
 # Collecting sequence data from source
 
-A total of 902 candidate entry sequences were retrieved for validation and potential inclusion in the final MarFERReT build from four major contributors and a handful of smaller sequencing projects. We do not host the primary raw data in the final MarFERReT data products; the original links, raw filenames, and other source reference information for final data are available in the [MarFERReT metadata file](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/data/MarFERReT.v1.metadata.csv) and for all candidate entries in the [entry and taxID curation table](https://github.com/armbrustlab/marine_eukaryote_sequence_database/blob/sbedits/data/MarFERReT.v1.entry_curation.csv).
+A total of 902 candidate entry sequences were retrieved for validation and potential inclusion in the final MarFERReT build from four major contributors and a handful of smaller sequencing projects. We do not host the primary raw data in the final MarFERReT data products; the original links, raw filenames, and other source reference information for all entries are available in the primary metadata file `MarFERReT.v1.metadata.csv`.
 
 Below are instructions for downloading primary sequence data for candidate entries via command line (bash) or manual (graphic user interface) approaches. For replicating the MarFERReT build process from scratch; source sequences should be downloaded to the `data/source_seqs/` subdirectories unter the main MarFERReT directory locally. 
 
