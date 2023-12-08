@@ -68,8 +68,7 @@ You can see examples of what to write for these logs in examples from previous e
 
 As you collect entries, expand the metadata.csv table by adding new rows for each entry you collect, represented by a single source sequence file. This can be done in a separate version as you work, ex: `MarFERReT.v1.1-NewTaxa.metadata.csv`
 
-**3. Run de novo functional annotations with Pfam using hmmsearch
-**
+**3. Run de novo functional annotations with Pfam using hmmsearch**
 
 The new entries should be translated into protein sequence space (if not already) and then given new functional annotations in the same way as the previous entries for uniform functional prediction.  
 
