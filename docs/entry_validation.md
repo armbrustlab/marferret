@@ -151,41 +151,28 @@ done
 
 ##### 3d. Calculate cross-contamination estimates from LCA annotations
 
-link to:
-MarFERReT.RP_validation
+We write this custom python script to iterate through the DIAMOND LCA results produced for each entry above, and for a set of common marine taxonomic lineages, we introduce a simple algorithmic function to decide if the LCA-predicted NCBI taxID for each sequence is placed within the expected lineage for its associated taxID or in a separate lineage bin. The contamination percent is the percent of ribosomal protein sequences with an LCA-predicted taxID outside of the expected lineage compared to the total number of predictions in expected or unexpected lineage bins, and written out as the 'contam_pct' value.
 
-Inputs: 	
-MAIN INPUT: `.lca.tab`
-LIST OF ENTRIES: ex: `mft_ribo_sequences.handles.txt`
-METADATA: `taxa.csv`, `metadata.csv`
+[MarFERReT.RP63_validation.py](https://github.com/armbrustlab/marferret/blob/main/scripts/python/MarFERReT.RP63_validation.py)
 
-OUTPUT:  metadata.csv format with QC scores
+This script takes as input:
+DIAMOND LCA output results produced above for each entry: `.lca.tab`
+Pfam annotation data: `_ribo_fasta_headers.csv`
+MarFERReT metadata: `MarFERReT.v1.metadata.csv`
+taxit-produced NCBI taxonomy relationship files (see [create_ncbi_taxa_csv.md](https://github.com/armbrustlab/marferret/blob/main/docs/create_ncbi_taxa_csv.md))
+- for MarFERReT taxIDs: `MarFERReT.v1.taxa.csv`
+- for all taxIDs in downloaded sequences: `Pfam.ribosomal_all_proteins.taxa.csv`
 
-``` shell
-
-input the hmm file (seq to pfam) 
-hmmfile_path = "../../headers/" + this_entry + "_ribo_fasta_headers.csv"
-
-and lca file (seq to taxid)
-lcafile_path = this_entry + "_ribosomal.pfam_full.lca.tab"
-
-input metadata.csv
-metadat = pd.read_csv("/scratch/marferret/marferret-main/data/MarFERReT.v1.entry_curation.csv") or metadata.csv
-
-input list of entry handles:
-with open("mft_ribo_sequences.handles.txt") as f:
-	entry_handles = f.read().splitlines()
-
-input taxa.csv
-taxa_csv = pd.read_csv("../../Pfam.ribosomal_all_proteins.taxa.csv")
-taxa_csv.shape # (112816, 146)
-
-the smaller mft taxa.csv too
-mft_taxa_csv = pd.read_csv("/scratch/marferret/marferret-main/data/MarFERReT.v1.taxa.csv")
-mft_taxa_csv.shape # (1610, 68)
-
-run the python script:
-```
+Produces output: `MarFERReT.v1.RP63_QC_estimates.csv`
+This CSV file contains the results of the ‘RP63’ cross-contamination check using ribosomal proteins. The lineage bin columns are the taxonomic categories that define whether a query sequence is placed within or outside the expected lineage. 
+- entry_handle: Human-readable tag concatenating the MarFERReT ‘entry_id’ with the ‘marferret_name’ (from MarFERReT.v1.metadata.csv)
+- entry_id: Unique MarFERReT sequence entry identifier
+- tax_id: The NCBI Taxonomy ID (taxID)
+- n_seqs: Number of protein sequences annotated as a Pfam ribosomal protein family
+- n_pfams: Number of unique Pfam protein families 
+- tax_group: The expected lineage of this entry sample from the ‘predefined lineage’ categories below
+- contam_pct: The percentage of ribosomal protein sequences identified in a lineage other than the expected ‘tax_group’ lineage
+- [lineage bins]: Series of 21 columns Amoebozoa, Ciliophora, Colpodellida, Cryptophyceae, Dinophyceae, Euglenozoa, Glaucocystophyceae, Haptophyta, Heterolobosea, Opisthokonta, Palpitomonas, Perkinsozoa, Rhizaria, Rhodophyta, Stramenopiles, Viridiplantae, Bacteria, Archaea, Viruses, Other, Unknown
 
 
 ### Visual clustering approach to entry validation
