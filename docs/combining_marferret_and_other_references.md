@@ -76,7 +76,7 @@ The new entries should be translated into protein sequence space (if not already
 See this file for an example of how we gave Pfam 34.0 functional domain predictions to MarFERReT protein sequences using HMMER3:
 [pfam_annotate.sh](https://github.com/armbrustlab/marferret/blob/main/scripts/pfam_annotate.sh)
 
-4. Conduct cross-contamination estimates with Pfam (optional)
+**4. Conduct cross-contamination estimates with Pfam (optional)**
 
 Using the Pfam annotations, you can repeat the ribosomal protein cross-contamination estimate method used in MarFERReT v1.1 on new sequence data. We wrote this custom python script to calculate potential cross-contamination estimates and output the `MarFERReT.v1.RP63_QC_estimates.csv` report:
 [MarFERReT.RP63_validation.py](https://github.com/armbrustlab/marferret/blob/main/scripts/python/MarFERReT.RP63_validation.py)
@@ -84,7 +84,7 @@ Note that this file is currently hard-coded to run on existing entries for the M
 
 See the full documentation in [entry_validation.md](https://github.com/armbrustlab/marferret/blob/main/docs/entry_validation.md) for use of this validation script and other quality control metrics, and the decision tree we used to decide on inclusion into the final quality-controlled v1.1 data product.
 
-5. Run the assemble_marferret.sh script with the new sequence data and metadata
+**5. Run the assemble_marferret.sh script with the new sequence data and metadata**
 
 When the FASTA sequence data for entries are gathered and the accompanying metadata.csv table is completed with rows for each new entry, this shell script can be used or modified to operate on 'accepted' entries, translate nucleotide data to protein sequences and select the longest coding frames (if applicable), cluster protein sequences for pooled entries sharing taxIDs to reduce intra-taxa redundancy, perform a standardization of sequence names, and generate a final FASTA file(s) with accessory data prepared to create a DIAMOND database for use in annotation: [assemble_marferret.sh](https://github.com/armbrustlab/marferret/blob/main/scripts/assemble_marferret.sh)
 
