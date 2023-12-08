@@ -1,13 +1,42 @@
-## Case Study 2:  Estimating completeness of metatranscriptome taxonomic bins
+### Part A:  Generating core transcribed genes
 
-This Case Study provides an example on how to estimate the completeness of environmental transcriptome bins with taxonomic annotation (Case Study 1) and functional annotation with Pfam 34.0 (ref). The example shown here uses 'species-level' annotations (or lower) for enhanced taxonomic specificity. In summary, the taxonomic and functional annotations are aggregated together and the percentage of lineage-specific core transcribed genes (CTGs) is determined for each species-level environmental taxon bin.
+This Case Study walks through the approach we call core transcribed genes (CTGs), referring to the actively transcribed genes of recognized function that we can expect to see in a completely sequenced transcriptome in most taxa in a given lineage.
+
+The Pfam annotations of MarFERReT protein sequences are used to identify a set of cross-taxa core transcribed genes that serve as corollary of the BUSCO genome completeness metric, oriented towards marine eukaryotic metatranscriptomes. For any given high-level taxonomic lineage, the CTGs are operationally defined here as the set of Pfam families observed in translated transcriptomes of at least 95% of the species within the given lineage. Only validated entries are used for this analysis. The CTG inventories were identified based on the Pfam 34.0 annotation of 7,514,355 proteins translated from the 654 validated transcriptome and SAT entries (the 146 validated genomic and SAG-sourced entries were not included) of MarFERReT v1.1, and a presence-absence matrix of Pfam functions was generated from the functional annotations of 332 taxa. We derive CTG inventories for all eukaryotes as a whole group, and for nine major marine lineages listed in this custom python script:
+[derive_core_transcribed_genes.py](https://github.com/armbrustlab/marferret/blob/main/scripts/python/derive_core_transcribed_genes.py)
+
+This requires inputs:
+metadata.csv file: `MarFERReT.v1.metadata.csv`
+Pfam annotation results in CSV file: `MarFERReT.v1.entry_pfam_sums.csv`
+NCBI Taxonomy relationships: `MarFERReT.v1.taxa.csv` (see how to make this file here: [create_ncbi_taxa_csv.md](https://github.com/armbrustlab/marferret/blob/main/docs/create_ncbi_taxa_csv.md)
+
+These are used to call the python script:
+``` shell
+
+cd ${MARFERRET_DIR}/scripts/python/
+
+METADATA="${MARFERRET_DIR}/data/MarFERReT.v1.metadata.csv"
+PFAM_DATA="${MARFERRET_DIR}/data/MarFERReT.v1.entry_pfam_sums.csv"
+TAXA_DATA="${MARFERRET_DIR}/data/MarFERReT.v1.taxa.csv"
+
+./derive_core_transcribed_genes.py --metadata $METADATA \
+	--taxa_csv $TAXA_DATA --pfam_dat $TAXA_DATA \
+	MarFERReT.v1.core_genes.csv
+
+```
+
+This outputs the CTG catalog as a CSV file: `MarFERReT.v1.core_genes.csv`. 
+
+
+### Part B:  Using CTGs to assess environmental sequences
+
 
 This can be broken down into smaller steps:
 1. Pfam annotation of environmental sequences
 2. Processing and aggregation of taxonomic and functional annotations
 3. Calculation of CTG inventory in transcript bins
 
-### 1. Pfam annotation of environmental sequences
+#### B1. Pfam annotation of environmental sequences
 
 Pfam functional annotation of environmental sequences is performed similarly to annotation of MarFERReT proteins. For instructions on downloading Pfam and annotating sequences with HMMER 3.3, see [pfam_annotate.sh](https://github.com/armbrustlab/marferret/blob/main/scripts/pfam_annotate.sh)
 
@@ -21,17 +50,12 @@ Use Pfam to annotate environmental contigs against Pfam, using the 'trusted cuto
 
 `hmmsearch --cut_tc --domtblout $OUTPUT $PFAM34_PATH $ENV_SEQS`
 
-### 2. Processing and aggregation of taxonomic and functional annotations
+#### B2. Processing and aggregation of taxonomic and functional annotations
 
-Pass the raw output from HMMER 3.3 to a script that selects the top-scoring Pfam annotation for each contig, aggregates taxonomic and functional annotations into tables linking the NCBI taxID of a taxon bin to the Pfam IDs associated with the taxID. This produces output tables for Step 3, where the coverage of environmental species bins is estimated from the core transcribed genes (CTGs) derived from [Building Core Transcribed Gene catalog](https://github.com/armbrustlab/marferret/tree/main#6-building-core-transcribed-gene-catalog).
+Pass the raw output from HMMER 3.3 to a script that selects the top-scoring Pfam annotation for each contig, aggregates taxonomic and functional annotations into tables linking the NCBI taxID of a taxon bin to the Pfam IDs associated with the taxID. This produces output tables for Step 3, where the coverage of environmental species bins is estimated from the core transcribed genes (CTGs) derived from [derive_core_transcribed_genes.py](https://github.com/armbrustlab/marferret/blob/main/scripts/python/derive_core_transcribed_genes.py)
 
-[process_env_annotations.py](https://github.com/armbrustlab/marferret/blob/main/scripts/process_env_annotations.py)
+#### B3. Calculation of CTG inventory in transcript bins
 
-### 3. Calculation of CTG inventory in transcript bins
+Generate a binary presence/absence table of Pfam IDs detected in the environmental sample for NCBI taxIDs   (see [derive_core_transcribed_genes.py](https://github.com/armbrustlab/marferret/blob/main/scripts/python/derive_core_transcribed_genes.py) for examples of code needed to generate these tables). This processed  Pfam output can be used with the [estimate_completeness.py](https://github.com/armbrustlab/marferret/blob/main/scripts/python/estimate_completeness.py) script to calculate the percent of lineage-dependent CTGs found in each taxon across all samples, as a proxy of completeness.
 
-The output from [process_env_annotations.py](https://github.com/armbrustlab/marferret/blob/main/scripts/process_env_annotations.py) can be passed to these python scripts:
-
-[estimate_completeness.py](https://github.com/armbrustlab/marferret/blob/main/scripts/estimate_completeness.py) will calculate the percent of lineage-dependent CTGs found in each taxon across all samples, as a proxy of completeness.
-
-[estimate_completeness.per_station.py](https://github.com/armbrustlab/marferret/blob/main/scripts/estimate_completeness.per_station.py) does the same calculation of %CTGs for each taxon, but does so for each independent sampling site in the example study. 
-
+Another example of using putting these CTGs to use  does so for each independent sampling site in the example study rather than the entire study as a whole, facilitating per-site estimates: [estimate_completeness.per_station.py](https://github.com/armbrustlab/marferret/blob/main/scripts/python/estimate_completeness.per_station.py) 
