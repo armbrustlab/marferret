@@ -1,0 +1,903 @@
+entry_id,marferret_name,tax_id,taxID_status,taxID_notes,n_seqs_raw,n_pfams,qc_flag,flag_Lasek,VV_contam_perc,flag_VanVlierberghe,rp63_npfams,rp63_contam_pct,flag_rp63,flag_sum,accepted
+1,Minidiscus_spinulatus,2593073,Assigned,manually assigned to NCBI taxID,65297,3285,NA,NA,NA,NA,47,1.4,NA,0,Y
+2,Minidiscus_variabilis,659878,Assigned,manually assigned to NCBI taxID,60715,3315,NA,NA,NA,NA,57,0.56,NA,0,Y
+3,Minidiscus_comicus,2590921,Assigned,manually assigned to NCBI taxID,40455,2874,NA,NA,NA,NA,50,0,NA,0,Y
+4,Thalassiosira_sp_RCC4219,2303173,Assigned,manually assigned to NCBI taxID,44779,2709,NA,NA,NA,NA,45,0.9,NA,0,Y
+5,Thalassiosira_minima,340022,Assigned,manually assigned to NCBI taxID,47415,2680,NA,NA,NA,NA,42,1.75,NA,0,Y
+6,Minidiscus_sp_RCC4590,1960173,Assigned,manually assigned to NCBI taxID,65166,3256,NA,NA,NA,NA,56,21.11,NA,0,Y
+7,Minidiscus_sp_RCC4582,1960170,Assigned,manually assigned to NCBI taxID,59494,2991,NA,NA,NA,NA,54,12.86,NA,0,Y
+8,Thalassiosira_sp_RCC4606,1960195,Assigned,manually assigned to NCBI taxID,46134,3034,NA,NA,NA,NA,42,13.95,NA,0,Y
+9,Thalassiosira_minima,340022,Assigned,manually assigned to NCBI taxID,51331,3196,NA,NA,NA,NA,44,10.09,NA,0,Y
+10,Minidiscus_sp_RCC4584,1960171,Assigned,manually assigned to NCBI taxID,55285,2530,NA,NA,NA,NA,53,1.52,NA,0,Y
+11,Stramenopiles_sp_TOSAG41-2,1735746,Assigned,manually assigned to NCBI taxID,3289,1146,NA,NA,NA,NA,34,0,NA,0,Y
+12,Stramenopiles_sp_TOSAG23-6,1735747,Assigned,manually assigned to NCBI taxID,2694,1024,NA,NA,NA,NA,29,0,NA,0,Y
+13,Stramenopiles_sp_TOSAG23-1,1735742,Assigned,manually assigned to NCBI taxID,8018,1673,NA,NA,NA,NA,45,66.67,CONTAM_50PCT,1,N
+14,Stramenopiles_sp_TOSAG23-2,1735743,Assigned,manually assigned to NCBI taxID,8537,1725,NA,NA,NA,NA,40,25,NA,0,Y
+15,Stramenopiles_sp_TOSAG41-1,1735744,Assigned,manually assigned to NCBI taxID,5478,1482,NA,NA,NA,NA,40,20,NA,0,Y
+16,Stramenopiles_sp_TOSAG23-3,1735745,Assigned,manually assigned to NCBI taxID,4652,1505,NA,NA,NA,NA,46,0,NA,0,Y
+17,Chrysophyceae_sp_TOSAG23-4,1735748,Assigned,manually assigned to NCBI taxID,3050,1198,NA,NA,NA,NA,34,11.11,NA,0,Y
+18,Chrysophyceae_sp_TOSAG23-5,1735749,Assigned,manually assigned to NCBI taxID,1637,748,NA,NA,NA,NA,25,40,NA,0,Y
+19,Calanus_finmarchicus,6837,Unchanged,from NCBI record,206012,4413,NA,NA,NA,NA,62,45.07,NA,0,Y
+20,Calanus_glacialis,113644,Unchanged,from NCBI record,36880,2553,NA,NA,NA,NA,43,1.27,NA,0,Y
+21,Neocalanus_flemingeri,119369,Unchanged,from NCBI record,140535,3899,NA,NA,NA,NA,53,3.05,NA,0,Y
+22,Acartia_tonsa,136180,Unchanged,from NCBI record,60662,3308,NA,NA,NA,NA,52,0,NA,0,Y
+23,Eurytemora_affinis,88015,Unchanged,from NCBI record,107445,3547,NA,NA,NA,NA,36,1.2,NA,0,Y
+24,Labidocera_madurae,1501138,Unchanged,from NCBI record,210768,4248,NA,NA,NA,NA,63,15.07,NA,0,Y
+25,Tigriopus_californicus,6832,Unchanged,from NCBI record,12067,2751,NA,NA,NA,NA,6,0,NA,0,Y
+26,Tigriopus_kingsejongensis,1133412,Unchanged,from NCBI record,38250,3607,NA,NA,NA,NA,56,9.46,NA,0,Y
+27,Tigriopus_japonicus,158387,Unchanged,from NCBI record,54758,3664,NA,NA,NA,NA,42,1.39,NA,0,Y
+28,Paracyclopina_nana,565004,Unchanged,from NCBI record,60687,3317,NA,NA,NA,NA,35,2.56,NA,0,Y
+29,Eucyclops_serrulatus,84317,Unchanged,from NCBI record,51528,3786,NA,NA,NA,NA,62,36.32,NA,0,Y
+30,Lepeophtheirus_salmonis,72036,Unchanged,from NCBI record,33918,2946,NA,NA,NA,NA,56,0,NA,0,Y
+31,Caligus_rogercresseyi,217165,Unchanged,from NCBI record,44088,4022,NA,NA,NA,NA,63,56.39,CONTAM_50PCT,1,N
+32,Pleuromamma_xiphias,503034,Unchanged,from NCBI record,554991,4624,NA,NA,NA,NA,61,3.66,NA,0,Y
+33,Nitzschia_sp_Nitz4,2041349,Unchanged,from NCBI record,24322,2280,NA,NA,NA,NA,49,0,NA,0,Y
+34,Phaeocystis_globosa,33658,Unchanged,from NCBI record,69528,3491,NA,NA,NA,NA,50,44.19,NA,0,Y
+35,Ankylochrysis_sp_RCC2491,1764641,Unchanged,associated NCBI taxID,108001,3423,NA,NA,NA,NA,50,6.36,NA,0,Y
+36,Aureococcus_anophagefferens,44056,Unchanged,associated NCBI taxID,51884,2154,NA,NA,NA,NA,38,13.73,NA,0,Y
+37,Bigelowiella_natans,227086,Unchanged,associated NCBI taxID,136867,3607,NA,NA,NA,NA,63,3.58,NA,0,Y
+38,Bigelowiella_sp_RCC560,1764863,Unchanged,associated NCBI taxID,122937,3600,NA,NA,NA,NA,62,4.29,NA,0,Y
+39,Pelagomonas_calceolata,35677,Unchanged,associated NCBI taxID,81704,3137,NA,NA,NA,NA,53,11.43,NA,0,Y
+40,Chloroparvula_sp_RCC696,2565275,Unchanged,associated NCBI taxID,43461,2474,NA,NA,NA,NA,61,76.83,CONTAM_50PCT,1,N
+41,Chloroparvula_sp_RCC999,464255,Unchanged,associated NCBI taxID,33696,2809,NA,NA,NA,NA,50,81.63,CONTAM_50PCT,1,N
+42,Chloropicon_maureeniae,1461542,Unchanged,associated NCBI taxID,52919,4217,NA,NA,NA,NA,61,70.16,CONTAM_50PCT,1,N
+43,Chloropicon_sp_CCMP2113,2864388,Updated,associated NCBI taxID,25923,3522,NA,NA,NA,NA,61,22.47,NA,0,Y
+44,Chroodactylon_ramnosum,139907,Unchanged,associated NCBI taxID,83556,4487,NA,NA,NA,NA,56,63.64,CONTAM_50PCT,1,N
+45,Emiliania_huxleyi,2903,Unchanged,associated NCBI taxID,190227,3620,NA,NA,NA,NA,55,16.67,NA,0,Y
+46,Emiliania_huxleyi,2903,Unchanged,associated NCBI taxID,115025,3058,NA,NA,NA,NA,46,5.71,NA,0,Y
+47,Emiliania_huxleyi,2903,Unchanged,associated NCBI taxID,154229,3116,NA,NA,NA,NA,48,11.36,NA,0,Y
+48,Pelagomonas_calceolata,35677,Unchanged,associated NCBI taxID,49601,2610,NA,NA,NA,NA,51,1.79,NA,0,Y
+49,Gephyrocapsa_muellerae,1663125,Unchanged,associated NCBI taxID,120869,3155,NA,NA,NA,NA,44,10.84,NA,0,Y
+50,Pelagomonas_calceolata,35677,Unchanged,associated NCBI taxID,31553,2765,NA,NA,NA,NA,49,13.6,NA,0,Y
+51,Glossomastix_chrysoplasta,172669,Unchanged,associated NCBI taxID,40839,2301,NA,NA,NA,NA,33,19.23,NA,0,Y
+52,Guinardia_flaccida,216801,Unchanged,associated NCBI taxID,44890,2952,NA,NA,NA,NA,62,0,NA,0,Y
+53,Naviculales_sp_RCC2677,1764899,Unchanged,associated NCBI taxID,56164,2862,NA,NA,NA,NA,59,0,NA,0,Y
+54,Mesopedinella_arctica,296676,Unchanged,associated NCBI taxID,150960,3761,NA,NA,NA,NA,61,35.09,NA,0,Y
+55,Chloropicon_sp_RCC996,1461542,Updated,associated NCBI taxID,42441,4235,NA,NA,NA,NA,58,48.39,NA,0,Y
+56,Minidiscus_sp_RCC1721,2604711,Updated,associated NCBI taxID,51623,2827,NA,NA,NA,NA,62,0,NA,0,Y
+57,Navicula_sp_RCC3092,1764896,Unchanged,associated NCBI taxID,72551,3086,NA,NA,NA,NA,49,0,NA,0,Y
+58,Ochromonas_triangulata,1964564,Unchanged,associated NCBI taxID,44109,3049,NA,NA,NA,NA,63,53.93,CONTAM_50PCT,1,N
+59,Phaeocystis_sp_RCC908,464236,Unchanged,associated NCBI taxID,78817,2577,NA,NA,NA,NA,55,6.48,NA,0,Y
+60,Partenskyella_glossopodia,552666,Unchanged,associated NCBI taxID,63741,3416,NA,NA,NA,NA,62,41.23,NA,0,Y
+61,Pelagomonas_calceolata,35677,Unchanged,associated NCBI taxID,32250,2783,NA,NA,NA,NA,56,27.62,NA,0,Y
+62,Pelagophyceae_sp_RCC2696,1764647,Updated,associated NCBI taxID,46597,2371,NA,NA,NA,NA,30,0,NA,0,Y
+63,Phaeocystis_antarctica,33657,Unchanged,associated NCBI taxID,103290,3176,NA,NA,NA,NA,46,9.09,NA,0,Y
+64,Phaeocystis_antarctica,33657,Unchanged,associated NCBI taxID,162178,3630,NA,NA,NA,NA,54,31.4,NA,0,Y
+65,Phaeocystis_cordata,118079,Unchanged,associated NCBI taxID,80926,3010,NA,NA,NA,NA,40,3.23,NA,0,Y
+66,Phaeocystis_globosa,33658,Unchanged,associated NCBI taxID,121626,3517,NA,NA,NA,NA,58,8.4,NA,0,Y
+67,Phaeocystis_he001206-D2-B1,33658,Updated,associated NCBI taxID,117315,3893,NA,NA,NA,NA,63,43.18,NA,0,Y
+68,Phaeocystis_globosa,33658,Unchanged,associated NCBI taxID,111156,3292,NA,NA,NA,NA,48,9.59,NA,0,Y
+69,Phaeocystis_sp_RCC851,464232,Unchanged,associated NCBI taxID,145499,3290,NA,NA,NA,NA,58,4.91,NA,0,Y
+70,Phaeocystis_sp_RCC935,464238,Unchanged,associated NCBI taxID,76231,2787,NA,NA,NA,NA,48,10.17,NA,0,Y
+71,Pleurosigma_sp_RCC3090,1764931,Unchanged,associated NCBI taxID,104593,3114,NA,NA,NA,NA,59,0.77,NA,0,Y
+72,Thalassiosira_bioculata,1048533,Unchanged,associated NCBI taxID,73450,2574,NA,NA,NA,NA,42,0,NA,0,Y
+73,Synedra_sp_RCC2510,1764925,Unchanged,associated NCBI taxID,38813,2865,NA,NA,NA,NA,42,0,NA,0,Y
+74,Triparma_pacifica,91992,Unchanged,associated NCBI taxID,42880,3712,NA,NA,NA,NA,51,21.43,NA,0,Y
+75,Triparma_pacifica,91992,Unchanged,associated NCBI taxID,43658,3739,NA,NA,NA,NA,52,32.26,NA,0,Y
+76,Amoebophrya_sp_AT5_2,1775427,Assigned,manually assigned to NCBI taxID,19925,2096,NA,NA,NA,NA,60,0,NA,0,Y
+77,Aplanochytrium_kerguelense_PBS07,702273,Assigned,manually assigned to NCBI taxID,11892,2557,NA,NA,NA,NA,63,7.84,NA,0,Y
+78,Aurantiochytrium_limacinum,717989,Assigned,manually assigned to NCBI taxID,14859,2704,NA,NA,NA,NA,63,0,NA,0,Y
+79,Aureococcus_anophagefferens,44056,Assigned,manually assigned to NCBI taxID,11501,2195,NA,NA,NA,NA,61,0,NA,0,Y
+80,Auxenochlorella_protothecoides_0710,1432497,Assigned,manually assigned to NCBI taxID,7013,2376,NA,NA,NA,NA,62,0,NA,0,Y
+81,Auxenochlorella_protothecoides,3075,Assigned,manually assigned to NCBI taxID,6041,2274,NA,NA,NA,NA,60,0,NA,0,Y
+82,Bathycoccus_prasinos_RCC1105,1075084,Assigned,manually assigned to NCBI taxID,7900,2444,NA,NA,NA,NA,63,0,NA,0,Y
+83,Bigelowiella_natans_CCMP2755,753081,Assigned,manually assigned to NCBI taxID,21708,3148,NA,NA,NA,NA,62,0,NA,0,Y
+84,Blastocystis_hominis,12968,Assigned,manually assigned to NCBI taxID,6020,1575,NA,NA,NA,NA,62,0,NA,0,Y
+85,Botryococcus_braunii_Showa,1202541,Assigned,manually assigned to NCBI taxID,23685,3020,NA,NA,NA,NA,61,0,NA,0,Y
+86,Breviolum_minutum,2499525,Assigned,manually assigned to NCBI taxID,47014,2911,NA,NA,NA,NA,62,0,NA,0,Y
+87,Caulerpa_lentillifera,148947,Assigned,manually assigned to NCBI taxID,8818,2288,NA,NA,NA,NA,53,12,NA,0,Y
+88,Chara_braunii,69332,Assigned,manually assigned to NCBI taxID,35672,3023,NA,NA,NA,NA,63,0,NA,0,Y
+89,Chlamydomonas_eustigma,1157962,Assigned,manually assigned to NCBI taxID,14061,2903,NA,NA,NA,NA,63,0,NA,0,Y
+90,Chlamydomonas_incerta,51695,Assigned,manually assigned to NCBI taxID,16957,2958,NA,NA,NA,NA,61,0,NA,0,Y
+91,Chlamydomonas_reinhardtii,3055,Assigned,manually assigned to NCBI taxID,16403,2988,NA,NA,NA,NA,62,0,NA,0,Y
+92,Chlamydomonas_schloesseri,2026947,Assigned,manually assigned to NCBI taxID,16268,2963,NA,NA,NA,NA,63,0,NA,0,Y
+93,Chlorella_sp_A99,2041167,Assigned,manually assigned to NCBI taxID,8298,2645,NA,NA,NA,NA,55,0,NA,0,Y
+94,Chlorella_sorokiniana,3076,Assigned,manually assigned to NCBI taxID,12611,2756,NA,NA,NA,NA,59,0,NA,0,Y
+95,Chlorella_sorokiniana,3076,Assigned,manually assigned to NCBI taxID,12871,2877,NA,NA,NA,NA,61,0,NA,0,Y
+96,Chlorella_sorokiniana,3076,Assigned,manually assigned to NCBI taxID,10384,2701,NA,NA,NA,NA,60,0,NA,0,Y
+97,Chlorella_sorokiniana,3076,Assigned,manually assigned to NCBI taxID,12169,2805,NA,NA,NA,NA,62,0,NA,0,Y
+98,Chlorella_variabilis,554065,Assigned,manually assigned to NCBI taxID,9791,2800,NA,NA,NA,NA,61,0,NA,0,Y
+99,Chlorokybus_atmophyticus,3144,Assigned,manually assigned to NCBI taxID,9300,2947,NA,NA,NA,NA,58,0,NA,0,Y
+100,Chloropicon_primus,1764295,Assigned,manually assigned to NCBI taxID,8327,2721,NA,NA,NA,NA,61,0,NA,0,Y
+101,Chondrus_crispus,2769,Assigned,manually assigned to NCBI taxID,9808,2049,NA,NA,NA,NA,62,0,NA,0,Y
+102,Chromochloris_zofingiensis,31302,Assigned,manually assigned to NCBI taxID,15274,3042,NA,NA,NA,NA,61,0,NA,0,Y
+103,Chrysochromulina_parva,127563,Assigned,manually assigned to NCBI taxID,28185,3025,NA,NA,NA,NA,61,0,NA,0,Y
+104,Chrysochromulina_tobin,1460289,Assigned,manually assigned to NCBI taxID,16770,2452,NA,NA,NA,NA,49,0,NA,0,Y
+105,Cladocopium_goreaui,2562237,Assigned,manually assigned to NCBI taxID,35913,3616,NA,NA,NA,NA,59,16.56,NA,0,Y
+106,Cladosiphon_okamuranus,309737,Assigned,manually assigned to NCBI taxID,14750,2764,NA,NA,NA,NA,56,0,NA,0,Y
+107,Coccomyxa_subellipsoidea,574566,Assigned,manually assigned to NCBI taxID,9629,2650,NA,NA,NA,NA,63,0,NA,0,Y
+108,Cryptophyta_sp_CCMP2293,697907,Assigned,manually assigned to NCBI taxID,33051,2682,NA,NA,NA,NA,60,6.41,NA,0,Y
+109,Cyanidioschyzon_merolae,45157,Assigned,manually assigned to NCBI taxID,4406,1845,NA,NA,NA,NA,56,0,NA,0,Y
+110,Cyanidioschyzon_merolae_10D,280699,Assigned,manually assigned to NCBI taxID,4803,1891,NA,NA,NA,NA,63,0,NA,0,Y
+111,Cyanophora_paradoxa,2762,Assigned,manually assigned to NCBI taxID,25518,3096,NA,NA,NA,NA,61,50,NA,0,Y
+112,Cyclotella_cryptica,29204,Assigned,manually assigned to NCBI taxID,21121,2688,NA,NA,NA,NA,60,2.41,NA,0,Y
+113,Dunaliella_salina,3046,Assigned,manually assigned to NCBI taxID,18801,2870,NA,NA,NA,NA,63,12,NA,0,Y
+114,Ectocarpus_siliculosus,2880,Assigned,manually assigned to NCBI taxID,16271,2941,NA,NA,NA,NA,62,0,NA,0,Y
+115,Edaphochlamys_debaryana,47281,Assigned,manually assigned to NCBI taxID,20450,2996,NA,NA,NA,NA,61,0,NA,0,Y
+116,Emiliania_huxleyi_CCMP1516,280463,Assigned,manually assigned to NCBI taxID,39125,3090,NA,NA,NA,NA,57,1.98,NA,0,Y
+117,Enallax_costatus,113528,Assigned,manually assigned to NCBI taxID,19918,3161,NA,NA,NA,NA,63,1,NA,0,Y
+118,Fistulifera_solaris,1519565,Assigned,manually assigned to NCBI taxID,20413,2485,NA,NA,NA,NA,62,0,NA,0,Y
+119,Flechtneria_rotunda,269715,Assigned,manually assigned to NCBI taxID,16799,2986,NA,NA,NA,NA,63,0,NA,0,Y
+120,Fragilariopsis_cylindrus_CCMP1102,635003,Assigned,manually assigned to NCBI taxID,21066,2632,NA,NA,NA,NA,63,0,NA,0,Y
+121,Fugacium_kawagutii,2697096,Assigned,manually assigned to NCBI taxID,26609,2573,NA,NA,NA,NA,60,6.11,NA,0,Y
+122,Galdieria_phelgrea,1389228,Assigned,manually assigned to NCBI taxID,6125,2156,NA,NA,NA,NA,61,0.94,NA,0,Y
+123,Galdieria_sulphuraria,130081,Assigned,manually assigned to NCBI taxID,5912,2094,NA,NA,NA,NA,62,1.08,NA,0,Y
+124,Giardia_lamblia_ATCC50803,184922,Assigned,manually assigned to NCBI taxID,6502,926,NA,NA,NA,NA,55,NA,NA,0,Y
+125,Gonium_pectorale,33097,Assigned,manually assigned to NCBI taxID,16290,2875,NA,NA,NA,NA,62,0,NA,0,Y
+126,Gracilariopsis_chorda,448386,Assigned,manually assigned to NCBI taxID,10806,2404,NA,NA,NA,NA,63,0,NA,0,Y
+127,Guillardia_theta_CCMP2712,905079,Assigned,manually assigned to NCBI taxID,24840,3010,NA,NA,NA,NA,63,0,NA,0,Y
+128,Hyaloperonospora_arabidopsidis_Emoy2,559515,Assigned,manually assigned to NCBI taxID,9138,2336,NA,NA,NA,NA,63,0,NA,0,Y
+129,Klebsormidium_nitens,105231,Assigned,manually assigned to NCBI taxID,16132,3418,NA,NA,NA,NA,63,0,NA,0,Y
+130,Mesostigma_viride,41882,Assigned,manually assigned to NCBI taxID,9300,2487,NA,NA,NA,NA,47,0,NA,0,Y
+131,Mesotaenium_endlicherianum,184485,Assigned,manually assigned to NCBI taxID,11080,2994,NA,NA,NA,NA,62,8.86,NA,0,Y
+132,Micractinium_conductrix,554055,Assigned,manually assigned to NCBI taxID,10070,2688,NA,NA,NA,NA,58,0,NA,0,Y
+133,Micromonas_commoda,296587,Assigned,manually assigned to NCBI taxID,10307,2843,NA,NA,NA,NA,62,0,NA,0,Y
+134,Micromonas_pusilla_CCMP1545,564608,Assigned,manually assigned to NCBI taxID,9895,2781,NA,NA,NA,NA,63,0,NA,0,Y
+135,Minidiscus_variabilis,659878,Assigned,manually assigned to NCBI taxID,25179,2704,NA,NA,NA,NA,63,0,NA,0,Y
+136,Monoraphidium_neglectum,145388,Assigned,manually assigned to NCBI taxID,16755,2925,NA,NA,NA,NA,61,0,NA,0,Y
+137,Naegleria_gruberi,5762,Assigned,manually assigned to NCBI taxID,15753,2487,NA,NA,NA,NA,62,0,NA,0,Y
+138,Nannochloropsis_gaditana,72520,Assigned,manually assigned to NCBI taxID,10929,2496,NA,NA,NA,NA,59,0,NA,0,Y
+139,Nannochloropsis_oceanica_CCMP1779,1149776,Assigned,manually assigned to NCBI taxID,10641,2580,NA,NA,NA,NA,61,1.19,NA,0,Y
+140,Nannochloropsis_salina_CCMP1776,1027361,Assigned,manually assigned to NCBI taxID,8927,2506,NA,NA,NA,NA,63,0,NA,0,Y
+141,Nemacystus_decipiens,2185085,Assigned,manually assigned to NCBI taxID,17099,3181,NA,NA,NA,NA,59,3.66,NA,0,Y
+142,Nitzschia_inconspicua,303405,Assigned,manually assigned to NCBI taxID,17968,2648,NA,NA,NA,NA,61,0,NA,0,Y
+143,Ochromonadaceae_sp_CCMP2298,483371,Assigned,manually assigned to NCBI taxID,20195,2802,NA,NA,NA,NA,63,44,NA,0,Y
+144,Ochromonas_sp_CCMP1393,420556,Assigned,manually assigned to NCBI taxID,19714,2881,NA,NA,NA,NA,61,38.1,NA,0,Y
+145,Ostreococcus_sp_RCC809,385169,Assigned,manually assigned to NCBI taxID,7492,2404,NA,NA,NA,NA,61,0,NA,0,Y
+146,Ostreococcus_tauri,70448,Assigned,manually assigned to NCBI taxID,8218,2488,NA,NA,NA,NA,59,0.66,NA,0,Y
+147,Ostreococcus_tauri,70448,Assigned,manually assigned to NCBI taxID,7669,2497,NA,NA,NA,NA,62,0,NA,0,Y
+148,Oxytricha_trifallax,1172189,Assigned,manually assigned to NCBI taxID,24578,2143,NA,NA,NA,NA,61,0,NA,0,Y
+149,Paramecium_tetraurelia_d4_2,412030,Assigned,manually assigned to NCBI taxID,39580,2084,NA,NA,NA,NA,63,0,NA,0,Y
+150,Paraphysomonas_imperforata,37642,Assigned,manually assigned to NCBI taxID,17134,2846,NA,NA,NA,NA,62,72.6,CONTAM_50PCT,1,N
+151,Pavlovales_sp_CCMP2436,483367,Assigned,manually assigned to NCBI taxID,26034,2818,NA,NA,NA,NA,63,0,NA,0,Y
+152,Pelagophyceae_sp_CCMP2097,483370,Assigned,manually assigned to NCBI taxID,19402,2772,NA,NA,NA,NA,63,3.8,NA,0,Y
+153,Phaeocystis_antarctica,33657,Assigned,manually assigned to NCBI taxID,41088,3059,NA,NA,NA,NA,61,1.18,NA,0,Y
+154,Phaeocystis_globosa,33658,Assigned,manually assigned to NCBI taxID,32196,2998,NA,NA,NA,NA,61,0,NA,0,Y
+155,Phaeodactylum_tricornutum_CCAP1055,556484,Assigned,manually assigned to NCBI taxID,10025,2409,NA,NA,NA,NA,63,0,NA,0,Y
+156,Phytophthora_capsici_LT1534,763924,Assigned,manually assigned to NCBI taxID,19805,2705,NA,NA,NA,NA,62,0,NA,0,Y
+157,Phytophthora_cinnamomi,622258,Assigned,manually assigned to NCBI taxID,26131,2793,NA,NA,NA,NA,60,0,NA,0,Y
+158,Phytophthora_infestans_T30-4,403677,Assigned,manually assigned to NCBI taxID,17797,2755,NA,NA,NA,NA,61,0,NA,0,Y
+159,Phytophthora_sojae,67593,Assigned,manually assigned to NCBI taxID,26584,2743,NA,NA,NA,NA,63,0,NA,0,Y
+160,Picochlorum_sp_BH-2019,2601844,Assigned,manually assigned to NCBI taxID,9010,2487,NA,NA,NA,NA,61,0,NA,0,Y
+161,Picochlorum_soloecismus,2053932,Assigned,manually assigned to NCBI taxID,6861,2385,NA,NA,NA,NA,59,0,NA,0,Y
+162,Picocystis_sp_ML,2320818,Assigned,manually assigned to NCBI taxID,5613,1317,NA,NA,NA,NA,57,3.33,NA,0,Y
+163,Plasmodium_falciparum_3D7,36329,Assigned,manually assigned to NCBI taxID,5392,1522,NA,NA,NA,NA,63,NA,NA,0,Y
+164,Porphyra_umbilicalis,2786,Assigned,manually assigned to NCBI taxID,13567,2005,NA,NA,NA,NA,61,0,NA,0,Y
+165,Prasinoderma_coloniale,156133,Assigned,manually assigned to NCBI taxID,7139,2433,NA,NA,NA,NA,61,0,NA,0,Y
+166,Pseudo-nitzschia_multiseries_CLN-47,635002,Assigned,manually assigned to NCBI taxID,19703,2629,NA,NA,NA,NA,63,3.26,NA,0,Y
+167,Neopyropia_yezoensis,2788,Assigned,manually assigned to NCBI taxID,10327,1915,NA,NA,NA,NA,52,0,NA,0,Y
+168,Raphidocelis_subcapitata,307507,Assigned,manually assigned to NCBI taxID,13383,2932,NA,NA,NA,NA,63,0,NA,0,Y
+169,Reticulomyxa_filosa,46433,Assigned,manually assigned to NCBI taxID,39963,2527,NA,NA,NA,NA,49,0,NA,0,Y
+170,Saccharina_japonica,88149,Assigned,manually assigned to NCBI taxID,18732,2894,NA,NA,NA,NA,51,2.99,NA,0,Y
+171,Saprolegnia_parasitica_CBS223_65,695850,Assigned,manually assigned to NCBI taxID,20113,2888,NA,NA,NA,NA,62,0,NA,0,Y
+172,Scenedesmus_obliquus,3088,Assigned,manually assigned to NCBI taxID,15053,2715,NA,NA,NA,NA,59,0,NA,0,Y
+173,Scenedesmus_obliquus,3088,Assigned,manually assigned to NCBI taxID,20146,3008,NA,NA,NA,NA,61,0,NA,0,Y
+174,Scenedesmus_obliquus,3088,Assigned,manually assigned to NCBI taxID,22378,2995,NA,NA,NA,NA,61,0.76,NA,0,Y
+175,Scenedesmus_sp_NREL46B-D3,2650976,Assigned,manually assigned to NCBI taxID,17406,2910,NA,NA,NA,NA,61,0,NA,0,Y
+176,Schizochytrium_aggregatum_ATCC28209,876976,Assigned,manually assigned to NCBI taxID,10612,2409,NA,NA,NA,NA,62,2.13,NA,0,Y
+177,Seminavis_robusta,568900,Assigned,manually assigned to NCBI taxID,37455,2980,NA,NA,NA,NA,62,0,NA,0,Y
+178,Symbiochloris_reticulata,40981,Assigned,manually assigned to NCBI taxID,12582,2850,NA,NA,NA,NA,62,0,NA,0,Y
+179,Symbiodinium_microadriaticum,2951,Assigned,manually assigned to NCBI taxID,43403,2693,NA,NA,NA,NA,57,0,NA,0,Y
+180,Tetrabaena_socialis,47790,Assigned,manually assigned to NCBI taxID,14296,2611,NA,NA,NA,NA,60,0,NA,0,Y
+181,Tetrahymena_thermophila_SB210,312017,Assigned,manually assigned to NCBI taxID,26994,2136,NA,NA,NA,NA,61,0,NA,0,Y
+182,Thalassiosira_oceanica_CCMP1005,637379,Assigned,manually assigned to NCBI taxID,34642,2612,NA,NA,NA,NA,59,0,NA,0,Y
+183,Thalassiosira_pseudonana_CCMP1335,296543,Assigned,manually assigned to NCBI taxID,11390,2418,NA,NA,NA,NA,63,0,NA,0,Y
+184,Toxoplasma_gondii_ME49,508771,Assigned,manually assigned to NCBI taxID,8318,1871,NA,NA,NA,NA,62,NA,NA,0,Y
+185,Trebouxia_sp_A1-2,2608996,Assigned,manually assigned to NCBI taxID,13918,2750,NA,NA,NA,NA,58,0,NA,0,Y
+186,Tribonema_minus,303371,Assigned,manually assigned to NCBI taxID,18290,2837,NA,NA,NA,NA,61,0,NA,0,Y
+187,Trichomonas_vaginalis_G3,412133,Assigned,manually assigned to NCBI taxID,59679,1738,NA,NA,NA,NA,57,NA,NA,0,Y
+188,Trypanosoma_brucei,185431,Assigned,manually assigned to NCBI taxID,8787,1712,NA,NA,NA,NA,59,0,NA,0,Y
+189,Ulva_mutabilis,498180,Assigned,manually assigned to NCBI taxID,12920,2602,NA,NA,NA,NA,62,3.85,NA,0,Y
+190,Undaria_pinnatifida,74381,Assigned,manually assigned to NCBI taxID,14300,2709,NA,NA,NA,NA,62,0,NA,0,Y
+191,Vitrella_brassicaformis_CCMP3155,1169540,Assigned,manually assigned to NCBI taxID,21239,2796,NA,NA,NA,NA,62,0,NA,0,Y
+192,Volvox_carteri,3067,Assigned,manually assigned to NCBI taxID,13076,2883,NA,NA,NA,NA,62,0,NA,0,Y
+193,Cephaloidophora_cf_communis,947086,Unchanged,from NCBI record,17513,1220,NA,NA,NA,NA,47,NA,NA,0,Y
+194,Acytostelium_subglobosum,361139,Unchanged,from NCBI record,35062,1346,NA,NA,NA,NA,36,0.27,NA,0,Y
+195,Malassezia_globosa,76773,Unchanged,from NCBI record,1392,287,LOW_PFAMS,NA,NA,NA,4,NA,NA,1,N
+196,Chrysochromulina_sp_KB-HA01,2802065,Assigned,manually assigned to NCBI taxID,70194,3290,NA,NA,NA,NA,45,32.26,NA,0,Y
+197,Chrysochromulina_sp_AL-TEMP,2802064,Assigned,manually assigned to NCBI taxID,88686,3346,NA,NA,NA,NA,51,2.22,NA,0,Y
+198,Chaetoceros_sp,49240,Assigned,manually assigned to NCBI taxID,78925,3114,NA,NA,NA,NA,50,9.96,NA,0,Y
+199,Pseudo-nitzschia_sp,1804765,Assigned,manually assigned to NCBI taxID,36547,2424,NA,NA,NA,NA,45,0,NA,0,Y
+200,Crassostrea_gigas,29159,Unchanged,from NCBI record,63341,4103,NA,NA,NA,NA,62,0,NA,0,Y
+201,Octopus_bimaculoides,37653,Unchanged,from NCBI record,23994,3868,NA,NA,NA,NA,60,0,NA,0,Y
+202,Aplysia_californica,6500,Unchanged,from NCBI record,26656,4002,NA,NA,NA,NA,61,0.97,NA,0,Y
+203,Daphnia_magna,35525,Unchanged,from NCBI record,23583,3458,NA,NA,NA,NA,58,0,NA,0,Y
+204,Homarus_americanus,6706,Unchanged,from NCBI record,40732,3753,NA,NA,NA,NA,63,0,NA,0,Y
+205,Oikopleura_dioica,34765,Unchanged,from NCBI record,17152,2835,NA,NA,NA,NA,59,0,NA,0,Y
+206,Hippoglossus_stenolepis,195615,Unchanged,from NCBI record,43966,4564,NA,NA,NA,NA,62,0,NA,0,Y
+207,Tursiops_truncatus,9739,Unchanged,from NCBI record,55739,5159,NA,NA,NA,NA,63,0,NA,0,Y
+208,Dibothriocephalus_latus,60516,Unchanged,from NCBI record,19930,2651,NA,NA,NA,NA,52,1.52,NA,0,Y
+209,Opisthorchis_viverrini,6198,Unchanged,from NCBI record,16356,2681,NA,NA,NA,NA,57,0,NA,0,Y
+210,Capitella_teleta,283909,Unchanged,from NCBI record,31978,4360,NA,NA,NA,NA,60,0,NA,0,Y
+211,Helobdella_robusta,6412,Unchanged,from NCBI record,23426,3429,NA,NA,NA,NA,61,0,NA,0,Y
+212,Anisakis_simplex,6269,Unchanged,from NCBI record,20971,3126,NA,NA,NA,NA,60,0,NA,0,Y
+213,Trichuris_trichiura,36087,Unchanged,from NCBI record,9650,3049,NA,NA,NA,NA,60,0,NA,0,Y
+214,Hydra_vulgaris,6087,Unchanged,from NCBI record,21990,3575,NA,NA,NA,NA,63,0,NA,0,Y
+215,Nematostella_vectensis,45351,Unchanged,from NCBI record,34311,4202,NA,NA,NA,NA,63,0,NA,0,Y
+216,Apostichopus_japonicus,307972,Unchanged,from NCBI record,30221,4130,NA,NA,NA,NA,63,0,NA,0,Y
+217,Strongylocentrotus_purpuratus,7668,Unchanged,from NCBI record,38439,4064,NA,NA,NA,NA,63,0,NA,0,Y
+218,Bugula_neritina,10212,Unchanged,from NCBI record,25318,3636,NA,NA,NA,NA,53,0,NA,0,Y
+219,Amphimedon_queenslandica,400682,Unchanged,from NCBI record,24115,3662,NA,NA,NA,NA,62,6.6,NA,0,Y
+220,Lingula_anatina,7574,Unchanged,from NCBI record,41392,4307,NA,NA,NA,NA,62,0,NA,0,Y
+221,Adineta_ricciae,249248,Unchanged,from NCBI record,49015,3877,NA,NA,NA,NA,61,0,NA,0,Y
+222,Diacronema_lutheri,2081491,Unchanged,from NCBI record,14446,2844,NA,NA,NA,NA,63,0,NA,0,Y
+223,Abedinium_folium,2713251,Assigned,manually assigned to NCBI taxID,73074,1975,NA,NA,NA,NA,52,36,NA,0,Y
+224,Abedinium_dasypus,763927,Assigned,manually assigned to NCBI taxID,27701,872,NA,NA,NA,NA,22,20,NA,0,Y
+225,Porphyridium_aerugineum,2792,Unchanged,from MMETSP metadata,18738,2518,NA,NA,5.714285714,NA,61,1.33,NA,0,Y
+226,Diacronema_lutheri,2081491,Updated,from MMETSP metadata,24382,2719,NA,NA,20.43010753,NA,63,6.55,NA,0,Y
+227,Odontella_aurita,265563,Updated,from MMETSP metadata,71487,3190,NA,NA,7.391304348,NA,63,0.51,NA,0,Y
+228,Trieres_chinensis,1514140,Updated,from MMETSP metadata,34184,2827,NA,NA,33.77483444,NA,63,4.35,NA,0,Y
+229,Skeletonema_costatum,2843,Unchanged,from MMETSP metadata,39020,2838,NA,NA,5.031446541,NA,63,0.68,NA,0,Y
+230,Cylindrotheca_closterium,2856,Unchanged,from MMETSP metadata,50848,2946,NA,NA,5.806451613,NA,63,1.27,NA,0,Y
+231,Nitszchia_sp_RCC80,1606575,Updated,from MMETSP metadata,67212,2965,NA,NA,2.53164557,NA,63,0.72,NA,0,Y
+232,Crypthecodinium_cohnii,2866,Unchanged,from MMETSP metadata,22008,1768,NA,NA,0,NA,63,0,NA,0,Y
+233,Crypthecodinium_cohnii,2866,Unchanged,from MMETSP metadata,75768,2860,NA,NA,0,NA,62,0,NA,0,Y
+234,Crypthecodinium_cohnii,2866,Unchanged,from MMETSP metadata,76238,2866,NA,NA,0,NA,63,0,NA,0,Y
+235,Crypthecodinium_cohnii,2866,Unchanged,from MMETSP metadata,22967,1861,NA,NA,0.245700246,NA,62,0,NA,0,Y
+236,Cryptomonas_paramecium,2898,Unchanged,from MMETSP metadata,92586,3240,NA,NA,19.04761905,NA,63,3.7,NA,0,Y
+237,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,43677,2986,NA,NA,2.197802198,NA,62,2.9,NA,0,Y
+238,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,42025,2995,NA,NA,0,NA,63,2.53,NA,0,Y
+239,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,42500,2932,NA,NA,0,NA,62,3.23,NA,0,Y
+240,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,44405,3007,NA,NA,0,NA,62,3.17,NA,0,Y
+241,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,31795,2563,NA,NA,0,NA,63,1.32,NA,0,Y
+242,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,31404,2528,NA,NA,0,NA,62,1.52,NA,0,Y
+243,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,37936,2825,NA,NA,0,NA,63,1.14,NA,0,Y
+244,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,28709,2403,NA,NA,0,NA,62,1.59,NA,0,Y
+245,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,60672,3356,NA,NA,36.84210526,NA,63,7.69,NA,0,Y
+246,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,56445,3332,NA,NA,1.869158879,NA,63,6.02,NA,0,Y
+247,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,63604,3386,NA,NA,7.207207207,NA,63,5.33,NA,0,Y
+248,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,62259,3371,NA,NA,8.181818182,NA,63,3.03,NA,0,Y
+249,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,61623,3348,NA,NA,2.912621359,NA,62,2.99,NA,0,Y
+250,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,63067,3334,NA,NA,0,NA,63,3.08,NA,0,Y
+251,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,60987,3325,NA,NA,1.041666667,NA,63,2.99,NA,0,Y
+252,Emiliania_huxleyi,2903,Unchanged,from MMETSP metadata,63211,3352,NA,NA,0,NA,63,2.67,NA,0,Y
+253,Tripos_fusus,2916,Unchanged,from MMETSP metadata,118358,3404,NA,NA,0.27173913,NA,63,0,NA,0,Y
+254,Tripos_fusus,2916,Unchanged,from MMETSP metadata,121055,3424,NA,NA,0,NA,63,0,NA,0,Y
+255,Thoracosphaera_heimii,2923,Unchanged,from MMETSP metadata,409,36,LOW_SEQS,NA,NA,NA,7,NA,NA,1,N
+256,Alexandrium_catenella,2925,Unchanged,from MMETSP metadata,112580,3312,NA,NA,0.427350427,NA,63,0,NA,0,Y
+257,Alexandrium_tamarense,2926,Unchanged,from MMETSP metadata,24216,1846,NA,NA,0,NA,61,0.62,NA,0,Y
+258,Alexandrium_tamarense,2926,Unchanged,from MMETSP metadata,132877,3523,NA,NA,0,NA,63,0,NA,0,Y
+259,Alexandrium_tamarense,2926,Unchanged,from MMETSP metadata,167686,4332,NA,NA,61.92135391,CONTAM_50PCT,63,54.6,CONTAM_50PCT,2,N
+260,Alexandrium_fundyense,2932,Unchanged,from MMETSP metadata,4092,653,NA,NA,21.82741117,NA,58,24.8,NA,0,Y
+261,Alexandrium_fundyense,2932,Unchanged,from MMETSP metadata,23525,1792,NA,NA,6.471816284,NA,62,3.49,NA,0,Y
+262,Prorocentrum_micans,2945,Unchanged,from MMETSP metadata,6657,481,LOW_PFAMS,NA,32.28200371,NA,52,NA,NA,1,N
+263,Amphidinium_carterae,2961,Unchanged,from MMETSP metadata,53453,2921,NA,NA,0,NA,62,1.6,NA,0,Y
+264,Amphidinium_carterae,2961,Unchanged,from MMETSP metadata,54435,2969,NA,NA,0,NA,63,0.81,NA,0,Y
+265,Amphidinium_carterae,2961,Unchanged,from MMETSP metadata,7843,875,NA,NA,0.858369099,NA,58,1.18,NA,0,Y
+266,Noctiluca_scintillans,2966,Unchanged,from MMETSP metadata,67220,2930,NA,NA,29.59641256,NA,63,12.5,NA,0,Y
+267,Oxyrrhis_marina,2969,Unchanged,from MMETSP metadata,187,57,LOW_SEQS,NA,NA,NA,19,NA,NA,1,N
+268,Oxyrrhis_marina,2969,Unchanged,from MMETSP metadata,3291,595,NA,NA,NA,NA,58,8.54,NA,0,Y
+269,Oxyrrhis_marina,2969,Unchanged,from MMETSP metadata,47293,2676,NA,NA,39.03508772,NA,61,29.36,NA,0,Y
+270,Oxyrrhis_marina,2969,Unchanged,from MMETSP metadata,111496,3530,NA,NA,50.9569378,CONTAM_50PCT,63,37.07,NA,1,N
+271,Oxyrrhis_marina,2969,Unchanged,from MMETSP metadata,49393,2802,NA,NA,47.03832753,NA,62,31.09,NA,0,Y
+272,Oxyrrhis_marina,2969,Unchanged,from MMETSP metadata,49861,2692,NA,NA,28.02197802,NA,61,15.38,NA,0,Y
+273,Oxyrrhis_marina,2969,Unchanged,from MMETSP metadata,39050,2457,NA,NA,28.94736842,NA,59,31.19,NA,0,Y
+274,Oxyrrhis_marina,2969,Unchanged,from MMETSP metadata,43772,2515,NA,NA,36.13861386,NA,59,40.16,NA,0,Y
+275,Oxyrrhis_marina,2969,Unchanged,from MMETSP metadata,90623,3231,NA,NA,40.98360656,NA,63,40.8,NA,0,Y
+276,Pyrocystis_lunula,2972,Unchanged,from MMETSP metadata,151,9,LOW_SEQS,NA,NA,NA,3,NA,NA,1,N
+277,Ochromonas_sp_CCMP1899,420557,Updated,from MMETSP metadata,24992,2872,NA,NA,11.11111111,NA,63,32.43,NA,0,Y
+278,Ochromonas_sp_BG-1,1616673,Updated,from MMETSP metadata,26334,2817,NA,NA,19.44444444,NA,63,47.37,NA,0,Y
+279,Mallomonas_sp,2003107,Updated,from MMETSP metadata,31110,3064,NA,NA,34.35114504,NA,63,62.5,CONTAM_50PCT,1,N
+280,Rhizosolenia_setigera,3005,Unchanged,from MMETSP metadata,473,130,LOW_SEQS,NA,44.63276836,NA,5,NA,NA,1,N
+281,Hanusia_phi,3032,Unchanged,from MMETSP metadata,36355,2981,NA,NA,0.806451613,NA,63,0,NA,0,Y
+282,Dunaliella_tertiolecta,3047,Unchanged,from MMETSP metadata,113,31,LOW_SEQS,NA,0,NA,NA,NA,NA,1,N
+283,Dunaliella_tertiolecta,3047,Unchanged,from MMETSP metadata,28039,3003,NA,NA,45.03311258,NA,63,20,NA,0,Y
+284,Dunaliella_tertiolecta,3047,Unchanged,from MMETSP metadata,26282,2973,NA,NA,0,NA,63,10.98,NA,0,Y
+285,Chlamydomonas_sp_CCMP681,413974,Updated,from MMETSP metadata,14899,2567,NA,NA,2.105263158,NA,63,2.74,NA,0,Y
+286,Tetraselmis_striata,3165,Unchanged,from MMETSP metadata,35316,3502,NA,NA,6.12244898,NA,63,9.59,NA,0,Y
+287,Tetraselmis_striata,3165,Unchanged,from MMETSP metadata,40683,3524,NA,NA,0,NA,63,12.82,NA,0,Y
+288,Tetraselmis_striata,3165,Unchanged,from MMETSP metadata,41735,3524,NA,NA,0,NA,63,13.95,NA,0,Y
+289,Tetraselmis_striata,3165,Unchanged,from MMETSP metadata,41091,3518,NA,NA,0,NA,62,13.54,NA,0,Y
+290,Tetraselmis_striata,3165,Unchanged,from MMETSP metadata,41266,3481,NA,NA,0,NA,63,13.46,NA,0,Y
+291,Schizochytrium_aggregatum_ATCC28209,876976,Updated,from MMETSP metadata,8820,1676,NA,NA,0,NA,62,3.64,NA,0,Y
+292,Schizochytrium_aggregatum_ATCC28209,876976,Updated,from MMETSP metadata,18957,2358,NA,NA,0,NA,63,4.08,NA,0,Y
+293,Schizochytrium_aggregatum_ATCC28209,876976,Updated,from MMETSP metadata,30310,2865,NA,NA,0,NA,62,1.92,NA,0,Y
+294,Schizochytrium_aggregatum_ATCC28209,876976,Updated,from MMETSP metadata,26655,2746,NA,NA,0,NA,63,3.64,NA,0,Y
+295,Euplotes_crassus,5936,Unchanged,from MMETSP metadata,29202,1907,NA,CONTAM NOTED,40.16736402,NA,63,5.15,NA,1,N
+296,Blepharisma_japonicum,5961,Unchanged,from MMETSP metadata,26664,2179,NA,CONTAM NOTED,48.86128364,NA,63,31.76,NA,1,N
+297,Chrysotila_carterae,13221,Unchanged,from MMETSP metadata,41988,3169,NA,NA,1.098901099,NA,63,1.27,NA,0,Y
+298,Chrysotila_carterae,13221,Unchanged,from MMETSP metadata,23492,2656,NA,NA,1.01010101,NA,63,0,NA,0,Y
+299,Chrysotila_carterae,13221,Unchanged,from MMETSP metadata,31152,3004,NA,NA,0,NA,63,0,NA,0,Y
+300,Ammonia_sp,43993,Updated,from MMETSP metadata,62143,3040,NA,NA,0.440528634,NA,63,8.7,NA,0,Y
+301,Chlorarachnion_reptans,29199,Unchanged,from MMETSP metadata,36097,3306,NA,NA,0,NA,63,6.25,NA,0,Y
+302,Stephanocyclus_meneghinianus,29205,Unchanged,from MMETSP metadata,188,50,LOW_SEQS,NA,0,NA,2,NA,NA,1,N
+303,Goniomonas_sp,1955572,Updated,from MMETSP metadata,32000,2748,NA,NA,4.494382022,NA,63,33.33,NA,0,Y
+304,Compsopogon_caeruleus,31354,Unchanged,from MMETSP metadata,17896,2546,NA,NA,9.160305344,NA,62,2.75,NA,0,Y
+305,Asterionellopsis_glacialis,33640,Unchanged,from MMETSP metadata,25013,2858,NA,NA,1.041666667,NA,63,0,NA,0,Y
+306,Asterionellopsis_glacialis,33640,Unchanged,from MMETSP metadata,17235,2469,NA,NA,1.086956522,NA,63,8.89,NA,0,Y
+307,Asterionellopsis_glacialis,33640,Unchanged,from MMETSP metadata,24756,3313,NA,NA,2.197802198,NA,62,36.62,NA,0,Y
+308,Asterionellopsis_glacialis,33640,Unchanged,from MMETSP metadata,27787,2989,NA,NA,0.961538462,NA,63,1.96,NA,0,Y
+309,Asterionellopsis_glacialis,33640,Unchanged,from MMETSP metadata,18079,2863,NA,NA,2.247191011,NA,63,31.75,NA,0,Y
+310,Asterionellopsis_glacialis,33640,Unchanged,from MMETSP metadata,24519,2753,NA,NA,0,NA,63,0,NA,0,Y
+311,Thalassionema_nitzschioides,33649,Unchanged,from MMETSP metadata,29470,2972,NA,NA,0,NA,62,0,NA,0,Y
+312,Thalassionema_nitzschioides,33649,Unchanged,from MMETSP metadata,29492,2964,NA,NA,0,NA,63,0,NA,0,Y
+313,Thalassionema_nitzschioides,33649,Unchanged,from MMETSP metadata,5369,1064,NA,NA,0,NA,61,0,NA,0,Y
+314,Bicosoecid_sp_CB-2014,1486930,Updated,from MMETSP metadata,37341,2743,NA,NA,0,NA,61,4.76,NA,0,Y
+315,Cafeteria_sp,2621217,Updated,from MMETSP metadata,36562,3034,NA,NA,0,NA,62,0,NA,0,Y
+316,Cafeteria_roebergensis,33653,Unchanged,from MMETSP metadata,36850,2631,NA,NA,1.219512195,NA,61,6.45,NA,0,Y
+317,Phaeocystis_sp_CCMP2710,1411682,Updated,from MMETSP metadata,36064,2819,NA,NA,14.42307692,NA,63,3.08,NA,0,Y
+318,Phaeocystis_rex,1631189,Updated,from MMETSP metadata,19510,2404,NA,NA,15.04424779,NA,63,1.59,NA,0,Y
+319,Phaeocystis_antarctica,33657,Unchanged,from MMETSP metadata,74670,3500,NA,NA,2.06185567,NA,63,2.41,NA,0,Y
+320,Phaeocystis_antarctica,33657,Unchanged,from MMETSP metadata,33956,2919,NA,NA,11.45833333,NA,62,6.1,NA,0,Y
+321,Uronema_marinum,35107,Unchanged,from MMETSP metadata,1190,205,LOW_SEQS,NA,2.469135802,NA,4,NA,NA,1,N
+322,Thalassiosira_sp,1891026,Updated,from MMETSP metadata,23610,2752,NA,NA,0,NA,63,0,NA,0,Y
+323,Thalassiosira_sp,1891026,Updated,from MMETSP metadata,40520,2960,NA,NA,0.99009901,NA,63,0,NA,0,Y
+324,Pelagomonas_calceolata,35677,Unchanged,from MMETSP metadata,27950,2725,NA,NA,7.52688172,NA,63,0.97,NA,0,Y
+325,Pelagomonas_calceolata,35677,Unchanged,from MMETSP metadata,24751,2436,NA,NA,0,NA,61,0,NA,0,Y
+326,Pelagomonas_calceolata,35677,Unchanged,from MMETSP metadata,27554,2664,NA,NA,0,NA,63,1.02,NA,0,Y
+327,Pelagomonas_calceolata,35677,Unchanged,from MMETSP metadata,31222,2774,NA,NA,0,NA,63,0.88,NA,0,Y
+328,Pelagomonas_calceolata,35677,Unchanged,from MMETSP metadata,27012,2565,NA,NA,3.658536585,NA,61,1.2,NA,0,Y
+329,Pelagococcus_subviridis,35679,Unchanged,from MMETSP metadata,44084,2885,NA,NA,0,NA,63,0.96,NA,0,Y
+330,Pelagococcus_subviridis,35679,Unchanged,from MMETSP metadata,40811,2782,NA,NA,0,NA,63,1,NA,0,Y
+331,Pelagococcus_subviridis,35679,Unchanged,from MMETSP metadata,41903,2835,NA,NA,2.083333333,NA,63,0.95,NA,0,Y
+332,Pelagococcus_subviridis,35679,Unchanged,from MMETSP metadata,44427,2858,NA,NA,8.181818182,NA,63,1.83,NA,0,Y
+333,Pseudopedinella_elastica,35684,Unchanged,from MMETSP metadata,59281,3259,NA,NA,0,NA,61,1.19,NA,0,Y
+334,Pseudopedinella_elastica,35684,Unchanged,from MMETSP metadata,11895,1901,NA,NA,0,NA,60,60.56,CONTAM_50PCT,1,N
+335,Dictyocha_speculum,35687,Unchanged,from MMETSP metadata,45298,3267,NA,NA,2.06185567,NA,63,2.02,NA,0,Y
+336,Euplotes_focardii,36767,Unchanged,from MMETSP metadata,23697,1673,NA,CONTAM NOTED,67.3381295,CONTAM_50PCT,62,40.99,NA,2,N
+337,Euplotes_focardii,36767,Unchanged,from MMETSP metadata,17274,1886,NA,CONTAM NOTED,74.08207343,CONTAM_50PCT,63,55.31,CONTAM_50PCT,3,N
+338,Paraphysomonas_bandaiensis,89770,Updated,from MMETSP metadata,22357,2906,NA,NA,0,NA,63,68.57,CONTAM_50PCT,1,N
+339,Paraphysomonas_vestita,36770,Unchanged,from MMETSP metadata,21284,2637,NA,NA,0,NA,63,56.41,CONTAM_50PCT,1,N
+340,Pyramimonas_obovata,1411642,Updated,from MMETSP metadata,31781,3431,NA,NA,0,NA,63,0,NA,0,Y
+341,Polyblepharides_amylifera,1486889,Updated,from MMETSP metadata,29270,3332,NA,NA,0,NA,63,5.56,NA,0,Y
+342,Pyramimonas_parkeae,36894,Unchanged,from MMETSP metadata,35059,3474,NA,NA,6.060606061,NA,63,5.13,NA,0,Y
+343,Pyramimonas_sp,36898,Unchanged,from MMETSP metadata,29121,3345,NA,NA,21.3592233,NA,63,17.65,NA,0,Y
+344,Isochrysis_sp,40639,Updated,from MMETSP metadata,42228,3025,NA,NA,5.050505051,NA,63,4.62,NA,0,Y
+345,Isochrysis_sp,40639,Updated,from MMETSP metadata,63175,3419,NA,NA,0,NA,63,1.45,NA,0,Y
+346,Isochrysis_galbana,37099,Unchanged,from MMETSP metadata,33127,3035,NA,NA,0,NA,63,60,CONTAM_50PCT,1,N
+347,Isochrysis_galbana,37099,Unchanged,from MMETSP metadata,37974,3162,NA,NA,3.333333333,NA,63,28.38,NA,0,Y
+348,Isochrysis_galbana,37099,Unchanged,from MMETSP metadata,37226,3084,NA,NA,26.54867257,NA,63,33.77,NA,0,Y
+349,Pseudo-nitzschia_pungens_cingulata,2202556,Updated,from MMETSP metadata,32212,2721,NA,NA,0,NA,63,0,NA,0,Y
+350,Pseudo-nitzschia_pungens_pungens,1001703,Updated,from MMETSP metadata,33990,2720,NA,NA,0,NA,63,0.92,NA,0,Y
+351,Rosalina_sp,2695917,Updated,from MMETSP metadata,55485,2502,NA,NA,1.351351351,NA,61,16.98,NA,0,Y
+352,Paraphysomonas_imperforata,37642,Unchanged,from MMETSP metadata,34676,3981,NA,NA,0,NA,63,70.83,CONTAM_50PCT,1,N
+353,Paraphysomonas_imperforata,37642,Unchanged,from MMETSP metadata,26988,2839,NA,NA,0,NA,63,61.76,CONTAM_50PCT,1,N
+354,Gloeochaete_witrockiana,38269,Unchanged,from MMETSP metadata,31871,3528,NA,NA,48.80952381,NA,63,100,CONTAM_50PCT,1,N
+355,Gloeochaete_wittrockiana,38269,Unchanged,from MMETSP metadata,41077,3841,NA,NA,59.04761905,CONTAM_50PCT,63,100,CONTAM_50PCT,2,N
+356,Rhodella_violacea,2801,Updated,from MMETSP metadata,26464,2589,NA,NA,1.923076923,NA,63,4.35,NA,0,Y
+357,Rhodella_violacea,2801,Updated,from MMETSP metadata,23969,2475,NA,NA,0,NA,62,4,NA,0,Y
+358,Gephyrocapsa_oceanica,38817,Unchanged,from MMETSP metadata,56465,3295,NA,NA,0,NA,63,2.67,NA,0,Y
+359,Gephyrocapsa_oceanica,38817,Unchanged,from MMETSP metadata,53969,3231,NA,NA,0.99009901,NA,63,4.23,NA,0,Y
+360,Gephyrocapsa_oceanica,38817,Unchanged,from MMETSP metadata,60491,3328,NA,NA,0.925925926,NA,63,4.41,NA,0,Y
+361,Gephyrocapsa_oceanica,38817,Unchanged,from MMETSP metadata,64591,3364,NA,NA,1.01010101,NA,63,3.08,NA,0,Y
+362,Pteridomonas_danica,38822,Unchanged,from MMETSP metadata,42231,3867,NA,NA,10.67961165,NA,63,20.27,NA,0,Y
+363,Pteridomonas_danica,38822,Unchanged,from MMETSP metadata,28840,2362,NA,NA,0,NA,62,0,NA,0,Y
+364,Micromonas_sp_CCMP2099,1442574,Updated,from MMETSP metadata,19909,2911,NA,NA,28.09917355,NA,63,9.52,NA,0,Y
+365,Micromonas_pusilla,38833,Unchanged,from MMETSP metadata,20528,2917,NA,NA,0,NA,63,0,NA,0,Y
+366,Micromonas_sp_CCMP1646,1659424,Updated,from MMETSP metadata,27917,2966,NA,NA,5.319148936,NA,62,2,NA,0,Y
+367,Micromonas_sp,2509521,Updated,from MMETSP metadata,21869,2947,NA,NA,0,NA,63,0.85,NA,0,Y
+368,Micromonas_commoda,296587,Updated,from MMETSP metadata,24433,2925,NA,NA,0,NA,63,1.89,NA,0,Y
+369,Micromonas_sp,2509521,Updated,from MMETSP metadata,21899,2934,NA,NA,1.063829787,NA,63,0.87,NA,0,Y
+370,Micromonas_commoda,296587,Updated,from MMETSP metadata,24941,2966,NA,NA,8.695652174,NA,63,6.48,NA,0,Y
+371,Micromonas_sp_CCMP2099,1442574,Updated,from MMETSP metadata,338,121,LOW_SEQS,NA,0,NA,2,NA,NA,1,N
+372,Micromonas_sp_CS222,1659427,Updated,from MMETSP metadata,17394,2632,NA,NA,0,NA,63,3.41,NA,0,Y
+373,Micromonas_commoda,296587,Updated,from MMETSP metadata,26030,2965,NA,NA,0,NA,63,0.96,NA,0,Y
+374,Micromonas_pusilla,38833,Unchanged,from MMETSP metadata,26894,2964,NA,NA,0,NA,63,0,NA,0,Y
+375,Micromonas_pusilla,38833,Unchanged,from MMETSP metadata,23564,2695,NA,NA,0,NA,62,0,NA,0,Y
+376,Micromonas_pusilla,38833,Unchanged,from MMETSP metadata,25554,2967,NA,NA,0,NA,63,1.64,NA,0,Y
+377,Micromonas_pusilla,38833,Unchanged,from MMETSP metadata,24716,2911,NA,NA,0,NA,63,0.81,NA,0,Y
+378,Heterosigma_akashiwo,2829,Updated,from MMETSP metadata,31904,3028,NA,NA,NA,NA,62,8.57,NA,0,Y
+379,Heterosigma_akashiwo,2829,Updated,from MMETSP metadata,39032,3217,NA,NA,NA,NA,61,7.14,NA,0,Y
+380,Heterosigma_akashiwo,2829,Updated,from MMETSP metadata,32055,2946,NA,NA,NA,NA,62,9.68,NA,0,Y
+381,Heterosigma_akashiwo,2829,Updated,from MMETSP metadata,30489,3027,NA,NA,NA,NA,62,11.59,NA,0,Y
+382,Gymnodinium_catenatum_GC744,1203019,Updated,from MMETSP metadata,120607,3687,NA,NA,9.100758397,NA,63,9.7,NA,0,Y
+383,Prorocentrum_lima,39448,Unchanged,from MMETSP metadata,3,1,LOW_SEQS,NA,NA,NA,NA,NA,NA,1,N
+384,Prorocentrum_minimum,39449,Unchanged,from MMETSP metadata,106138,3164,NA,NA,0.559701493,NA,63,3.25,NA,0,Y
+385,Prorocentrum_minimum,39449,Unchanged,from MMETSP metadata,54977,2456,NA,NA,0,NA,60,3.9,NA,0,Y
+386,Prorocentrum_minimum,39449,Unchanged,from MMETSP metadata,111804,3190,NA,NA,0.570342205,NA,63,0,NA,0,Y
+387,Prorocentrum_minimum,39449,Unchanged,from MMETSP metadata,105381,3169,NA,NA,0,NA,63,2.08,NA,0,Y
+388,Prorocentrum_minimum,39449,Unchanged,from MMETSP metadata,94801,3080,NA,NA,0,NA,62,3.36,NA,0,Y
+389,Prorocentrum_minimum,39449,Unchanged,from MMETSP metadata,113621,3284,NA,NA,0,NA,63,2.1,NA,0,Y
+390,Prorocentrum_minimum,39449,Unchanged,from MMETSP metadata,117770,3295,NA,NA,0.197628458,NA,63,2.92,NA,0,Y
+391,Alexandrium_minutum,39455,Unchanged,from MMETSP metadata,47716,2007,NA,NA,4.055944056,NA,62,1.42,NA,0,Y
+392,Condylostoma_magnum,40633,Unchanged,from MMETSP metadata,4010,661,NA,NA,0.591715976,NA,35,14.29,NA,0,Y
+393,Isochrysis_sp,40639,Unchanged,from MMETSP metadata,26497,2619,NA,NA,1.219512195,NA,63,57.33,CONTAM_50PCT,1,N
+394,Isochrysis_sp,40639,Unchanged,from MMETSP metadata,931,212,LOW_SEQS,NA,0,NA,10,NA,NA,1,N
+395,Isochrysis_sp,40639,Unchanged,from MMETSP metadata,8083,1351,NA,NA,0,NA,63,54.55,CONTAM_50PCT,1,N
+396,Isochrysis_sp,40639,Unchanged,from MMETSP metadata,29285,2806,NA,NA,1.086956522,NA,63,56.1,CONTAM_50PCT,1,N
+397,Bathycoccus_prasinos,41875,Unchanged,from MMETSP metadata,12087,2511,NA,NA,0,NA,63,0,NA,0,Y
+398,Bathycoccus_prasinos,2812571,Updated,from MMETSP metadata,13792,2553,NA,NA,0,NA,63,0,NA,0,Y
+399,Chloropicon_roscoffensis,1461544,Updated,from MMETSP metadata,15925,2761,NA,NA,1.098901099,NA,63,0,NA,0,Y
+400,Pycnococcus_provasolii,41880,Unchanged,from MMETSP metadata,17207,2672,NA,NA,0,NA,63,0,NA,0,Y
+401,Pycnococcus_provasolii,41880,Unchanged,from MMETSP metadata,13341,2368,NA,NA,1.219512195,NA,62,0,NA,0,Y
+402,Pycnococcus_provasolii,41880,Unchanged,from MMETSP metadata,15573,2650,NA,NA,0,NA,63,0.88,NA,0,Y
+403,Pycnococcus_provasolii,41880,Unchanged,from MMETSP metadata,11335,2265,NA,NA,15.53398058,NA,62,0,NA,0,Y
+404,Pelagodinium_beii,43686,Unchanged,from MMETSP metadata,87914,3374,NA,NA,10.26058632,NA,63,3.06,NA,0,Y
+405,Aureococcus_anophagefferens,44056,Unchanged,from MMETSP metadata,54499,2969,NA,NA,0,NA,63,0.9,NA,0,Y
+406,Aureococcus_anophagefferens,44056,Unchanged,from MMETSP metadata,45854,2898,NA,NA,0,NA,63,0,NA,0,Y
+407,Aureococcus_anophagefferens,44056,Unchanged,from MMETSP metadata,45488,2886,NA,NA,0,NA,62,0,NA,0,Y
+408,Aureococcus_anophagefferens,44056,Unchanged,from MMETSP metadata,45638,2838,NA,NA,0,NA,62,0,NA,0,Y
+409,Aureoumbra_lagunensis,44058,Unchanged,from MMETSP metadata,20169,2771,NA,NA,0,NA,63,2.33,NA,0,Y
+410,Aureoumbra_lagunensis,44058,Unchanged,from MMETSP metadata,19674,2799,NA,NA,30.14705882,NA,63,12.5,NA,0,Y
+411,Aureoumbra_lagunensis,44058,Unchanged,from MMETSP metadata,20059,2724,NA,NA,0,NA,63,2.5,NA,0,Y
+412,Aureoumbra_lagunensis,44058,Unchanged,from MMETSP metadata,21606,2750,NA,NA,0,NA,63,1.09,NA,0,Y
+413,Chattonella_subsalsa,44440,Unchanged,from MMETSP metadata,32547,3250,NA,NA,0,NA,63,2.74,NA,0,Y
+414,Chattonella_subsalsa,44440,Unchanged,from MMETSP metadata,30948,3183,NA,NA,0,NA,61,1.2,NA,0,Y
+415,Chattonella_subsalsa,44440,Unchanged,from MMETSP metadata,30297,3162,NA,NA,0,NA,62,1.33,NA,0,Y
+416,Chattonella_subsalsa,44440,Unchanged,from MMETSP metadata,32690,3241,NA,NA,0,NA,62,1.04,NA,0,Y
+417,Pseudo-nitzschia_australis,44445,Unchanged,from MMETSP metadata,26497,2675,NA,NA,1.075268817,NA,63,0,NA,0,Y
+418,Pseudo-nitzschia_australis,44445,Unchanged,from MMETSP metadata,26626,2672,NA,NA,0.980392157,NA,63,0,NA,0,Y
+419,Pseudo-nitzschia_australis,44445,Unchanged,from MMETSP metadata,25819,2683,NA,NA,0,NA,63,0,NA,0,Y
+420,Pseudo-nitzschia_australis,44445,Unchanged,from MMETSP metadata,26086,2665,NA,NA,1.086956522,NA,63,0.98,NA,0,Y
+421,Pseudo-nitzschia_delicatissima,44447,Unchanged,from MMETSP metadata,24443,2748,NA,NA,30.23255814,NA,63,13.04,NA,0,Y
+422,Pseudo-nitzschia_delicatissima,44447,Unchanged,from MMETSP metadata,21199,2633,NA,NA,0,NA,63,0,NA,0,Y
+423,Pavlova_gyrans,44452,Unchanged,from MMETSP metadata,28477,2498,NA,NA,6.315789474,NA,62,0,NA,0,Y
+424,Chloropicon_primus,1764295,Updated,from MMETSP metadata,18419,2876,NA,NA,38.33333333,NA,63,14.66,NA,0,Y
+425,Anophryoides_haemophila,46462,Unchanged,from MMETSP metadata,243,66,LOW_SEQS,NA,1.941747573,NA,17,NA,NA,1,N
+426,Anophryoides_haemophila,46462,Unchanged,from MMETSP metadata,1653,273,LOW_PFAMS,NA,7.079646018,NA,20,NA,NA,1,N
+427,Geminigera_sp,2864123,Updated,from MMETSP metadata,64266,3341,NA,NA,3.067484663,NA,63,0,NA,0,Y
+428,Geminigera_cryophila_CCMP2564,1202989,Updated,from MMETSP metadata,72274,3450,NA,NA,1.923076923,NA,63,0.77,NA,0,Y
+429,Rhodomonas_abbreviata,46948,Unchanged,from MMETSP metadata,62137,3319,NA,NA,46.5408805,NA,63,28.41,NA,0,Y
+430,Dinophysis_acuminata,47934,Unchanged,from MMETSP metadata,130982,3233,NA,NA,0,NA,63,0,NA,0,Y
+431,Chaetoceros_sp_UNC1202,1537840,Updated,from MMETSP metadata,19097,2663,NA,NA,0,NA,63,17.95,NA,0,Y
+432,Ditylum_brightwellii,49249,Unchanged,from MMETSP metadata,34845,3010,NA,NA,1.075268817,NA,63,0,NA,0,Y
+433,Ditylum_brightwellii,49249,Unchanged,from MMETSP metadata,33605,3000,NA,NA,1.136363636,NA,63,0,NA,0,Y
+434,Ditylum_brightwellii,49249,Unchanged,from MMETSP metadata,32307,2938,NA,NA,1.041666667,NA,63,0,NA,0,Y
+435,Ditylum_brightwellii,49249,Unchanged,from MMETSP metadata,27815,2769,NA,NA,1.123595506,NA,63,0,NA,0,Y
+436,Ditylum_brightwellii,49249,Unchanged,from MMETSP metadata,2063,586,NA,NA,6.172839506,NA,54,0,NA,0,Y
+437,Ditylum_brightwellii,49249,Unchanged,from MMETSP metadata,21238,2428,NA,NA,19.81981982,NA,63,1.1,NA,0,Y
+438,Ditylum_brightwellii,49249,Unchanged,from MMETSP metadata,29476,2766,NA,NA,0.952380952,NA,61,0,NA,0,Y
+439,Ditylum_brightwellii,49249,Unchanged,from MMETSP metadata,58956,3293,NA,NA,46.13095238,NA,63,17.96,NA,0,Y
+440,Ditylum_brightwellii,49249,Unchanged,from MMETSP metadata,28753,2757,NA,NA,37.1257485,NA,63,8.7,NA,0,Y
+441,Eucampia_antarctica,49252,Unchanged,from MMETSP metadata,20767,2569,NA,NA,0,NA,62,0,NA,0,Y
+442,Thalassiosira_rotula,49265,Unchanged,from MMETSP metadata,38122,2933,NA,NA,33.78378378,NA,63,14.91,NA,0,Y
+443,Thalassiosira_rotula,49265,Unchanged,from MMETSP metadata,39612,2956,NA,NA,0.884955752,NA,63,0,NA,0,Y
+444,Thalassiosira_rotula,49265,Unchanged,from MMETSP metadata,33479,2774,NA,NA,12.61261261,NA,63,0,NA,0,Y
+445,Thalassiosira_rotula,49265,Unchanged,from MMETSP metadata,22508,2316,NA,NA,5.154639175,NA,62,1.16,NA,0,Y
+446,Thalassiosira_rotula,49265,Unchanged,from MMETSP metadata,864,216,LOW_SEQS,NA,3.225806452,NA,3,NA,NA,1,N
+447,Thalassiosira_rotula,49265,Unchanged,from MMETSP metadata,18502,2154,NA,NA,2.912621359,NA,63,2,NA,0,Y
+448,Climacostomum_virens,49980,Unchanged,from MMETSP metadata,39133,2280,NA,CONTAM NOTED,57.69230769,CONTAM_50PCT,63,58.96,CONTAM_50PCT,3,N
+449,Polytomella_parva,51329,Unchanged,from MMETSP metadata,28769,2601,NA,NA,2.4,NA,62,0,NA,0,Y
+450,Rhodomonas_salina,52970,Unchanged,from MMETSP metadata,55466,3406,NA,NA,1.342281879,NA,63,0.81,NA,0,Y
+451,Sarcinochrysis_sp_CCMP770,1411683,Updated,from MMETSP metadata,11304,1525,NA,NA,0,NA,63,1.43,NA,0,Y
+452,Tetraselmis_chuii,63592,Unchanged,from MMETSP metadata,30910,3368,NA,NA,0,NA,63,17.05,NA,0,Y
+453,Percolomonas_cosmopolitus,63605,Unchanged,from MMETSP metadata,14173,2310,NA,NA,7.317073171,NA,63,40.74,NA,0,Y
+454,Percolomonas_cosmopolitus,63605,Unchanged,from MMETSP metadata,16375,2432,NA,NA,2.5,NA,63,14.29,NA,0,Y
+455,Heterocapsa_triquestra,66468,Unchanged,from MMETSP metadata,94244,3168,NA,NA,0.265251989,NA,63,47.18,NA,0,Y
+456,Gonyaulax_spinifera,66791,Unchanged,from MMETSP metadata,65109,2854,NA,NA,4.132231405,NA,63,4.69,NA,0,Y
+457,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,32264,2897,NA,NA,0,NA,63,0,NA,0,Y
+458,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,32548,2875,NA,NA,1.176470588,NA,63,0.71,NA,0,Y
+459,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,31731,2860,NA,NA,1.01010101,NA,60,0,NA,0,Y
+460,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,32432,2857,NA,NA,0,NA,62,0,NA,0,Y
+461,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,33704,2917,NA,NA,1.941747573,NA,62,0,NA,0,Y
+462,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,33780,2916,NA,NA,6.896551724,NA,61,0.96,NA,0,Y
+463,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,34319,2923,NA,NA,1.724137931,NA,63,0,NA,0,Y
+464,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,32004,2840,NA,NA,1.030927835,NA,63,0,NA,0,Y
+465,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,33350,2898,NA,NA,0.943396226,NA,62,0,NA,0,Y
+466,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,32096,2860,NA,NA,1.041666667,NA,62,0,NA,0,Y
+467,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,33595,2891,NA,NA,1.923076923,NA,63,0,NA,0,Y
+468,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,32395,2909,NA,NA,1,NA,62,0,NA,0,Y
+469,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,32214,2875,NA,NA,2,NA,62,0,NA,0,Y
+470,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,33541,2913,NA,NA,1.020408163,NA,63,0,NA,0,Y
+471,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,32835,2861,NA,NA,2.06185567,NA,62,0,NA,0,Y
+472,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,11,4,LOW_SEQS,NA,1.01010101,NA,NA,NA,NA,1,N
+473,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,31330,2831,NA,NA,2.150537634,NA,62,0,NA,0,Y
+474,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,31645,2860,NA,NA,0,NA,63,0,NA,0,Y
+475,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,32114,2865,NA,NA,1.041666667,NA,62,0,NA,0,Y
+476,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,32370,2864,NA,NA,2.02020202,NA,63,0,NA,0,Y
+477,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,31653,2837,NA,NA,1.030927835,NA,63,0,NA,0,Y
+478,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,32031,2861,NA,NA,0.980392157,NA,62,0,NA,0,Y
+479,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,32475,2883,NA,NA,1,NA,63,0,NA,0,Y
+480,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,31868,2853,NA,NA,1.123595506,NA,62,0,NA,0,Y
+481,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,31645,2838,NA,NA,1,NA,63,0,NA,0,Y
+482,Conticribra_weissflogii,1577725,Updated,from MMETSP metadata,31812,2851,NA,NA,0,NA,62,0,NA,0,Y
+483,Scrippsiella_trochoidea,71861,Unchanged,from MMETSP metadata,142452,3397,NA,NA,0,NA,63,0.45,NA,0,Y
+484,Scrippsiella_trochoidea,71861,Unchanged,from MMETSP metadata,143259,3420,NA,NA,0,NA,62,1.49,NA,0,Y
+485,Scrippsiella_trochoidea,71861,Unchanged,from MMETSP metadata,138157,3362,NA,NA,0,NA,63,1.49,NA,0,Y
+486,Prymnesium_polylepis,72548,Unchanged,from MMETSP metadata,32425,2255,NA,NA,1.01010101,NA,62,2.9,NA,0,Y
+487,Prymnesium_polylepis,72548,Unchanged,from MMETSP metadata,97753,3604,NA,NA,0.943396226,NA,63,2.53,NA,0,Y
+488,Prymnesium_polylepis,72548,Unchanged,from MMETSP metadata,60131,3023,NA,NA,0.934579439,NA,63,1.33,NA,0,Y
+489,Prymnesium_polylepis,72548,Unchanged,from MMETSP metadata,70332,3195,NA,NA,0,NA,63,1.35,NA,0,Y
+490,Prymnesium_polylepis,72548,Unchanged,from MMETSP metadata,68044,3264,NA,NA,0,NA,63,1.37,NA,0,Y
+491,Eutreptiella_gymnastica,73025,Unchanged,from MMETSP metadata,81497,3470,NA,NA,4.273504274,NA,63,4.23,NA,0,Y
+492,Eutreptiella_gymnastica_sp_CCMP1594,1867818,Updated,from MMETSP metadata,32299,2579,NA,NA,5.555555556,NA,63,5.77,NA,0,Y
+493,Eutreptiella_gymnastica_sp_CCMP1594,1867818,Updated,from MMETSP metadata,40235,2794,NA,NA,0,NA,63,5,NA,0,Y
+494,Eutreptiella_gymnastica_sp_CCMP1594,1867818,Updated,from MMETSP metadata,46464,2958,NA,NA,0,NA,63,5.94,NA,0,Y
+495,Pyrodinium_bahamense,73915,Unchanged,from MMETSP metadata,144894,3519,NA,NA,0.240963855,NA,63,1.06,NA,0,Y
+496,Cyanoptyche_gloeocystis,77922,Updated,from MMETSP metadata,16274,2502,NA,NA,0,NA,63,17.86,NA,0,Y
+497,Hemiselmis_rufescens,77926,Unchanged,from MMETSP metadata,49896,3304,NA,NA,39.03508772,NA,63,22.9,NA,0,Y
+498,Hemiselmis_virescens,77927,Unchanged,from MMETSP metadata,33505,3121,NA,NA,40.99099099,NA,63,21.94,NA,0,Y
+499,Proteomonas_sulcata,77928,Unchanged,from MMETSP metadata,41238,3015,NA,NA,0,NA,62,0,NA,0,Y
+500,Acanthoeca_sp,2618734,Updated,from MMETSP metadata,37051,3979,NA,NA,0,NA,63,71.62,CONTAM_50PCT,1,N
+501,Acanthoeca_sp,2618734,Updated,from MMETSP metadata,38133,3437,NA,NA,12.5,NA,63,15.38,NA,0,Y
+502,Mantoniella_antarctica,81844,Unchanged,from MMETSP metadata,34278,3219,NA,NA,1.19047619,NA,63,0,NA,0,Y
+503,Detonula_confervacea,83371,Unchanged,from MMETSP metadata,31435,2848,NA,NA,1.111111111,NA,63,0,NA,0,Y
+504,Aurantiochytrium_limacinum_ATCC_MYA-1381,717989,Updated,from MMETSP metadata,18547,2661,NA,NA,NA,NA,63,0,NA,0,Y
+505,Aurantiochytrium_limacinum_ATCC_MYA-1381,717989,Updated,from MMETSP metadata,18996,2709,NA,NA,NA,NA,63,3.25,NA,0,Y
+506,Aurantiochytrium_limacinum_ATCC_MYA-1381,717989,Updated,from MMETSP metadata,18108,2691,NA,NA,NA,NA,63,0,NA,0,Y
+507,Aurantiochytrium_limacinum_ATCC_MYA-1381,717989,Updated,from MMETSP metadata,18450,2763,NA,NA,NA,NA,63,1.09,NA,0,Y
+508,Picocystis_salinarum,88271,Unchanged,from MMETSP metadata,14186,2634,NA,NA,6.060606061,NA,63,1.59,NA,0,Y
+509,Picocystis_salinarum,88271,Unchanged,from MMETSP metadata,25647,2782,NA,NA,0,NA,63,3.74,NA,0,Y
+510,Amoebophrya_sp,88552,Unchanged,from MMETSP metadata,25502,1372,NA,NA,0,NA,10,0,NA,0,Y
+511,Spumella_elongata,89044,Unchanged,from MMETSP metadata,49133,3369,NA,NA,79.89864865,CONTAM_50PCT,63,26.55,NA,1,N
+512,Polarella_glacialis,89957,Unchanged,from MMETSP metadata,78466,3256,NA,NA,0.268817204,NA,63,0,NA,0,Y
+513,Polarella_glacialis,89957,Unchanged,from MMETSP metadata,54373,2937,NA,NA,1.655172414,NA,63,1.11,NA,0,Y
+514,Heterocapsa_rotundata,89963,Unchanged,from MMETSP metadata,83530,2977,NA,NA,21.68674699,NA,63,32.37,NA,0,Y
+515,Lotharella_globosa,91324,Unchanged,from MMETSP metadata,35356,3409,NA,NA,0,NA,63,0.67,NA,0,Y
+516,Lotharella_globosa,91324,Unchanged,from MMETSP metadata,32383,3180,NA,NA,2.307692308,NA,63,1.35,NA,0,Y
+517,Lotharella_globosa,91324,Unchanged,from MMETSP metadata,18986,2265,NA,NA,2.362204724,NA,63,0.69,NA,0,Y
+518,Norrisiella_sphaerica,552664,Updated,from MMETSP metadata,23741,2773,NA,NA,0.793650794,NA,61,6.42,NA,0,Y
+519,Bolidomonas_sp_RCC2347,1606585,Updated,from MMETSP metadata,24455,2754,NA,NA,0,NA,63,2.08,NA,0,Y
+520,Bolidomonas_sp_RCC1657,1411661,Updated,from MMETSP metadata,26354,2842,NA,NA,0,NA,63,2.08,NA,0,Y
+521,Triparma_pacifica,91992,Unchanged,from MMETSP metadata,23355,2864,NA,NA,0,NA,63,1.72,NA,0,Y
+522,Fibrocapsa_japonica,94617,Unchanged,from MMETSP metadata,16937,2574,NA,NA,0,NA,63,0,NA,0,Y
+523,Vannella_sp,1973054,Updated,from MMETSP metadata,37165,4136,NA,NA,0,NA,63,77.08,CONTAM_50PCT,1,N
+524,Vannella_robusta,1487602,Updated,from MMETSP metadata,22573,2986,NA,NA,19.16666667,NA,62,15.52,NA,0,Y
+525,unclassified_Labyrinthulomycetes_QPX,96639,Unchanged,from MMETSP metadata,35445,3558,NA,NA,61.66007905,CONTAM_50PCT,63,45.45,NA,1,N
+526,unclassified_Labyrinthulomycetes_QPX,96639,Unchanged,from MMETSP metadata,15028,2553,NA,NA,1.333333333,NA,62,16.67,NA,0,Y
+527,unclassified_Labyrinthulomycetes_QPX,96639,Unchanged,from MMETSP metadata,18350,2780,NA,NA,32.74336283,NA,63,30,NA,0,Y
+528,unclassified_Labyrinthulomycetes_QPX,96639,Unchanged,from MMETSP metadata,27100,3045,NA,NA,56.7114094,CONTAM_50PCT,63,39.46,NA,1,N
+529,Chromulina_nebulosa,96789,Unchanged,from MMETSP metadata,20826,2644,NA,NA,1.123595506,NA,62,24.14,NA,0,Y
+530,Prymnesium_parvum,97485,Unchanged,from MMETSP metadata,48161,3174,NA,NA,32.82442748,NA,61,3.23,NA,0,Y
+531,Prymnesium_parvum,97485,Unchanged,from MMETSP metadata,42659,3188,NA,NA,0.99009901,NA,63,1.3,NA,0,Y
+532,Prymnesium_parvum,97485,Unchanged,from MMETSP metadata,17585,2161,NA,NA,0.925925926,NA,63,2.9,NA,0,Y
+533,Prymnesium_parvum,97485,Unchanged,from MMETSP metadata,27070,2728,NA,NA,0,NA,63,1.35,NA,0,Y
+534,Prymnesium_parvum,97485,Unchanged,from MMETSP metadata,47716,3368,NA,NA,26.4,NA,63,8.11,NA,0,Y
+535,Prymnesium_parvum,97485,Unchanged,from MMETSP metadata,41713,3036,NA,NA,1.075268817,NA,63,1.32,NA,0,Y
+536,Dicrateria_rotunda,2703868,Updated,from MMETSP metadata,34763,3520,NA,NA,54.73684211,CONTAM_50PCT,63,49.04,NA,1,N
+537,Dinobryon_sp,1955563,Updated,from MMETSP metadata,28227,2964,NA,NA,1.162790698,NA,63,40.62,NA,0,Y
+538,Dinobryon_sp,1955563,Updated,from MMETSP metadata,28307,2745,NA,NA,0,NA,63,37.04,NA,0,Y
+539,Dinobryon_sp,1955563,Updated,from MMETSP metadata,25317,2785,NA,NA,0,NA,63,40,NA,0,Y
+540,unclassified_eukaryote,100272,Unchanged,from MMETSP metadata,15731,2647,NA,NA,NA,NA,63,NA,NA,0,Y
+541,Rhodosorus_marinus,101924,Unchanged,from MMETSP metadata,81768,2942,NA,NA,7.581227437,NA,63,6.92,NA,0,Y
+542,Rhodosorus_marinus,101924,Unchanged,from MMETSP metadata,19171,2662,NA,NA,0.961538462,NA,62,1.01,NA,0,Y
+543,Symbiodinium_kawagutii,104179,Unchanged,from MMETSP metadata,9350,1148,NA,NA,9.226190476,NA,63,6.57,NA,0,Y
+544,Alexandrium_margalefi,109239,Unchanged,from MMETSP metadata,171844,3689,NA,NA,9.16967509,NA,63,8.19,NA,0,Y
+545,Vaucheria_litorea,109269,Unchanged,from MMETSP metadata,17693,2791,NA,NA,30.28953229,NA,63,22.67,NA,0,Y
+546,Vaucheria_litorea,109269,Unchanged,from MMETSP metadata,16299,2632,NA,NA,47.71689498,NA,63,25,NA,0,Y
+547,Pelagophyceae_sp_RCC1024,464228,Updated,from MMETSP metadata,35811,2740,NA,NA,12.17391304,NA,63,5.17,NA,0,Y
+548,Phaeocystis_cordata,118079,Unchanged,from MMETSP metadata,16787,2579,NA,NA,66.55844156,CONTAM_50PCT,63,53.3,CONTAM_50PCT,2,N
+549,Exanthemachrysis_gayraliae,119497,Unchanged,from MMETSP metadata,32567,3008,NA,NA,5.376344086,NA,63,0,NA,0,Y
+550,Chaetoceros_debilis,122233,Unchanged,from MMETSP metadata,22978,2605,NA,NA,0,NA,63,0,NA,0,Y
+551,Chaetoceros_debilis,122233,Unchanged,from MMETSP metadata,25586,2770,NA,NA,0,NA,63,0,NA,0,Y
+552,Phaeomonas_parva,124430,Unchanged,from MMETSP metadata,52456,3146,NA,NA,6.962025316,NA,63,1.55,NA,0,Y
+553,Sorites_sp,126664,Unchanged,from MMETSP metadata,80508,3532,NA,NA,74.70167064,CONTAM_50PCT,63,87.64,CONTAM_50PCT,2,N
+554,Calcidiscus_leptoporus,127549,Unchanged,from MMETSP metadata,45163,3269,NA,NA,12.17391304,NA,63,2.13,NA,0,Y
+555,Protoceratium_reticulatum,133427,Unchanged,from MMETSP metadata,113452,3318,NA,NA,0.92936803,NA,63,0,NA,0,Y
+556,Cercozoa_sp,1980070,Updated,from MMETSP metadata,22320,2331,NA,NA,7.142857143,NA,62,80,CONTAM_50PCT,1,N
+557,Cercozoa_sp,1980070,Updated,from MMETSP metadata,46325,3474,NA,NA,0,NA,63,87.5,CONTAM_50PCT,1,N
+558,Filamoeba_nolandi,136452,Unchanged,from MMETSP metadata,27864,3440,NA,NA,0,NA,63,23.08,NA,0,Y
+559,Strombidinopsis_acuminatum,141414,Unchanged,from MMETSP metadata,61979,3366,NA,CONTAM NOTED,65.55183946,CONTAM_50PCT,63,22.37,NA,2,N
+560,Akashiwo_sanguinea,143672,Unchanged,from MMETSP metadata,737,68,LOW_SEQS,NA,NA,NA,6,NA,NA,1,N
+561,Euplotes_harpa,151035,Unchanged,from MMETSP metadata,28692,1844,NA,NA,0,NA,60,0,NA,0,Y
+562,Nephroselmis_pyriformis,156128,Unchanged,from MMETSP metadata,82008,4581,NA,NA,0,NA,63,32.09,NA,0,Y
+563,Prasinococcus_capsulatus,156131,Unchanged,from MMETSP metadata,19172,2931,NA,NA,0.862068966,NA,63,2.7,NA,0,Y
+564,Prasinoderma_coloniale,156133,Unchanged,from MMETSP metadata,23482,2784,NA,NA,48.63387978,NA,63,20.28,NA,0,Y
+565,Chrysochromulina_cymbium,412154,Updated,from MMETSP metadata,68042,3343,NA,NA,0,NA,63,0,NA,0,Y
+566,Haptolina_ericina,156174,Unchanged,from MMETSP metadata,57407,3422,NA,NA,0,NA,63,3.66,NA,0,Y
+567,Karenia_brevis,156230,Unchanged,from MMETSP metadata,137818,3464,NA,NA,0,NA,63,6.58,NA,0,Y
+568,Karenia_brevis,156230,Unchanged,from MMETSP metadata,103034,3323,NA,NA,0,NA,63,5.92,NA,0,Y
+569,Karenia_brevis,156230,Unchanged,from MMETSP metadata,135346,3430,NA,NA,0.226244344,NA,63,6.37,NA,0,Y
+570,Karenia_brevis,156230,Unchanged,from MMETSP metadata,141238,3524,NA,NA,11.51631478,NA,63,8.24,NA,0,Y
+571,Karenia_brevis,156230,Unchanged,from MMETSP metadata,137290,3450,NA,NA,0.235294118,NA,63,6.76,NA,0,Y
+572,Karenia_brevis,156230,Unchanged,from MMETSP metadata,136071,3435,NA,NA,0.238095238,NA,63,6.45,NA,0,Y
+573,Karenia_brevis,156230,Unchanged,from MMETSP metadata,138403,3464,NA,NA,0.227790433,NA,63,6.41,NA,0,Y
+574,Karenia_brevis,156230,Unchanged,from MMETSP metadata,126524,3361,NA,NA,0,NA,63,7.14,NA,0,Y
+575,Karenia_brevis,156230,Unchanged,from MMETSP metadata,126602,3391,NA,NA,10.02132196,NA,63,11.26,NA,0,Y
+576,Karenia_brevis,156230,Unchanged,from MMETSP metadata,127830,3375,NA,NA,6.373626374,NA,63,9.66,NA,0,Y
+577,Karenia_brevis,156230,Unchanged,from MMETSP metadata,125681,3415,NA,NA,16.88555347,NA,63,11.46,NA,0,Y
+578,Karenia_brevis,156230,Unchanged,from MMETSP metadata,130179,3457,NA,NA,18.53281853,NA,63,18.89,NA,0,Y
+579,Thalassiosira_oceanica_CCMP1005,637379,Updated,from MMETSP metadata,36517,2799,NA,NA,0,NA,63,0,NA,0,Y
+580,Thalassiosira_oceanica_CCMP1005,637379,Updated,from MMETSP metadata,40162,2850,NA,NA,0,NA,63,0,NA,0,Y
+581,Thalassiosira_oceanica_CCMP1005,637379,Updated,from MMETSP metadata,36878,2829,NA,NA,0,NA,63,0,NA,0,Y
+582,Thalassiosira_oceanica_CCMP1005,637379,Updated,from MMETSP metadata,38196,2818,NA,NA,0,NA,61,0,NA,0,Y
+583,Amphidinium_massartii,160604,Unchanged,from MMETSP metadata,69334,3105,NA,NA,15.2173913,NA,63,15.75,NA,0,Y
+584,Kryptoperidinium_foliaceum,160619,Unchanged,from MMETSP metadata,131650,3627,NA,NA,19.30232558,NA,63,39.75,NA,0,Y
+585,Kryptoperidinium_foliaceum,160619,Unchanged,from MMETSP metadata,118281,4352,NA,NA,17.14579055,NA,63,39.26,NA,0,Y
+586,Kryptoperidinium_foliaceum,160619,Unchanged,from MMETSP metadata,133449,3667,NA,NA,9.456521739,NA,63,37.8,NA,0,Y
+587,Kryptoperidinium_foliaceum,160619,Unchanged,from MMETSP metadata,41456,2204,NA,NA,19.71544715,NA,62,40.34,NA,0,Y
+588,Lingulodinium_polyedrum,160621,Unchanged,from MMETSP metadata,139994,3434,NA,NA,0.3125,NA,63,0,NA,0,Y
+589,Lingulodinium_polyedrum,160621,Unchanged,from MMETSP metadata,138407,3415,NA,NA,0,NA,63,1.74,NA,0,Y
+590,Lingulodinium_polyedrum,160621,Unchanged,from MMETSP metadata,135009,3422,NA,NA,0.313479624,NA,63,0,NA,0,Y
+591,Lingulodinium_polyedrum,160621,Unchanged,from MMETSP metadata,141353,3414,NA,NA,9.756097561,NA,63,7.03,NA,0,Y
+592,Cyclotella_striata,382364,Updated,from MMETSP metadata,24095,2766,NA,NA,1.086956522,NA,63,0,NA,0,Y
+593,Leptocylindrus_danicus,163516,Unchanged,from MMETSP metadata,28045,2898,NA,NA,1.169590643,NA,63,0.71,NA,0,Y
+594,Leptocylindrus_danicus,163516,Unchanged,from MMETSP metadata,19005,2667,NA,NA,2.941176471,NA,63,0,NA,0,Y
+595,Amorphochlora_amoebiformis,1561963,Updated,from MMETSP metadata,29252,3198,NA,NA,0,NA,63,1.28,NA,0,Y
+596,Pinguiococcus_pyrenoidosus,172671,Unchanged,from MMETSP metadata,27467,2788,NA,NA,18.01801802,NA,63,4.4,NA,0,Y
+597,Triparma_eleuthera,172717,Unchanged,from MMETSP metadata,27889,3100,NA,NA,5.747126437,NA,63,0,NA,0,Y
+598,Symbiodinium_sp_CCMP421,174948,Unchanged,from MMETSP metadata,127379,3428,NA,NA,2.850877193,NA,63,0.3,NA,0,Y
+599,Paramoeba_aestuarina,180227,Unchanged,from MMETSP metadata,33812,3061,NA,NA,42.85714286,NA,63,45.07,NA,0,N
+600,Strombidinopsis_sp,181622,Unchanged,from MMETSP metadata,11294,1665,NA,CONTAM NOTED,79.48717949,CONTAM_50PCT,63,66.5,CONTAM_50PCT,3,N
+601,Favella_ehrenbergii,182087,Unchanged,from MMETSP metadata,20335,1806,NA,CONTAM NOTED,51.64319249,CONTAM_50PCT,63,16.55,NA,2,N
+602,Pseudo-nitzschia_fraudulenta,183588,Unchanged,from MMETSP metadata,26837,2601,NA,NA,0,NA,63,4,NA,0,Y
+603,Pseudo-nitzschia_fraudulenta,183588,Unchanged,from MMETSP metadata,102895,3757,NA,NA,84.87972509,CONTAM_50PCT,63,57.2,CONTAM_50PCT,2,N
+604,Pseudo-nitzschia_fraudulenta,183588,Unchanged,from MMETSP metadata,28931,2611,NA,NA,0,NA,63,1.9,NA,0,Y
+605,Pseudo-nitzschia_fraudulenta,183588,Unchanged,from MMETSP metadata,27007,2716,NA,NA,12.12121212,NA,63,10.91,NA,0,Y
+606,Thalassionema_frauenfeldii,186022,Unchanged,from MMETSP metadata,30726,2943,NA,NA,1.075268817,NA,63,1.63,NA,0,Y
+607,Fragilariopsis_kerguelensis,186038,Unchanged,from MMETSP metadata,44356,2862,NA,NA,0,NA,62,0,NA,0,Y
+608,Fragilariopsis_kerguelensis,186038,Unchanged,from MMETSP metadata,43812,2857,NA,NA,0,NA,62,0,NA,0,Y
+609,Fragilariopsis_kerguelensis,186038,Unchanged,from MMETSP metadata,43570,2872,NA,NA,0,NA,62,0,NA,0,Y
+610,Fragilariopsis_kerguelensis,186038,Unchanged,from MMETSP metadata,46383,2857,NA,NA,1,NA,62,0,NA,0,Y
+611,Fragilariopsis_kerguelensis,186038,Unchanged,from MMETSP metadata,38565,2826,NA,NA,0,NA,62,0,NA,0,Y
+612,Fragilariopsis_kerguelensis,186038,Unchanged,from MMETSP metadata,39033,2817,NA,NA,0,NA,62,0,NA,0,Y
+613,Fragilariopsis_kerguelensis,186038,Unchanged,from MMETSP metadata,37536,2809,NA,NA,0,NA,62,0,NA,0,Y
+614,Fragilariopsis_kerguelensis,186038,Unchanged,from MMETSP metadata,32835,2649,NA,NA,0,NA,61,0,NA,0,Y
+615,Entomoneis_sp_CCMP2396,1462468,Updated,from MMETSP metadata,16467,2264,NA,NA,6.25,NA,63,0,NA,0,Y
+616,uncultured_ciliate,187299,Unchanged,from MMETSP metadata,6837,1629,NA,NA,23.00884956,NA,33,94.74,CONTAM_50PCT,1,N
+617,Heterocapsa_arctica,192219,Unchanged,from MMETSP metadata,79284,2959,NA,NA,11.24497992,NA,63,24.49,NA,0,Y
+618,Chroomonas_mesostigmatica,195065,Unchanged,from MMETSP metadata,61773,4521,NA,NA,0.675675676,NA,63,7.53,NA,0,Y
+619,Goniomonas_pacifica,195067,Unchanged,from MMETSP metadata,58792,3546,NA,NA,12.74509804,NA,63,76.92,CONTAM_50PCT,1,N
+620,Goniomonas_pacifica,195067,Unchanged,from MMETSP metadata,71940,4891,NA,NA,4.716981132,NA,63,91.67,CONTAM_50PCT,1,N
+621,Crustomastix_stigmata,195967,Unchanged,from MMETSP metadata,38443,3314,NA,NA,52.86624204,CONTAM_50PCT,63,24.53,NA,1,N
+622,Dolichomastix_tenuilepis,195969,Unchanged,from MMETSP metadata,39539,3590,NA,NA,2.53164557,NA,62,75.17,CONTAM_50PCT,1,N
+623,Strombidium_inclinatum,197538,Unchanged,from MMETSP metadata,31718,1744,NA,CONTAM NOTED,43.45549738,NA,62,18.18,NA,1,N
+624,Paramoeba_atlantica,1077153,Updated,from MMETSP metadata,35232,3072,NA,NA,51.08695652,CONTAM_50PCT,62,60.78,CONTAM_50PCT,2,N
+625,Aulacoseira_subarctica,202472,Unchanged,from MMETSP metadata,26929,2753,NA,NA,0.917431193,NA,63,0,NA,0,Y
+626,Grammatophora_oceanica,210454,Unchanged,from MMETSP metadata,39915,2827,NA,NA,0,NA,62,0,NA,0,Y
+627,Staurosira_sp,2884791,Updated,from MMETSP metadata,30416,3087,NA,NA,32.96089385,NA,62,2.83,NA,0,Y
+628,Striatella_unipunctata,210618,Unchanged,from MMETSP metadata,30568,2712,NA,NA,0,NA,63,7.21,NA,0,Y
+629,Lessardia_elongata,210733,Unchanged,from MMETSP metadata,888,94,LOW_SEQS,NA,NA,NA,25,NA,NA,1,N
+630,Aplanochytrium_stocchinoi,215587,Unchanged,from MMETSP metadata,31611,2982,NA,NA,3.846153846,NA,63,9.78,NA,0,Y
+631,Aplanochytrium_stocchinoi,215587,Unchanged,from MMETSP metadata,15418,2416,NA,NA,0,NA,62,11.94,NA,0,Y
+632,Aplanochytrium_stocchinoi,215587,Unchanged,from MMETSP metadata,19806,2780,NA,NA,0,NA,62,10.94,NA,0,Y
+633,Aplanochytrium_stocchinoi,215587,Unchanged,from MMETSP metadata,18123,2571,NA,NA,0,NA,62,7.46,NA,0,Y
+634,Corethron_hystrix,216773,Unchanged,from MMETSP metadata,48011,2899,NA,NA,0.943396226,NA,63,1.2,NA,0,Y
+635,Proboscia_alata,216777,Unchanged,from MMETSP metadata,44626,3072,NA,NA,0.925925926,NA,61,1.87,NA,0,Y
+636,Proboscia_alata,216777,Unchanged,from MMETSP metadata,45077,3119,NA,NA,0.892857143,NA,63,1.75,NA,0,Y
+637,Cyclophora_tenuis,216820,Unchanged,from MMETSP metadata,22736,2443,NA,NA,4.819277108,NA,63,0,NA,0,Y
+638,Skeletonema_menzelii,216823,Unchanged,from MMETSP metadata,24569,2691,NA,NA,38.46153846,NA,63,10.1,NA,0,Y
+639,Skeletonema_menzelii,216823,Unchanged,from MMETSP metadata,26964,2805,NA,NA,46.24277457,NA,63,13.08,NA,0,Y
+640,Vexillifera_abyssalis,2301597,Updated,from MMETSP metadata,19177,2858,NA,NA,0,NA,62,93.33,CONTAM_50PCT,1,N
+641,Corethron_pennatum,218684,Unchanged,from MMETSP metadata,22246,1630,NA,NA,0,NA,56,19.15,NA,0,Y
+642,Corethron_pennatum,218684,Unchanged,from MMETSP metadata,44544,2851,NA,NA,0.99009901,NA,63,7.14,NA,0,Y
+643,Coccolithus_braarudii,221442,Unchanged,from MMETSP metadata,37503,3301,NA,NA,71.14285714,CONTAM_50PCT,63,15.38,NA,1,N
+644,Protocruzia_adherens,223996,Unchanged,from MMETSP metadata,51106,2708,NA,NA,10,NA,61,17.65,NA,0,Y
+645,Chlamydomonas_chlamydogama,225041,Unchanged,from MMETSP metadata,30820,3228,NA,NA,2.173913043,NA,63,1.16,NA,0,Y
+646,Bigelowiella_natans,227086,Unchanged,from MMETSP metadata,42412,3341,NA,NA,0,NA,63,3.49,NA,0,Y
+647,Bigelowiella_natans,227086,Unchanged,from MMETSP metadata,37441,3323,NA,NA,0,NA,63,2.07,NA,0,Y
+648,Bigelowiella_natans,227086,Unchanged,from MMETSP metadata,42646,3231,NA,NA,0,NA,63,2.22,NA,0,Y
+649,Bigelowiella_natans,227086,Unchanged,from MMETSP metadata,29466,3022,NA,NA,1.418439716,NA,63,3.28,NA,0,Y
+650,Chaetoceros_curvisetus,230516,Unchanged,from MMETSP metadata,5000,939,NA,NA,0,NA,56,0,NA,0,Y
+651,Chaetoceros_curvisetus,230516,Unchanged,from MMETSP metadata,7150,1372,NA,NA,0,NA,57,5.13,NA,0,Y
+652,Symbiodinium_sp_Mp,230996,Unchanged,from MMETSP metadata,67484,3152,NA,NA,0,NA,63,0,NA,0,Y
+653,Symbiodinium_sp_Mp,230996,Unchanged,from MMETSP metadata,49818,2830,NA,NA,0.444444444,NA,63,0.57,NA,0,Y
+654,Symbiodinium_sp_Mp,230996,Unchanged,from MMETSP metadata,50464,2893,NA,NA,0.432900433,NA,63,0,NA,0,Y
+655,Symbiodinium_sp_Mp,230996,Unchanged,from MMETSP metadata,60873,3096,NA,NA,0.884955752,NA,63,0,NA,0,Y
+656,Cryptomonas_curvata,233186,Unchanged,from MMETSP metadata,50946,2978,NA,NA,1.333333333,NA,63,0,NA,0,Y
+657,Florenciella_sp_RCC1587,1411684,Updated,from MMETSP metadata,35443,2735,NA,NA,8.333333333,NA,62,0,NA,0,Y
+658,Florenciella_sp_RCC1587,464225,Updated,from MMETSP metadata,26734,2200,NA,NA,0,NA,61,0,NA,0,Y
+659,Florenciella_parvula,236787,Unchanged,from MMETSP metadata,113404,3632,NA,NA,7.643312102,NA,63,2.99,NA,0,Y
+660,Florenciella_parvula,236787,Unchanged,from MMETSP metadata,23665,2424,NA,NA,0,NA,62,0,NA,0,Y
+661,Chaetoceros_neogracilis,240364,Unchanged,from MMETSP metadata,24360,2779,NA,NA,3.773584906,NA,62,0,NA,0,Y
+662,Chaetoceros_neogracilis,240364,Unchanged,from MMETSP metadata,23690,2853,NA,NA,0,NA,63,16.82,NA,0,Y
+663,Chaetoceros_neogracilis,240364,Unchanged,from MMETSP metadata,27311,3315,NA,NA,0,NA,62,28.17,NA,0,Y
+664,Chaetoceros_neogracilis,240364,Unchanged,from MMETSP metadata,25542,3020,NA,NA,4.424778761,NA,62,14.29,NA,0,Y
+665,Chaetoceros_neogracilis,240364,Unchanged,from MMETSP metadata,0,NA,LOW_SEQS,NA,0,NA,NA,NA,NA,1,N
+666,Mayorella_sp_JJP-2003,242541,Updated,from MMETSP metadata,22018,2850,NA,NA,0,NA,62,20,NA,0,Y
+667,Picochlorum_oklahomensis,249345,Updated,from MMETSP metadata,13523,2771,NA,NA,64.35185185,CONTAM_50PCT,63,41.06,NA,1,N
+668,Chrysoculter_rhomboideus,259385,Updated,from MMETSP metadata,24465,2575,NA,NA,9.523809524,NA,62,1.14,NA,0,Y
+669,Minchinia_chitonis,262233,Updated,from MMETSP metadata,1098,289,LOW_SEQS,NA,NA,NA,60,NA,NA,1,N
+670,Amphiprora_sp,2608610,Updated,from MMETSP metadata,39021,2923,NA,NA,0,NA,62,0,NA,0,Y
+671,Amphiprora_sp,2608610,Updated,from MMETSP metadata,33386,2892,NA,NA,1.086956522,NA,63,0.99,NA,0,Y
+672,Amphiprora_sp,2608610,Updated,from MMETSP metadata,32179,2819,NA,NA,1.136363636,NA,63,0,NA,0,Y
+673,Amphiprora_sp,2608610,Updated,from MMETSP metadata,22052,2223,NA,NA,2.173913043,NA,62,0,NA,0,Y
+674,Amphiprora_sp,2608610,Updated,from MMETSP metadata,29594,2706,NA,NA,1.176470588,NA,63,0,NA,0,Y
+675,Minutocellus_polymorphus,265543,Updated,from MMETSP metadata,39196,3041,NA,NA,0,NA,63,0,NA,0,Y
+676,Minutocellus_polymorphus,265543,Unchanged,from MMETSP metadata,30053,2804,NA,NA,0,NA,63,0,NA,0,Y
+677,Minutocellus_polymorphus,265543,Unchanged,from MMETSP metadata,16012,1967,NA,NA,0,NA,44,0,NA,0,Y
+678,Synedropsis_recta,265551,Updated,from MMETSP metadata,27248,2800,NA,NA,3.333333333,NA,63,0,NA,0,Y
+679,Amphora_coffeaeformis,265554,Updated,from MMETSP metadata,17772,2036,NA,NA,0,NA,62,0,NA,0,Y
+680,Amphora_coffeaeformis,265554,Unchanged,from MMETSP metadata,15969,1920,NA,NA,0,NA,63,0,NA,0,Y
+681,Amphora_coffeaeformis,265554,Unchanged,from MMETSP metadata,23512,2430,NA,NA,8.791208791,NA,63,1.01,NA,0,Y
+682,Thalassiosira_punctigera,265564,Updated,from MMETSP metadata,52202,2952,NA,NA,0,NA,63,0,NA,0,Y
+683,Extubocellulus_spinifer,265572,Updated,from MMETSP metadata,36373,3168,NA,NA,0,NA,63,0,NA,0,Y
+684,Extubocellulus_spinifer,265572,Unchanged,from MMETSP metadata,37718,3141,NA,NA,6.481481481,NA,62,2.42,NA,0,Y
+685,Extubocellulus_spinifer,265572,Unchanged,from MMETSP metadata,36763,3154,NA,NA,0,NA,62,0,NA,0,Y
+686,Extubocellulus_spinifer,265572,Unchanged,from MMETSP metadata,37762,3040,NA,NA,6.315789474,NA,61,2.06,NA,0,Y
+687,Stauroneis_constricta,265584,Updated,from MMETSP metadata,29591,2250,NA,NA,29.78723404,NA,61,8.57,NA,0,Y
+688,Skeletonema_grethea,267565,Updated,from MMETSP metadata,24660,2507,NA,NA,0,NA,61,0,NA,0,Y
+689,Skeletonema_dohrnii,267566,Updated,from MMETSP metadata,31323,3328,NA,NA,0,NA,63,8.6,NA,0,Y
+690,Skeletonema_dohrnii,267566,Unchanged,from MMETSP metadata,30342,2845,NA,NA,1.123595506,NA,63,0,NA,0,Y
+691,Skeletonema_marinoi,267567,Updated,from MMETSP metadata,30951,2894,NA,NA,0,NA,63,0,NA,0,Y
+692,Skeletonema_marinoi,267567,Unchanged,from MMETSP metadata,31763,2881,NA,NA,1.111111111,NA,63,0,NA,0,Y
+693,Skeletonema_marinoi,267567,Unchanged,from MMETSP metadata,28218,2762,NA,NA,5.376344086,NA,62,1.03,NA,0,Y
+694,Skeletonema_marinoi,267567,Unchanged,from MMETSP metadata,26399,2604,NA,NA,0,NA,62,1.34,NA,0,Y
+695,Skeletonema_marinoi,267567,Unchanged,from MMETSP metadata,26665,2675,NA,NA,0,NA,63,0,NA,0,Y
+696,Skeletonema_marinoi,267567,Unchanged,from MMETSP metadata,23753,2476,NA,NA,3.333333333,NA,63,0,NA,0,Y
+697,Skeletonema_marinoi,267567,Unchanged,from MMETSP metadata,28831,2801,NA,NA,0,NA,63,2.11,NA,0,Y
+698,Skeletonema_japonicum,267983,Updated,from MMETSP metadata,27627,2812,NA,NA,0,NA,63,0,NA,0,Y
+699,Apocalathium_aciculiferum,268820,Updated,from MMETSP metadata,96912,3274,NA,NA,0,NA,63,45.15,NA,0,Y
+700,Apocalathium_aciculiferum,268820,Unchanged,from MMETSP metadata,96144,3270,NA,NA,0,NA,63,44.35,NA,0,Y
+701,Scrippsiella_hangoei,268821,Updated,from MMETSP metadata,190185,3372,NA,NA,2.298850575,NA,63,50.11,CONTAM_50PCT,1,N
+702,Scrippsiella_hangoei,268821,Unchanged,from MMETSP metadata,102608,3276,NA,NA,0.157232704,NA,62,58.62,CONTAM_50PCT,1,N
+703,Scrippsiella_hangoei,268821,Unchanged,from MMETSP metadata,194196,3404,NA,NA,0.670391061,NA,63,45.59,NA,0,Y
+704,Mesodinium_pulex,283647,Updated,from MMETSP metadata,90046,3223,NA,CONTAM NOTED,86.79487179,CONTAM_50PCT,63,88.66,CONTAM_50PCT,3,N
+705,Mesodinium_rubrum_CCMP2563,1203004,Updated,from MMETSP metadata,23489,2613,NA,NA,60.92436975,CONTAM_50PCT,63,100,CONTAM_50PCT,2,N
+706,Debaryomyces_hansenii_CBS767,284592,Updated,from MMETSP metadata,212,122,LOW_SEQS,NA,0,NA,25,NA,NA,1,N
+707,Debaryomyces_hansenii_CBS767,284592,Unchanged,from MMETSP metadata,8909,2654,NA,NA,0,NA,62,0,NA,0,Y
+708,Debaryomyces_hansenii_CBS767,284592,Unchanged,from MMETSP metadata,9012,2648,NA,NA,0,NA,63,0,NA,0,Y
+709,Debaryomyces_hansenii_CBS767,284592,Unchanged,from MMETSP metadata,7532,2253,NA,NA,0,NA,62,0,NA,0,Y
+710,Chrysocystis_fragilis,1411660,Updated,from MMETSP metadata,32101,2687,NA,NA,30.21276596,NA,63,5.98,NA,0,Y
+711,Togula_jolla,285029,Updated,from MMETSP metadata,63482,3033,NA,NA,22.417154,NA,63,19.87,NA,0,Y
+712,Gyrodinium_dominans,285985,Updated,from MMETSP metadata,63,11,LOW_SEQS,NA,NA,NA,4,NA,NA,1,N
+713,Cladocopium_sp_C1,2558453,Updated,from MMETSP metadata,70797,3452,NA,NA,41.35338346,NA,63,29.64,NA,0,Y
+714,Cladocopium_sp_C1,2558453,Updated,from MMETSP metadata,75686,3607,NA,NA,49.78540773,NA,63,27.4,NA,0,Y
+715,Pavlova_sp_CCMP459,298111,Updated,from MMETSP metadata,25636,2443,NA,NA,0,NA,60,0,NA,0,Y
+716,Pavlova_sp_CCMP459,298111,Unchanged,from MMETSP metadata,26497,2709,NA,NA,1.123595506,NA,62,1.08,NA,0,Y
+717,Pavlova_sp_CCMP459,298111,Unchanged,from MMETSP metadata,17512,2173,NA,NA,0,NA,61,0,NA,0,Y
+718,Rhodomonas_sp,302021,Updated,from MMETSP metadata,38769,2808,NA,NA,3.614457831,NA,62,2.34,NA,0,Y
+719,Rhodomonas_sp,302021,Unchanged,from MMETSP metadata,41363,2951,NA,NA,0,NA,63,1.59,NA,0,Y
+720,Pseudokeronopsis_sp,1634380,Updated,from MMETSP metadata,22355,1611,NA,CONTAM NOTED,42.23602484,NA,58,10.45,NA,1,N
+721,Pseudokeronopsis_sp,1634380,Updated,from MMETSP metadata,20393,2016,NA,CONTAM NOTED,69.3877551,CONTAM_50PCT,63,52.5,CONTAM_50PCT,3,N
+722,Alexandrium_monilatum,311494,Updated,from MMETSP metadata,116040,3394,NA,NA,3.157894737,NA,63,1.15,NA,0,Y
+723,Alexandrium_monilatum,311494,Unchanged,from MMETSP metadata,123120,3414,NA,NA,8.982035928,NA,63,4.6,NA,0,Y
+724,Alexandrium_monilatum,311494,Unchanged,from MMETSP metadata,120231,3374,NA,NA,5.531914894,NA,63,1.51,NA,0,Y
+725,Alexandrium_monilatum,311494,Unchanged,from MMETSP metadata,129825,3441,NA,NA,9.982174688,NA,63,5.14,NA,0,Y
+726,Neobodo_designis,312471,Updated,from MMETSP metadata,62912,2382,NA,NA,1.960784314,NA,60,3.41,NA,0,Y
+727,Perkinsus_chesapeaki_ATCC_PRA-65,321610,Updated,from MMETSP metadata,18692,1616,NA,NA,0,NA,27,0,NA,0,Y
+728,Chlamydomonas_sp_CCMP219,327068,Updated,from MMETSP metadata,37233,2946,NA,NA,0.689655172,NA,63,0.87,NA,0,Y
+729,Alexandrium_andersonii,327968,Updated,from MMETSP metadata,80901,2822,NA,NA,0.27173913,NA,63,0,NA,0,Y
+730,Lankesteria_abbottii,340204,Updated,from MMETSP metadata,1798,198,LOW_PFAMS,NA,NA,NA,8,NA,NA,1,N
+731,Fabrea_salina,342563,Updated,from MMETSP metadata,17402,2266,NA,CONTAM NOTED,52.57731959,CONTAM_50PCT,63,28.7,NA,2,N
+732,Chromerida_sp_RM11,348535,Updated,from MMETSP metadata,43270,2948,NA,NA,51.51515152,CONTAM_50PCT,63,13.29,NA,1,N
+733,Rhodomonas_lens,354590,Updated,from MMETSP metadata,56677,3486,NA,NA,1.875,NA,63,0.79,NA,0,Y
+734,Helicotheca_tamensis,374047,Updated,from MMETSP metadata,16089,2043,NA,NA,3.488372093,NA,63,0,NA,0,Y
+735,Cladocopium_sp_C15,377605,Updated,from MMETSP metadata,60282,3466,NA,NA,37.20930233,NA,63,27.31,NA,0,Y
+736,Cladocopium_sp_C15,377605,Unchanged,from MMETSP metadata,63146,3732,NA,NA,35.75757576,NA,63,29.96,NA,0,Y
+737,Thalassiosira_miniscula,385413,Updated,from MMETSP metadata,44617,3082,NA,NA,1.098901099,NA,62,2.02,NA,0,Y
+738,Thalassiosira_miniscula,385413,Unchanged,from MMETSP metadata,28002,3259,NA,NA,0,NA,63,28.57,NA,0,Y
+739,Thalassiosira_miniscula,385413,Unchanged,from MMETSP metadata,36904,3015,NA,NA,0,NA,62,20.35,NA,0,Y
+740,Thalassiosira_miniscula,385413,Unchanged,from MMETSP metadata,25222,3275,NA,NA,0,NA,63,38.64,NA,0,Y
+741,Durinskia_baltica,400756,Updated,from MMETSP metadata,125873,3509,NA,NA,21.32701422,NA,63,48.28,NA,0,Y
+742,Durinskia_baltica,400756,Unchanged,from MMETSP metadata,77597,3684,NA,NA,27.03703704,NA,63,58.16,CONTAM_50PCT,1,N
+743,Karlodinium_micrum,407301,Updated,from MMETSP metadata,101339,3249,NA,NA,0.126903553,NA,63,1.56,NA,0,Y
+744,Karlodinium_micrum,407301,Unchanged,from MMETSP metadata,102445,3317,NA,NA,0.24600246,NA,63,1.55,NA,0,Y
+745,Karlodinium_micrum,407301,Unchanged,from MMETSP metadata,100494,3240,NA,NA,0.495049505,NA,63,2.65,NA,0,Y
+746,Chrysochromulina_rotalis,412157,Updated,from MMETSP metadata,49880,3211,NA,NA,5.208333333,NA,62,0,NA,0,Y
+747,Scyphosphaera_apsteinii,418940,Updated,from MMETSP metadata,57950,3378,NA,NA,0,NA,63,2,NA,0,Y
+748,Thalassiosira_gravida,420259,Updated,from MMETSP metadata,20238,2331,NA,NA,2.150537634,NA,63,0,NA,0,Y
+749,Thalassiosira_gravida,420259,Unchanged,from MMETSP metadata,30253,2702,NA,NA,7.407407407,NA,63,0.97,NA,0,Y
+750,Thalassiosira_gravida,420259,Unchanged,from MMETSP metadata,29979,2627,NA,NA,1.020408163,NA,62,0,NA,0,Y
+751,Thalassiosira_antarctica,420261,Updated,from MMETSP metadata,37008,2897,NA,NA,0.934579439,NA,63,0,NA,0,Y
+752,Thalassiosira_antarctica,420261,Unchanged,from MMETSP metadata,37457,2923,NA,NA,0.869565217,NA,63,0,NA,0,Y
+753,Thalassiosira_antarctica,420261,Unchanged,from MMETSP metadata,33207,3110,NA,NA,0.900900901,NA,63,6.67,NA,0,Y
+754,Thalassiosira_antarctica,420261,Unchanged,from MMETSP metadata,37272,2909,NA,NA,2.040816327,NA,63,1.03,NA,0,Y
+755,Attheya_septentrionalis,420275,Updated,from MMETSP metadata,26388,2885,NA,NA,14.5631068,NA,63,4.9,NA,0,Y
+756,Proboscia_inermis,420281,Updated,from MMETSP metadata,32488,2764,NA,NA,38.38383838,NA,63,2.08,NA,0,Y
+757,Ochromonas_sp_CCMP1393,420556,Updated,from MMETSP metadata,28581,2926,NA,NA,1.204819277,NA,62,38.18,NA,0,Y
+758,Ochromonas_sp_CCMP1393,420556,Unchanged,from MMETSP metadata,28118,2943,NA,NA,1.176470588,NA,61,33.96,NA,0,Y
+759,Chaetoceros_dichaeta,420782,Updated,from MMETSP metadata,27885,2746,NA,NA,7.843137255,NA,62,3.49,NA,0,Y
+760,Chaetoceros_affinis,426623,Updated,from MMETSP metadata,2324,610,NA,NA,0,NA,48,0,NA,0,Y
+761,Chaetoceros_affinis,426623,Unchanged,from MMETSP metadata,24279,2723,NA,NA,0,NA,63,0,NA,0,Y
+762,Chaetoceros_affinis,426623,Unchanged,from MMETSP metadata,21157,2472,NA,NA,0.892857143,NA,62,0,NA,0,Y
+763,Chaetoceros_affinis,426623,Unchanged,from MMETSP metadata,6328,1200,NA,NA,0,NA,55,0,NA,0,Y
+764,Chaetoceros_brevis,426625,Updated,from MMETSP metadata,4954,1158,NA,NA,0,NA,63,0,NA,0,Y
+765,Gambierdiscus_australes,439317,Updated,from MMETSP metadata,85094,3121,NA,NA,28.125,NA,63,17.36,NA,0,Y
+766,Scrippsiella_hangoei,447022,Updated,from MMETSP metadata,106640,3305,NA,NA,9,NA,62,52.13,CONTAM_50PCT,1,N
+767,Scrippsiella_hangoei,447022,Unchanged,from MMETSP metadata,106158,3350,NA,NA,8.423913043,NA,63,54.14,CONTAM_50PCT,1,N
+768,Scrippsiella_hangoei,447022,Unchanged,from MMETSP metadata,108845,3370,NA,NA,7.897934386,NA,63,49.83,NA,0,Y
+769,Symbiodinium_sp_D1a,462645,Updated,from MMETSP metadata,98469,3786,NA,NA,65.73529412,CONTAM_50PCT,63,51.05,CONTAM_50PCT,2,N
+770,Chloroparvula_japonica,1411623,Updated,from MMETSP metadata,41352,3770,NA,NA,45.45454545,NA,63,42.65,NA,0,Y
+771,Chloropicon_mariensis,1606511,Updated,from MMETSP metadata,14853,2831,NA,NA,0.970873786,NA,62,0,NA,0,Y
+772,Chloropicon_laureae,464258,Updated,from MMETSP metadata,15517,2650,NA,NA,0,NA,63,1.96,NA,0,Y
+773,Chloropicon_roscoffensis,1461544,Updated,from MMETSP metadata,15205,2709,NA,NA,0,NA,63,0,NA,0,Y
+774,Picochlorum_sp_RCC944,464278,Updated,from MMETSP metadata,18534,2784,NA,NA,1.212121212,NA,63,0,NA,0,Y
+775,Hemiselmis_andersenii,464988,Updated,from MMETSP metadata,56713,4271,NA,NA,0.793650794,NA,63,6.74,NA,0,Y
+776,Hemiselmis_andersenii,464988,Unchanged,from MMETSP metadata,38417,3081,NA,NA,0.680272109,NA,63,0,NA,0,Y
+777,Hemiselmis_andersenii,464988,Unchanged,from MMETSP metadata,46232,3203,NA,NA,0,NA,63,0,NA,0,Y
+778,Hemiselmis_andersenii,464988,Unchanged,from MMETSP metadata,38831,2987,NA,NA,0.763358779,NA,63,0,NA,0,Y
+779,Hemiselmis_tepida,464990,Updated,from MMETSP metadata,36263,2834,NA,NA,0,NA,63,7.35,NA,0,Y
+780,Pseudo-nitzschia_heimii,476441,Updated,from MMETSP metadata,29770,2662,NA,NA,0,NA,63,0,NA,0,Y
+781,Pavlovales_sp_CCMP2436,483367,Updated,from MMETSP metadata,42515,3164,NA,NA,7.865168539,NA,63,1.71,NA,0,Y
+782,Pavlovales_sp_CCMP2436,483367,Unchanged,from MMETSP metadata,40501,3125,NA,NA,2.803738318,NA,63,1.68,NA,0,Y
+783,Pavlovales_sp_CCMP2436,483367,Unchanged,from MMETSP metadata,39533,3132,NA,NA,4.166666667,NA,63,2.75,NA,0,Y
+784,Pavlovales_sp_CCMP2436,483367,Unchanged,from MMETSP metadata,39307,3122,NA,NA,2.173913043,NA,63,0.92,NA,0,Y
+785,Pedinellales_sp_CCMP2098,483369,Updated,from MMETSP metadata,52133,3099,NA,NA,8.759124088,NA,63,17.74,NA,0,Y
+786,Pedinellales_sp_CCMP2098,483369,Unchanged,from MMETSP metadata,77887,3426,NA,NA,10.57692308,NA,63,3.66,NA,0,Y
+787,Pedinellales_sp_CCMP2098,483369,Unchanged,from MMETSP metadata,59606,3194,NA,NA,2.325581395,NA,63,0,NA,0,Y
+788,Pedinellales_sp_CCMP2098,483369,Unchanged,from MMETSP metadata,72691,3369,NA,NA,0,NA,63,1.15,NA,0,Y
+789,Pelagophyceae_sp_CCMP2097,483370,Updated,from MMETSP metadata,42128,2985,NA,NA,2.352941176,NA,63,5.06,NA,0,Y
+790,Pelagophyceae_sp_CCMP2097,483370,Unchanged,from MMETSP metadata,39537,2973,NA,NA,4.255319149,NA,63,10.34,NA,0,Y
+791,Pelagophyceae_sp_CCMP2097,483370,Unchanged,from MMETSP metadata,42963,3002,NA,NA,41.21212121,NA,63,21.9,NA,0,Y
+792,Pelagophyceae_sp_CCMP2097,483370,Unchanged,from MMETSP metadata,41270,2950,NA,NA,0,NA,63,3.57,NA,0,Y
+793,Ochromonadaceae_sp_CCMP2298,483371,Updated,from MMETSP metadata,29298,2955,NA,NA,0,NA,62,37.04,NA,0,Y
+794,Ochromonadaceae_sp_CCMP2298,483371,Unchanged,from MMETSP metadata,31169,2975,NA,NA,35.51912568,NA,63,43.1,NA,0,Y
+795,Ochromonadaceae_sp_CCMP2298,483371,Unchanged,from MMETSP metadata,33276,3037,NA,NA,40.95744681,NA,63,35.59,NA,0,Y
+796,Ochromonadaceae_sp_CCMP2298,483371,Unchanged,from MMETSP metadata,31260,2961,NA,NA,34.44444444,NA,63,37.93,NA,0,Y
+797,Aristerstoma_sp_ATCC50986,485358,Updated,from MMETSP metadata,18685,1631,NA,NA,2.941176471,NA,61,3.7,NA,0,Y
+798,Pessonella_sp_PRA-29,498008,Updated,from MMETSP metadata,21414,2696,NA,NA,1.176470588,NA,62,66.67,CONTAM_50PCT,1,N
+799,Trichosphaerium_sp_ATCC40318,498012,Updated,from MMETSP metadata,25300,2893,NA,NA,1.041666667,NA,61,66.67,CONTAM_50PCT,1,N
+800,Chromera_velia_CCMP2878,1169474,Updated,from MMETSP metadata,42409,2839,NA,NA,10.75268817,NA,63,1.9,NA,0,Y
+801,Licmophora_paradoxa,515479,Updated,from MMETSP metadata,34208,2714,NA,NA,0.970873786,NA,63,0,NA,0,Y
+802,Stephanopyxis_turris,515487,Updated,from MMETSP metadata,44067,3326,NA,NA,2.89017341,NA,63,1.08,NA,0,Y
+803,Heterosigma_akashiwo_CCMP452,536046,Updated,from MMETSP metadata,19698,2537,NA,NA,0,NA,61,10,NA,0,Y
+804,Heterosigma_akashiwo_CCMP452,536046,Unchanged,from MMETSP metadata,16656,2361,NA,NA,0,NA,60,6.35,NA,0,Y
+805,Heterosigma_akashiwo_CCMP452,536046,Unchanged,from MMETSP metadata,14405,2143,NA,NA,0,NA,60,8.93,NA,0,Y
+806,Heterosigma_akashiwo_CCMP452,536046,Unchanged,from MMETSP metadata,13132,2033,NA,NA,0,NA,60,5.36,NA,0,Y
+807,Heterosigma_akashiwo_NIES-293,536047,Updated,from MMETSP metadata,25876,3400,NA,NA,25.71428571,NA,62,25.27,NA,0,Y
+808,Heterosigma_akashiwo_NIES-293,536047,Unchanged,from MMETSP metadata,32576,3751,NA,NA,37.5,NA,63,28.45,NA,0,Y
+809,Heterosigma_akashiwo_NIES-293,536047,Unchanged,from MMETSP metadata,31632,3711,NA,NA,16.66666667,NA,63,21.54,NA,0,Y
+810,Heterosigma_akashiwo_NIES-293,536047,Unchanged,from MMETSP metadata,33643,3821,NA,NA,0,NA,63,27.47,NA,0,Y
+811,Heterosigma_akashiwo_NIES-293,536047,Unchanged,from MMETSP metadata,35567,3846,NA,NA,0,NA,63,25.25,NA,0,Y
+812,Heterosigma_akashiwo_NIES-293,536047,Unchanged,from MMETSP metadata,39089,3181,NA,NA,0,NA,63,3.7,NA,0,Y
+813,Ostreococcus_mediterraneus,1486918,Updated,from MMETSP metadata,12512,2590,NA,NA,2.197802198,NA,62,0.88,NA,0,Y
+814,Ostreococcus_mediterraneus,1486918,Updated,from MMETSP metadata,9334,2116,NA,NA,0,NA,62,0.99,NA,0,Y
+815,Ostreococcus_mediterraneus,1486918,Updated,from MMETSP metadata,2908,587,NA,NA,0,NA,32,2.63,NA,0,Y
+816,Bathycoccus_prasinos,41875,Updated,from MMETSP metadata,12718,2500,NA,NA,1.265822785,NA,63,0.93,NA,0,Y
+817,Ostreococcus_mediterraneus,1486918,Updated,from MMETSP metadata,12043,2509,NA,NA,0,NA,62,0,NA,0,Y
+818,Ostreococcus_mediterraneus,1486918,Updated,from MMETSP metadata,554,234,LOW_SEQS,NA,0,NA,3,NA,NA,1,N
+819,Ostreococcus_mediterraneus,1486918,Updated,from MMETSP metadata,12059,2545,NA,NA,1.136363636,NA,62,3.85,NA,0,Y
+820,Ostreococcus_lucimarinus,242159,Updated,from MMETSP metadata,13254,2538,NA,NA,0,NA,62,0,NA,0,Y
+821,Bigelowiella_longifila,552665,Updated,from MMETSP metadata,29121,3009,NA,NA,0,NA,63,6.41,NA,0,Y
+822,Partenskyella_glossopodia,552666,Updated,from MMETSP metadata,26287,3144,NA,NA,9.696969697,NA,63,8.04,NA,0,Y
+823,Tetraselmis_sp_GSL018,582737,Updated,from MMETSP metadata,35097,3294,NA,NA,2.272727273,NA,63,1.09,NA,0,Y
+824,Schmidingerella_taraikaensis,626734,Updated,from MMETSP metadata,30567,2477,NA,CONTAM NOTED,82.69230769,CONTAM_50PCT,63,73.13,CONTAM_50PCT,3,N
+825,Schmidingerella_taraikaensis,626734,Unchanged,from MMETSP metadata,18340,1669,NA,CONTAM NOTED,74.11167513,CONTAM_50PCT,62,45.7,NA,2,N
+826,Aplanochytrium_sp_PBS07,627963,Updated,from MMETSP metadata,18455,2769,NA,NA,1.234567901,NA,63,9.68,NA,0,Y
+827,Aplanochytrium_sp_PBS07,627963,Unchanged,from MMETSP metadata,16209,2563,NA,NA,0,NA,63,7.41,NA,0,Y
+828,Aplanochytrium_sp_PBS07,627963,Unchanged,from MMETSP metadata,15203,2468,NA,NA,2.53164557,NA,63,7.69,NA,0,Y
+829,Aplanochytrium_sp_PBS07,627963,Unchanged,from MMETSP metadata,14288,2391,NA,NA,0,NA,63,7.69,NA,0,Y
+830,Gymnochlora_sp_CCMP2014,629695,Updated,from MMETSP metadata,22412,3018,NA,NA,0.793650794,NA,63,2.38,NA,0,Y
+831,Symbiodinium_sp_CCMP2430,631057,Updated,from MMETSP metadata,68316,3146,NA,NA,NA,NA,62,0,NA,0,Y
+832,Symbiodinium_sp_CCMP2430,631057,Unchanged,from MMETSP metadata,57708,3062,NA,NA,2.564102564,NA,63,0.98,NA,0,Y
+833,Symbiodinium_sp_CCMP2430,631057,Unchanged,from MMETSP metadata,54686,2987,NA,NA,4.545454545,NA,63,2,NA,0,Y
+834,Azadinium_spinosum,632150,Updated,from MMETSP metadata,114621,3344,NA,NA,5.775577558,NA,63,10.88,NA,0,Y
+835,Azadinium_spinosum,632150,Unchanged,from MMETSP metadata,113271,3313,NA,NA,1.223776224,NA,63,3.53,NA,0,Y
+836,Azadinium_spinosum,632150,Unchanged,from MMETSP metadata,115654,3367,NA,NA,3.735144312,NA,63,4.83,NA,0,Y
+837,Lotharella_oceanica,641309,Updated,from MMETSP metadata,31934,3074,NA,NA,3.664921466,NA,63,1.18,NA,0,Y
+838,Palpitomonas_bilix,652834,Updated,from MMETSP metadata,55584,3003,NA,NA,2.836879433,NA,63,19.15,NA,0,Y
+839,Litonotus_pictus,665100,Updated,from MMETSP metadata,36344,2005,NA,CONTAM NOTED,1.25,NA,61,42.11,NA,1,N
+840,Coscinodiscus_wailesii,671091,Updated,from MMETSP metadata,44297,3073,NA,NA,6.306306306,NA,63,0,NA,0,Y
+841,Prasinoderma_singulare,676789,Updated,from MMETSP metadata,25009,2960,NA,NA,0,NA,63,0,NA,0,Y
+842,Tiarina_fusus,693140,Updated,from MMETSP metadata,98267,4273,NA,CONTAM NOTED,89.08898305,CONTAM_50PCT,63,93.84,CONTAM_50PCT,3,N
+843,Cryptophyta_sp_CCMP2293,697907,Updated,from MMETSP metadata,57600,3354,NA,NA,27.62430939,NA,62,22.22,NA,0,Y
+844,Cryptophyta_sp_CCMP2293,697907,Unchanged,from MMETSP metadata,58243,3375,NA,NA,2.739726027,NA,62,1.85,NA,0,Y
+845,Cryptophyta_sp_CCMP2293,697907,Unchanged,from MMETSP metadata,57653,3352,NA,NA,11.18421053,NA,63,8.18,NA,0,Y
+846,Cryptophyta_sp_CCMP2293,697907,Unchanged,from MMETSP metadata,58788,3373,NA,NA,15.92356688,NA,63,11.21,NA,0,Y
+847,Pseudo-nitzschia_arenysensis,697910,Updated,from MMETSP metadata,1148,303,LOW_SEQS,NA,NA,NA,6,NA,NA,1,N
+848,Timspurckia_oligopyrenoides,708627,Updated,from MMETSP metadata,14087,2585,NA,NA,14.28571429,NA,62,3.3,NA,0,Y
+849,Erythrolobus_madagascarensis,708628,Updated,from MMETSP metadata,16809,2325,NA,NA,0,NA,63,4.88,NA,0,Y
+850,Bigelowiella_natans_CCMP2755,753081,Updated,from MMETSP metadata,13224,2129,NA,NA,0,NA,63,4.35,NA,0,Y
+851,Madagascaria_erythrocladiodes,753684,Updated,from MMETSP metadata,56442,3668,NA,NA,36.73469388,NA,63,23.26,NA,0,Y
+852,Guillardia_theta_CCMP2712,905079,Updated,from MMETSP metadata,69242,3415,NA,NA,15.90909091,NA,61,3.92,NA,0,Y
+853,Tryblionella_compressa,913974,Updated,from MMETSP metadata,28773,2841,NA,NA,0.952380952,NA,62,0,NA,0,Y
+854,Tryblionella_compressa,913974,Unchanged,from MMETSP metadata,25607,2718,NA,NA,0,NA,62,0,NA,0,Y
+855,Tryblionella_compressa,913974,Unchanged,from MMETSP metadata,29344,2776,NA,NA,0,NA,62,0,NA,0,Y
+856,Tryblionella_compressa,913974,Unchanged,from MMETSP metadata,26073,2700,NA,NA,0,NA,61,0,NA,0,Y
+857,Elphidium_margaritaceum,933848,Updated,from MMETSP metadata,51489,2939,NA,NA,2.97029703,NA,61,19.05,NA,0,Y
+858,Platyophrya_macrostoma,938130,Updated,from MMETSP metadata,61255,2966,NA,NA,38.08290155,NA,63,66.67,CONTAM_50PCT,1,N
+859,Chaetoceros_sp_GSL56,947934,Updated,from MMETSP metadata,18440,2707,NA,NA,19.54887218,NA,63,11.93,NA,0,Y
+860,Symbiodinium_sp_cladeA,993574,Updated,from MMETSP metadata,63140,3122,NA,NA,46.44268775,NA,63,28.57,NA,0,Y
+861,Pseudictyota_dubia,2749911,Updated,from MMETSP metadata,40286,2673,NA,NA,7.216494845,NA,62,0,NA,0,Y
+862,Perkinsus_marinus_ATCC_50439,1032511,Updated,from MMETSP metadata,17568,1716,NA,NA,21.23893805,NA,40,8.82,NA,0,Y
+863,Chlamydomonas_leiostraca,1034604,Updated,from MMETSP metadata,33626,3087,NA,NA,0,NA,62,0,NA,0,Y
+864,Rhizochromulina_marina,1034831,Updated,from MMETSP metadata,32888,3085,NA,NA,0,NA,63,0,NA,0,Y
+865,Stygamoeba_regulata,1042828,Updated,from MMETSP metadata,50558,3545,NA,NA,13.04347826,NA,63,65.38,CONTAM_50PCT,1,N
+866,Thalassiothrix_antarctica,1049557,Updated,from MMETSP metadata,29871,2723,NA,NA,1.01010101,NA,63,1.04,NA,0,Y
+867,Thalassiothrix_antarctica,1049557,Unchanged,from MMETSP metadata,33704,2864,NA,NA,0.900900901,NA,63,0,NA,0,Y
+868,Tetraselmis_astigmatica,1074897,Updated,from MMETSP metadata,36206,3391,NA,NA,15.88785047,NA,63,5.41,NA,0,Y
+869,Erythrolobus_australicus,1077150,Updated,from MMETSP metadata,16638,2393,NA,NA,0,NA,63,1.22,NA,0,Y
+870,Stereomyxa_ramosa,1078864,Updated,from MMETSP metadata,955,315,LOW_SEQS,NA,NA,NA,57,NA,NA,1,N
+871,Strombidium_rassoulzadegani,1082188,Updated,from MMETSP metadata,16344,1842,NA,CONTAM NOTED,66.22807018,CONTAM_50PCT,62,46.78,NA,2,N
+872,Chrysoreinhardia_sp,2972369,Updated,from MMETSP metadata,49273,2925,NA,NA,14.18918919,NA,63,3.7,NA,0,Y
+873,Chrysoreinhardia_sp_CCMP2950,1411690,Updated,from MMETSP metadata,45060,2737,NA,NA,0,NA,63,1.11,NA,0,Y
+874,Thraustochytrium_LLF1b,1112570,Updated,from MMETSP metadata,21680,2887,NA,NA,0,NA,63,7.02,NA,0,Y
+875,Thraustochytrium_LLF1b,1112570,Unchanged,from MMETSP metadata,21034,2836,NA,NA,0,NA,63,3.39,NA,0,Y
+876,Dactyliosolen_fragilissimus,1118495,Updated,from MMETSP metadata,19813,2660,NA,NA,1.020408163,NA,62,0,NA,0,Y
+877,Mamiellophyceae_sp_RCC2288,1155430,Updated,from MMETSP metadata,39205,3201,NA,NA,40.47619048,NA,63,29.93,NA,0,Y
+878,Astrosyne_radiata,1158023,Updated,from MMETSP metadata,34313,2774,NA,NA,8.585858586,NA,63,13.88,NA,0,Y
+879,Vitrella_brassicaformis_CCMP3155,1169540,Updated,from MMETSP metadata,47831,3055,NA,NA,9.411764706,NA,62,2.7,NA,0,Y
+880,Synchroma_pusillum,1181717,Updated,from MMETSP metadata,26035,2651,NA,NA,9.183673469,NA,63,12.5,NA,0,Y
+881,Brandtodinium_nutriculum,1333877,Updated,from MMETSP metadata,111618,3191,NA,NA,1.038575668,NA,63,0.93,NA,0,Y
+882,Pterosperma_sp_CCMP1384,1461541,Updated,from MMETSP metadata,27982,3055,NA,NA,0,NA,63,0,NA,0,Y
+883,Chloropicon_maureeniae,1461542,Updated,from MMETSP metadata,16391,2915,NA,NA,23.02158273,NA,63,10.48,NA,0,Y
+884,Chloropicon_roscoffensis,1461544,Updated,from MMETSP metadata,17456,2751,NA,NA,46.15384615,NA,63,30.86,NA,0,Y
+885,Chloropicon_roscoffensis,1461544,Updated,from MMETSP metadata,15308,2734,NA,NA,2,NA,63,0,NA,0,Y
+886,Mantoniella_sp_CCMP1436,1461545,Updated,from MMETSP metadata,27033,2870,NA,NA,5.063291139,NA,63,0.93,NA,0,Y
+887,Chloropicon_roscoffensis,1461544,Updated,from MMETSP metadata,42404,3587,NA,NA,33.89261745,NA,63,18.63,NA,0,Y
+888,Stichococcus_sp_RCC1054,1461547,Updated,from MMETSP metadata,19814,2891,NA,NA,0,NA,63,0,NA,0,Y
+889,Pelagophyceae_sp_CCMP2135,1462469,Updated,from MMETSP metadata,39656,2864,NA,NA,31.38686131,NA,62,14.14,NA,0,Y
+890,Craspedostauros_australis,1486917,Updated,from MMETSP metadata,25094,2274,NA,NA,1.739130435,NA,63,0,NA,0,Y
+891,Sexangularia_sp,2624257,Updated,from MMETSP metadata,20480,2369,NA,NA,45.0617284,NA,62,68.25,CONTAM_50PCT,1,N
+892,Symbiodinium_kawagutii,104179,Updated,from MMETSP metadata,8656,1090,NA,NA,8.356545961,NA,63,4.35,NA,0,Y
+893,Symbiodinium_kawagutii,104179,Unchanged,from MMETSP metadata,10438,1152,NA,NA,6.528189911,NA,63,5.26,NA,0,Y
+894,Symbiodinium_kawagutii,104179,Unchanged,from MMETSP metadata,15322,1372,NA,NA,7.524271845,NA,63,3.83,NA,0,Y
+895,Alexandrium_fundyense,2932,Unchanged,from MMETSP metadata,7717,817,NA,NA,13.34519573,NA,61,10.6,NA,0,Y
+896,Alexandrium_tamarense,2926,Unchanged,from MMETSP metadata,20319,1611,NA,NA,0,NA,60,10.92,NA,0,Y
+897,Amphidinium_carterae,2961,Unchanged,from MMETSP metadata,11675,1206,NA,NA,0,NA,59,2.13,NA,0,Y
+898,Chaetoceros_curvisetus,230516,Unchanged,from MMETSP metadata,5901,1602,NA,NA,0,NA,57,40,NA,0,Y
+899,Perkinsus_marinus_ATCC_50439,1032511,Unchanged,from MMETSP metadata,7297,1104,NA,NA,8.791208791,NA,20,8.33,NA,0,Y
+900,Perkinsus_chesapeaki_ATCC_PRA-65,321610,Unchanged,from MMETSP metadata,17103,1420,NA,NA,0,NA,20,2.7,NA,0,Y
+901,Oxyrrhis_marina,2969,Unchanged,from MMETSP metadata,6,NA,LOW_SEQS,NA,NA,NA,NA,NA,NA,1,N
+902,Chaetoceros_curvisetus,230516,Unchanged,from MMETSP metadata,6,NA,LOW_SEQS,NA,NA,NA,NA,NA,NA,1,N
