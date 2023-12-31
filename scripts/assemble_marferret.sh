@@ -1,5 +1,5 @@
 #!/bin/bash
-# AUTHOR: Stephen Blaskowski
+# AUTHOR: Stephen Blaskowski & Ryan Groussman
 
 # This script assembles the MarFERReT database of reference protein sequences
 # from input reference genomes.
@@ -84,24 +84,32 @@ if [ ! -d "${TMP_DIR}" ]; then
     mkdir "${TMP_DIR}"
 fi
 
+# create metadata.csv file for only accepted entries
+META_FILE2="${MARFERRET_DIR}/data/MarFERReT.${VERSION}.accepted.metadata.csv"
+awk -F, 'NR == 1 || $2 == "Y"' ${META_FILE} > ${META_FILE2}
+META_FILE="${MARFERRET_DIR}/data/MarFERReT.${VERSION}.accepted.metadata.csv"
+
 # get field numbers from metadata file
 F_ENTRY_ID=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "entry_id" | cut -f1 -d:)
 F_NAME=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "marferret_name" | cut -f1 -d:)
 F_TAX_ID=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "tax_id" | cut -f1 -d:)
 F_FILE=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "source_filename" | cut -f1 -d:)
 F_SEQ_TYPE=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "seq_type" | cut -f1 -d:)
-F_FASTA=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "aa_fasta" | cut -f1 -d:)
+# F_FASTA=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "aa_fasta" | cut -f1 -d:)
 
 # iterate through nucleotide sequences listed in metatdata file
-while IFS=',' read -r entry_id marferret_name source_filename seq_type aa_fasta; do 
+while IFS=',' read -r entry_id marferret_name source_filename seq_type; do 
     # check that the sequence is in the source_seqs directory
     if [ ! -e "${SOURCE_DIR}/${source_filename}" ]; then 
         echo "WARNING: Filename ${source_filename} not found."
         echo "See missing_source_seqs.txt for complete list of missing sequences."
         echo "${source_filename} not found in ${SOURCE_DIR}" >> missing_source_seqs.txt
+    elif [ ${source_filename} = "N" ]; then
+        echo "Skipping entry with accepted=N: " $entry_id $marferret_name $source_filename 
     else
         echo $entry_id $marferret_name $source_filename $seq_type
         # build standardized sequence name
+	aa_fasta="${entry_id}_${marferret_name}.faa"
         seq_name="${aa_fasta%.*}"
         # rename amino acids and move to amino acid sequence directory
         if [ "${seq_type}" == "aa" ]; then
@@ -143,7 +151,7 @@ while IFS=',' read -r entry_id marferret_name source_filename seq_type aa_fasta;
             mv "${TMP_DIR}/${seq_name}.6tr.bf1.faa" "${AA_DIR}/${aa_fasta}"
         fi
     fi
-done < <( tail -n +2 ${META_FILE} | cut -f"${F_ENTRY_ID},${F_NAME},${F_SEQ_TYPE},${F_FILE},${F_FASTA}" -d, )
+done < <( tail -n +2 ${META_FILE} | cut -f"${F_ENTRY_ID},${F_NAME},${F_SEQ_TYPE},${F_FILE}" -d, )
 # clean up temp directory
 rm -rf ${TMP_DIR}
 
