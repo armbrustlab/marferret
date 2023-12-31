@@ -11,7 +11,7 @@ def handle_arguments():
     outputting a single fasta file for each tax_id group. It also renames 
     each of the SeqRecords with a unique amino acid identifier `aa_id`, 
     and outputs mapping files that match each new aa_id to its corresponding 
-    ref_id, tax_id, as well as the name of the sequence in the original input
+    entry_id, tax_id, as well as the name of the sequence in the original input
     fasta file. 
     
     Example usage: ./group_by_taxid.py fasta/dir/in metadata.csv -o fasta/dir/out
@@ -25,7 +25,7 @@ def handle_arguments():
     parser.add_argument(
         'metadata', 
         type=str, 
-        help='Metadata csv file containing "ref_id", "aa_fasta" and "tax_id" fields.'
+        help='Metadata csv file containing "entry_id", "marferret_name" and "tax_id" fields.'
     )
     parser.add_argument(
         '-o', '--output_dir', 
@@ -44,7 +44,7 @@ def main():
     aa_tax = open('{}/taxonomies.tab'.format(args.output_dir), 'w')
     aa_tax.write('accession\taccession.version\ttaxid\tgi\n')
     aa_info = open('{}/proteins_info.tab'.format(args.output_dir), 'w')
-    aa_info.write('aa_id\tref_id\tsource_defline\n')
+    aa_info.write('aa_id\tentry_id\tsource_defline\n')
     # initialize counter
     aa_counter = 0
     # loop through each taxid
@@ -57,8 +57,9 @@ def main():
             # iterate through input fasta files
             for entry in subset_df.iterrows():
                 # get important entry information
-                input_fasta = entry[1]['aa_fasta']
-                ref_id = entry[1]['ref_id']
+                marferret_name = entry[1]['marferret_name']
+                entry_id = entry[1]['entry_id']
+                input_fasta = str(entry_id) + "_" + marferret_name + ".faa"
                 # iterate through SeqRecords
                 for seq_record in SeqIO.parse('{}/{}'.format(args.input_dir, input_fasta), 'fasta'):
                     # make new uid for sequence
@@ -69,7 +70,7 @@ def main():
                     SeqIO.write(out_record, outfile, 'fasta')
                     # write uid mappings to mapping files
                     aa_tax.write('NA\t{}\t{}\tNA\n'.format(uid, taxid))
-                    aa_info.write('{}\t{}\t{}\n'.format(uid, ref_id, seq_record.id.strip()))
+                    aa_info.write('{}\t{}\t{}\n'.format(uid, entry_id, seq_record.id.strip()))
     # close file handlers
     aa_tax.close()
     aa_info.close()
