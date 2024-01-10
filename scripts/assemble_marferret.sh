@@ -84,33 +84,34 @@ if [ ! -d "${TMP_DIR}" ]; then
     mkdir "${TMP_DIR}"
 fi
 
-# create metadata.csv file for only accepted entries
-META_FILE2="${MARFERRET_DIR}/data/MarFERReT.${VERSION}.accepted.metadata.csv"
-awk -F, 'NR == 1 || $2 == "Y"' ${META_FILE} > ${META_FILE2}
-META_FILE="${MARFERRET_DIR}/data/MarFERReT.${VERSION}.accepted.metadata.csv"
-
 # get field numbers from metadata file
 F_ENTRY_ID=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "entry_id" | cut -f1 -d:)
+F_ACCEPTED=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "accepted" | cut -f1 -d:)
 F_NAME=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "marferret_name" | cut -f1 -d:)
 F_TAX_ID=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "tax_id" | cut -f1 -d:)
 F_FILE=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "source_filename" | cut -f1 -d:)
 F_SEQ_TYPE=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "seq_type" | cut -f1 -d:)
-# F_FASTA=$(head -n1 ${META_FILE} | tr ',' '\n' | grep -Fxn "aa_fasta" | cut -f1 -d:)
 
 # iterate through nucleotide sequences listed in metatdata file
-while IFS=',' read -r entry_id marferret_name source_filename seq_type; do 
+while IFS=',' read -r entry_id accepted marferret_name source_filename seq_type; do 
+    # build standardized sequence name
+    aa_fasta="${entry_id}_${marferret_name}.faa"
+    seq_name="${aa_fasta%.*}"
     # check that the sequence is in the source_seqs directory
     if [ ! -e "${SOURCE_DIR}/${source_filename}" ]; then 
         echo "WARNING: Filename ${source_filename} not found."
         echo "See missing_source_seqs.txt for complete list of missing sequences."
         echo "${source_filename} not found in ${SOURCE_DIR}" >> missing_source_seqs.txt
-    elif [ ${source_filename} = "N" ]; then
-        echo "Skipping entry with accepted=N: " $entry_id $marferret_name $source_filename 
+    # check that the flag is set to use this reference
+    elif [ ${accepted} = "N" ]; then
+        echo $entry_id $marferret_name $source_filename $seq_type
+        printf "\tSkipping entry with 'accepted' == 'N'\n"
+    # check if the sequence has already been translated
+    elif [ -e "${AA_DIR}/${aa_fasta}" ]; then
+        echo $entry_id $marferret_name $source_filename $seq_type
+        printf "\tPreviously translated: ${AA_DIR}/${aa_fasta}\n"
     else
         echo $entry_id $marferret_name $source_filename $seq_type
-        # build standardized sequence name
-	aa_fasta="${entry_id}_${marferret_name}.faa"
-        seq_name="${aa_fasta%.*}"
         # rename amino acids and move to amino acid sequence directory
         if [ "${seq_type}" == "aa" ]; then
             cat "${SOURCE_DIR}/${source_filename}" >> "${AA_DIR}/${aa_fasta}"
@@ -151,7 +152,7 @@ while IFS=',' read -r entry_id marferret_name source_filename seq_type; do
             mv "${TMP_DIR}/${seq_name}.6tr.bf1.faa" "${AA_DIR}/${aa_fasta}"
         fi
     fi
-done < <( tail -n +2 ${META_FILE} | cut -f"${F_ENTRY_ID},${F_NAME},${F_SEQ_TYPE},${F_FILE}" -d, )
+done < <( tail -n +2 ${META_FILE} | cut -f"${F_ENTRY_ID},${F_ACCEPTED},${F_NAME},${F_FILE},${F_SEQ_TYPE}" -d, )
 # clean up temp directory
 rm -rf ${TMP_DIR}
 
@@ -185,7 +186,7 @@ mv "${TAX_DIR}/proteins_info.tab" "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.pr
 gzip "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.taxonomies.tab"
 gzip "${MARFERRET_DIR}/data/MarFERReT.${VERSION}.proteins_info.tab"
 
-# cluster proteins from NCBI tax ids with more than one reference sequence
+# cluster proteins for each NCBI tax id with sequences
 # make new directory for clustered sequences
 CLUSTER_DIR="${MARFERRET_DIR}/data/clustered"
 if [ ! -d ${CLUSTER_DIR} ]; then 
@@ -194,7 +195,7 @@ fi
 # move to work in TAX_DIR directory
 pushd ${TAX_DIR}
 # iterate through unique NCBI tax ids
-for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq ); do
+for TAXID in $( cat accepted_tax_ids.txt ); do
     INPUT_FASTA="${TAXID}.combined.faa"
     # make temporary working directory for taxid
     mkdir -p ${TAXID}/${TAXID}_tmp
@@ -256,9 +257,12 @@ popd
 # MarFERReT protein database
 MARFERRET_FASTA="${MARFERRET_DIR}/data/MarFERReT.${VERSION}.proteins.faa"
 # combine clustered NCBI tax IDs 
-for TAXID in $( tail -n +2 $META_FILE | cut -d, -f $F_TAX_ID | sort | uniq ); do
+for TAXID in $( cat ${TAX_DIR}/accepted_tax_ids.txt ); do
     cat ${CLUSTER_DIR}/${TAXID}.clustered.faa >> ${MARFERRET_FASTA}
 done
+
+# get rid of taxid_grouped directory
+rm -rf ${TAX_DIR}
 
 # gzip output MarFERReT.${VERSION}.proteins.faa file
 gzip ${MARFERRET_FASTA}

@@ -25,7 +25,7 @@ def handle_arguments():
     parser.add_argument(
         'metadata', 
         type=str, 
-        help='Metadata csv file containing "entry_id", "marferret_name" and "tax_id" fields.'
+        help='Metadata csv containing "entry_id", "accepted", "marferret_name" and "tax_id" fields.'
     )
     parser.add_argument(
         '-o', '--output_dir', 
@@ -47,10 +47,16 @@ def main():
     aa_info.write('aa_id\tentry_id\tsource_defline\n')
     # initialize counter
     aa_counter = 0
+    # initialize list of taxids with sequences
+    taxid_list = []
     # loop through each taxid
     for i, taxid in enumerate(meta_df['tax_id'].unique()):
         # subset metadata
-        subset_df = meta_df[meta_df['tax_id'] == taxid]
+        subset_df = meta_df[(meta_df['tax_id'] == taxid) & (meta_df['accepted'] == 'Y')]
+        if len(subset_df) == 0:
+            print('No accepted entries found for taxid {}'.format(taxid))
+            continue
+        taxid_list.append(taxid)
         print('Combining {} reference(s) of taxid {}'.format(len(subset_df), taxid), flush=True)
         # open new outfile
         with open('{}/{}.combined.faa'.format(args.output_dir, taxid), 'w') as outfile:
@@ -74,6 +80,10 @@ def main():
     # close file handlers
     aa_tax.close()
     aa_info.close()
+    # write list of accepted taxids to text file
+    with open('{}/accepted_tax_ids.txt'.format(args.output_dir), 'w') as outfile:
+        for taxid in taxid_list:
+            outfile.write('{}\n'.format(taxid))
     print('Finished!', flush=True)
     
 if __name__ == "__main__":
