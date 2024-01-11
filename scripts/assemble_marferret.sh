@@ -49,11 +49,15 @@ set -o pipefail
 set -o errexit
 
 # input variables
-VERSION="v1"
 MARFERRET_DIR=$( realpath ../ )
 MIN_SEQ_ID=0.99     # sequence identity threshold for amino acid clustering
 SOURCE_DIR="${MARFERRET_DIR}/data/source_seqs"
-META_FILE="${MARFERRET_DIR}/data/MarFERReT.${VERSION}.metadata.csv"
+META_FILE="${MARFERRET_DIR}/data/MarFERReT.*.metadata.csv"
+
+# pull version from metadata file
+FILENAME="$( basename ${META_FILE} )"
+FRONT="${FILENAME%%.metadata.csv}"
+VERSION="${FRONT##MarFERReT.}"
 
 # user selects singularity or docker containerization
 CONTAINER=""

@@ -29,9 +29,14 @@ set -o errexit
 
 # input variables
 CORES=4
-VERSION=v1
 MARFERRET_DIR=$( realpath ../ )
 DATA_DIR="${MARFERRET_DIR}/data"
+
+# pull version from metadata file
+FILENAME=$( basename ${DATA_DIR}/MarFERReT.*.metadata.csv )
+FRONT="${FILENAME%%.metadata.csv}"
+VERSION="${FRONT##MarFERReT.}"
+
 # filepaths (relative to working directory)
 PFAM_HMMS="pfam/Pfam-A.hmm"
 MARFERRET_PROTEINS="MarFERReT.${VERSION}.proteins.faa"
