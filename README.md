@@ -18,9 +18,9 @@ The contents of this repo are organized into four parts:
 
 ## Part A: Using MarFERReT directly
 
-Finalized MarFERReT data products include nearly 28 million intra-species clustered protein sequences, metadata with curated taxonomy identifiers, Pfam protein annotations, core transcribed gene catalogs for marine microbial eukaryote lineages, and other supporting data. The URLs are provided for the sources of the individual sequences, and the compiled, translated, and clustered sequences are available for download through this [Zenodo repository](https://zenodo.org/records/10170983). 
+Finalized MarFERReT data products include nearly 28 million intra-species clustered protein sequences, metadata with curated taxonomy identifiers, Pfam protein annotations, core transcribed gene catalogs for marine microbial eukaryote lineages, and other supporting data. The URLs are provided for the sources of the individual sequences, and the compiled, translated, and clustered sequences are available for download through this [Zenodo repository](https://zenodo.org/doi/10.5281/zenodo.7055911). 
 
-If downloaded directly, steps 2 (Cloning the MarFERReT repository) through 7 (Building the Core Transcribed Gene catalog) can be skipped. MarFERReT can be combined with other protein sequence reference libraries for expanded phylogenetic coverage. For an example of combining databases, see step 8 (Combining MarFERReT with other reference sequence libraries). An example workflow for using these data to annotate environmental metatranscriptome is described in subsection 9 below (Using MarFERReT to annotate environmental metatranscriptomes).
+If downloaded directly, the steps listed below to build MarFERReT can be skipped. The Zenodo repository contains the intra-taxa clustered protein sequences for the subset of validated entries, a pre-constructed DIAMOND indexed database of the MarFERReT protein sequences, and Pfam 34.0 annotations. MarFERReT can be combined with other protein sequence reference libraries for expanded phylogenetic coverage. For an example of combining databases, see step 8 (Combining MarFERReT with other reference sequence libraries). An example workflow for using these data to annotate environmental metatranscriptome is described in subsection 9 below (Using MarFERReT to annotate environmental metatranscriptomes).
 
 
 ## Part B: Building MarFERReT
@@ -43,7 +43,7 @@ The first step is to copy the MarFERReT pipeline code onto the computer where yo
 
 ### 2) Collecting and organizing inputs
 
-Two sets of input files are required to build MarFERReT: 1) the source reference sequences and 2) a corresponding [metadata file](https://zenodo.org/record/10170983/files/MarFERReT.v1.metadata.csv). The source reference sequences will need to be collected from their various public locations, and the metadata file will need to be edited to match the reference sequences. 
+Two sets of input files are required to build MarFERReT: 1) the source reference sequences and 2) a corresponding [metadata file](https://zenodo.org/record/10170983/files/MarFERReT.v1.1.1.metadata.csv). The source reference sequences will need to be collected from their various public locations, and the metadata file will need to be edited to match the reference sequences. 
 
 #### Source reference sequences
 
@@ -51,7 +51,7 @@ Once you have cloned the MarFERReT repository onto your machine, make a new dire
 
 #### Metadata file
 
-A metadata file entitled [MarFERReT.v1.metadata.csv](https://zenodo.org/record/10170983/files/MarFERReT.v1.metadata.csv) contains important information on each of the source reference sequences used to build the MarFERReT database. Every source reference sequence in the `source_seqs` directory should have a corresponding line in the metadata file with at least the following fields properly filled in:
+A metadata file entitled `MarFERReT.{VERSION}.metadata.csv` contains important information on each of the source reference sequences used to build the MarFERReT database. Every source reference sequence in the `source_seqs` directory should have a corresponding line in the metadata file with at least the following fields properly filled in:
 * `entry_id`: a unique MarFERReT identifier for the reference sequence
 * `accepted`: [Y/N]; determines inclusion in final build
 * `marferret_name`: a human-readable name for the reference sequence (no spaces or special characters)
@@ -70,14 +70,14 @@ The MarFERReT database construction pipeline is entirely containerized, meaning 
 Once the input source reference sequences have been collected, metadata has been organized, and the software containers have been built, you are ready to run the MarFERReT database construction pipeline. Navigate to the [`scripts`](https://github.com/armbrustlab/marferret/tree/main/scripts) directory and run the [`assemble_marferret.sh`](https://github.com/armbrustlab/marferret/blob/main/scripts/assemble_marferret.sh) script from the command line. You will be prompted to enter either `1` or `2` depending on whether you are using Singularity or Docker containerization. 
 
 The pipeline will take several hours to run, depending on your computer system specifications. When it is done you should find the following outputs in the `data` directory:
-* `MarFERReT.v1.proteins.faa.gz` -- MarFERReT protein library
-* `MarFERReT.v1.taxonomies.tab.gz` -- taxonomy mapping file required as input for building diamond database
-* `MarFERReT.v1.proteins_info.tab.gz` -- mapping file connecting each MarFERReT protein to its originating reference sequence
+* `MarFERReT.{VERSION}.proteins.faa.gz` -- MarFERReT protein library
+* `MarFERReT.{VERSION}.taxonomies.tab.gz` -- taxonomy mapping file required as input for building diamond database
+* `MarFERReT.{VERSION}.proteins_info.tab.gz` -- mapping file connecting each MarFERReT protein to its originating reference sequence
 * `/aa_seq` -- directory with translated & standardized amino acid sequences
 * `/taxid_grouped` -- directory with amino acid sequences grouped by taxid
 * `/clustered` -- directory with amino acid sequences clustered within taxid
 
-The three .gz files listed above can also be downloaded directly from the [Zenodo repository](https://zenodo.org/record/7055911)
+The three .gz files listed above can also be downloaded directly from the [Zenodo repository](https://zenodo.org/records/10553848)
 
 ### 5) Annotating MarFERReT database sequences
 
@@ -85,10 +85,10 @@ Information on the functions of the proteins included in MarFERReT can be added 
 
 To annotate MarFERRet, you must first download a copy of the Pfam database of HMM profiles. Make a new directory named `pfam` under the [`data`](https://github.com/armbrustlab/marferret/tree/main/data) directory. Download into this directory the latest version of Pfam from the [Pfam ftp site](`http://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/`). 
 
-Once the Pfam HMM database has been downloaded, navigate to the [`scripts`](https://github.com/armbrustlab/marferret/tree/main/scripts) directory and run the  [`pfam_annotate.sh`](https://github.com/armbrustlab/marferret/blob/main/scripts/pfam_annotate.sh) script from the command line. In addition to the `data/pfam/Pfam-A.hmm` HMM database, this script requires the  `data/MarFERReT.v1.proteins.faa.gz` file as an input. 
+Once the Pfam HMM database has been downloaded, navigate to the [`scripts`](https://github.com/armbrustlab/marferret/tree/main/scripts) directory and run the  [`pfam_annotate.sh`](https://github.com/armbrustlab/marferret/blob/main/scripts/pfam_annotate.sh) script from the command line. In addition to the `data/pfam/Pfam-A.hmm` HMM database, this script requires the  `data/MarFERReT.{VERSION}.proteins.faa.gz` file as an input. 
 
 The annotation script can take many days to run, as every protein is compared against every HMM profile. Once it has successfully completed, you should find the following outputs in the `data` directory:
-* `MarFERReT.v1.best_pfam_annotations.csv.gz` -- a summary of the best Pfam annotation for each MarFERReT reference protein
+* `MarFERReT.{VERSION}.best_pfam_annotations.csv.gz` -- a summary of the best Pfam annotation for each MarFERReT reference protein
 * `pfam/MarFERReT.${VERSION}.pfam.domtblout.tab.gz` -- the complete set of Pfam annotations against each MarFERReT reference protein
 
 The complete set of Pfam annotations can also be found on the [Zenodo repository](https://zenodo.org/record/7055911) as `MarFERReT.v1.Pfam_annotations.tar.gz`
