@@ -60,7 +60,7 @@ popd
 
 # build diamond database
 pushd ${DATA_DIR}
-MARFERRET_DMND=diamond/MarFERReT.v1.dmnd
+MARFERRET_DMND=diamond/MarFERReT.${VERSION}.dmnd
 # assign containerized filepaths for taxon notes and names
 TAXONNODES=diamond/ncbi/nodes.dmp
 TAXONNAMES=diamond/ncbi/names.dmp
@@ -85,4 +85,4 @@ fi
 
 # finished
 popd
-echo "MarFERReT diamond database construction complete!"
+echo "MarFERReT diamond database ${MARFERRET_DMND} construction complete!"
