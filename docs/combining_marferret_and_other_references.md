@@ -19,10 +19,22 @@ These steps are explained in more detail with code in the subection below:
 
 ### Combining MarFERReT with other large reference sequence libraries
 
-MarFERReT can be combined with other domain-focused reference sequence libraries or new reference sequence transcriptomes and genomes to expand taxonomic coverage. In this example, we combine MarFERReT with a filtered version of the prokaryote-focused MARMICRODB library. Both libraries use NCBI Taxonomy identifiers as their primary classification framework, facilitating compatible annotation approaches. After downloading or building the MarFERReT protein sequence database, bacterial sequences can be downloaded from the MARMICRODB Zenodo repository and the libaries concatenated together for use in downstream processes. 
+MarFERReT can be combined with other domain-focused reference sequence libraries or new reference sequence transcriptomes and genomes to expand taxonomic coverage. One way that we use MarFERReT is in conjunction with a filtered version of the prokaryote-focused MARMICRODB library. Both libraries use NCBI Taxonomy identifiers as their primary classification framework, facilitating compatible annotation approaches. After standardizing data formats, the eukaryoted MarFERReT protein sequences and bacterial MARMICRODB sequences are concatenated together for use in downstream processes. 
 
-Code for processing, cleaning and combining MARMICRODB with MarFERReT can be found here:
-[process_clean_marmicrodb.log.sh](https://github.com/armbrustlab/marferret/blob/main/docs/process_clean_marmicrodb.log.sh)
+#### MarFERReT v1.1 + MARMICRODB v1.0 multi-kingdom marine reference protein sequence library
+
+[marmicrodb_processing.sh](https://github.com/armbrustlab/marferret/blob/main/scripts/marferret_marmicrodb/marmicrodb_processing.sh)
+Shell script that describes how to download the MARMICRODB v1.0 files and run a number of accessory scripts to process the MARMICRODB for merging with MarFERReT by removing redundant eukaryotes, environmental MAGs, entries without NCBI taxIDs, and incompatible sequences.
+1. Download MARMICRODB database from the Zenodo repository
+2. Run filter_marmicrodb_entries.R: Filters out MAGs, eukaryotes, and entries without NCBI taxIDs
+3. Run process_marmicrodb_fasta.py: Generate a FASTA file and taxonomy table to combine with MarFERReT
+3. Run marmicrodb_remove_numeric_seqs.py: Removes a subset of sequences with numerical values in sequence fields
+
+[merge_marferret_marmicrodb.sh](https://github.com/armbrustlab/marferret/blob/main/scripts/marferret_marmicrodb/merge_marferret_marmicrodb.sh)
+Combines the FASTA file and taxonomy tab file from above with the equivalent files from the MarFERReT v1.1 eukaryote sequence library; and contains code for creating an indexed binary database of the combined files for annotation using the DIAMOND fast read alignment program. 
+- Includes shell commands to generate Gzip-compressed concatenated FASTA and taxonomy table files. The products are available in this Zenodo repository:
+[MarFERReT v1.1 + MARMICRODB v1.0 multi-kingdom marine reference protein sequence library](https://zenodo.org/records/10586950)
+- Includes commands to run DIAMOND makedb using above files within the Singularity container. 
 
 ### Adding new reference sequence entries to MarFERReT individually
 
